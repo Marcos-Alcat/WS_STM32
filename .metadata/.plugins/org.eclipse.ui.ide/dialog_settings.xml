@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="ExternalProjectImportWizard">
+		<item key="WizardProjectsImportPage.STORE_NESTED_PROJECTS" value="true"/>
+		<item key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID" value="true"/>
+		<item key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED" value="false"/>
+		<item key="WizardProjectsImportPage.STORE_CLOSE_CREATED_PROJECTS_ID" value="false"/>
+		<item key="WizardProjectsImportPage.STORE_HIDE_CONFLICTING_PROJECTS_ID" value="false"/>
+		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="C:\Users\Marcos\Desktop\blinky"/>
+			<item value="G:\Otros ordenadores\Mi PC\facu 2024\Tecnicas Digitales 3\Material Catedra\2024_td3_material_de_catedra-main\TD3_Unidad 1 - Sistemas Operativos en Tiempo Real\5. clases_practicas\Clase 2 - Colas\blinky_queue"/>
+			<item value="C:\Users\Marcos\Desktop\freertos"/>
+			<item value="C:\Users\Marcos\Desktop\blinky_queue_2"/>
+		</list>
+		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
+			<item value=""/>
+		</list>
+	</section>
+</section>
