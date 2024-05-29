@@ -7,10 +7,11 @@
 		<item key="WizardProjectsImportPage.STORE_CLOSE_CREATED_PROJECTS_ID" value="false"/>
 		<item key="WizardProjectsImportPage.STORE_HIDE_CONFLICTING_PROJECTS_ID" value="false"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
-			<item value="C:\Users\Marcos\Desktop\blinky"/>
-			<item value="G:\Otros ordenadores\Mi PC\facu 2024\Tecnicas Digitales 3\Material Catedra\2024_td3_material_de_catedra-main\TD3_Unidad 1 - Sistemas Operativos en Tiempo Real\5. clases_practicas\Clase 2 - Colas\blinky_queue"/>
-			<item value="C:\Users\Marcos\Desktop\freertos"/>
-			<item value="C:\Users\Marcos\Desktop\blinky_queue_2"/>
+			<item value="C:\Users\Marcos\Desktop\STM32- WorkSpace\blinky_queue_2"/>
+			<item value="C:\Users\Marcos\Desktop\STM32- WorkSpace\blinky_queue"/>
+			<item value="C:\Users\Marcos\Desktop\STM32- WorkSpace\blinky"/>
+			<item value="C:\Users\Marcos\Desktop\STM32- WorkSpace\freertos"/>
+			<item value="G:\Otros ordenadores\Mi PC\facu 2024\Tecnicas Digitales 3\Material Catedra\2024_td3_material_de_catedra-main\TD3_Unidad 1 - Sistemas Operativos en Tiempo Real\5. clases_practicas\Clase 3 - Semaforos\blinky_semphr"/>
 		</list>
 		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
 			<item value=""/>
