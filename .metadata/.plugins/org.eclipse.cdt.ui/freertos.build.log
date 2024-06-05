@@ -1,0 +1,18 @@
+13:39:43 **** Build of configuration Debug for project freertos ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/croutine.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -I"C:/Users/Marcos/Documents/STM32 - WorkSpace/freertos/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/croutine.d" -MT"Src/croutine.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/croutine.o"
+arm-none-eabi-gcc "../Src/event_groups.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -I"C:/Users/Marcos/Documents/STM32 - WorkSpace/freertos/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/event_groups.d" -MT"Src/event_groups.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/event_groups.o"
+arm-none-eabi-gcc "../Src/heap_3.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -I"C:/Users/Marcos/Documents/STM32 - WorkSpace/freertos/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/heap_3.d" -MT"Src/heap_3.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/heap_3.o"
+arm-none-eabi-gcc "../Src/list.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -I"C:/Users/Marcos/Documents/STM32 - WorkSpace/freertos/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/list.d" -MT"Src/list.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/list.o"
+arm-none-eabi-gcc "../Src/port.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -I"C:/Users/Marcos/Documents/STM32 - WorkSpace/freertos/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/port.d" -MT"Src/port.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/port.o"
+arm-none-eabi-gcc "../Src/queue.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -I"C:/Users/Marcos/Documents/STM32 - WorkSpace/freertos/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/queue.d" -MT"Src/queue.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/queue.o"
+arm-none-eabi-gcc "../Src/stream_buffer.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -I"C:/Users/Marcos/Documents/STM32 - WorkSpace/freertos/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/stream_buffer.d" -MT"Src/stream_buffer.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/stream_buffer.o"
+arm-none-eabi-gcc "../Src/tasks.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -I"C:/Users/Marcos/Documents/STM32 - WorkSpace/freertos/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/tasks.d" -MT"Src/tasks.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/tasks.o"
+arm-none-eabi-gcc "../Src/timers.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -I"C:/Users/Marcos/Documents/STM32 - WorkSpace/freertos/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/timers.d" -MT"Src/timers.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/timers.o"
+arm-none-eabi-ar -r  "libfreertos.a" @"objects.list"  
+arm-none-eabi-ar: creating libfreertos.a
+Finished building target: libfreertos.a
+ 
+
+13:39:44 Build Finished. 0 errors, 0 warnings. (took 802ms)
+

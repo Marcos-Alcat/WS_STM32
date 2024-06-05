@@ -1,0 +1,10 @@
+13:40:25 **** Incremental Build of configuration Debug for project Sensor_HCSR04 ****
+make -j8 all 
+arm-none-eabi-size   Sensor_HCSR04.elf 
+   text	   data	    bss	    dec	    hex	filename
+  13784	    120	   1704	  15608	   3cf8	Sensor_HCSR04.elf
+Finished building: default.size.stdout
+ 
+
+13:40:26 Build Finished. 0 errors, 0 warnings. (took 232ms)
+
