@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 13:39:43 **** Incremental Build of configuration Debug for project blinky_semphr ****
 make -j8 all 
 arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"C:/Users/Marcos/Documents/STM32 - WorkSpace/freertos/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o"
@@ -84,4 +85,15 @@ make: *** [Drivers/STM32F1xx_HAL_Driver/Src/subdir.mk:63: Drivers/STM32F1xx_HAL_
 "make -j8 all" terminated with exit code 2. Build might be incomplete.
 
 13:39:43 Build Failed. 17 errors, 0 warnings. (took 563ms)
+=======
+19:08:59 **** Incremental Build of configuration Debug for project blinky_semphr ****
+make -j16 all 
+arm-none-eabi-size   blinky_semphr.elf 
+   text	   data	    bss	    dec	    hex	filename
+  17932	    128	   2080	  20140	   4eac	blinky_semphr.elf
+Finished building: default.size.stdout
+ 
+
+19:08:59 Build Finished. 0 errors, 0 warnings. (took 287ms)
+>>>>>>> c5ca7b34216796b98210253199ccb61b9a8c04c1
 

@@ -1,10 +1,19 @@
+<<<<<<< HEAD
 13:39:42 **** Incremental Build of configuration Debug for project blinky_queue ****
 make -j8 all 
+=======
+17:36:57 **** Incremental Build of configuration Debug for project blinky_queue ****
+make -j16 all 
+>>>>>>> c5ca7b34216796b98210253199ccb61b9a8c04c1
 arm-none-eabi-size   blinky_queue.elf 
    text	   data	    bss	    dec	    hex	filename
   16620	    128	   2080	  18828	   498c	blinky_queue.elf
 Finished building: default.size.stdout
  
 
+<<<<<<< HEAD
 13:39:42 Build Finished. 0 errors, 0 warnings. (took 223ms)
+=======
+17:36:57 Build Finished. 0 errors, 0 warnings. (took 250ms)
+>>>>>>> c5ca7b34216796b98210253199ccb61b9a8c04c1
 
