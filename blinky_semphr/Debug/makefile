@@ -61,8 +61,8 @@ all: main-build
 main-build: blinky_semphr.elf secondary-outputs
 
 # Tool invocations
-blinky_semphr.elf: $(OBJS) $(USER_OBJS) C:\Users\Marcos\Documents\STM32\ -\ WorkSpace\blinky_semphr\STM32F103C8TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "blinky_semphr.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"C:\Users\Marcos\Documents\STM32 - WorkSpace\blinky_semphr\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="blinky_semphr.map" -Wl,--gc-sections -static -Wl,--start-group -lfreertos -Wl,--end-group -L"C:\Users\Marcos\Documents\STM32 - WorkSpace\freertos\Debug" --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+blinky_semphr.elf: $(OBJS) $(USER_OBJS) C:\Users\Marcos\Documents\TD3\work\WS_STM32\blinky_semphr\STM32F103C8TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "blinky_semphr.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"C:\Users\Marcos\Documents\TD3\work\WS_STM32\blinky_semphr\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="blinky_semphr.map" -Wl,--gc-sections -static -Wl,--start-group -lfreertos -Wl,--end-group -L"C:\Users\Marcos\Documents\TD3\work\WS_STM32\freertos\Debug" --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

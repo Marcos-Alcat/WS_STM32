@@ -1,4 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workingSetManager>
+<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1717014783849_1" label="1-Tareas" name="1-Tareas"/>
+<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1717014823442_3" label="2-Colas" name="2-Colas"/>
+<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1717014858522_5" label="3-Semaforo" name="3-Semaforo"/>
+<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1717014897780_7" label="FreeRTOS-Lib" name="FreeRTOS-Lib"/>
+<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1717631831726_8" label="TP" name="TP">
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/HCSR04-test" type="4"/>
+</workingSet>
 <workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1717001857419_0" label="Window Working Set" name="Aggregate for window 1717001857419"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1717014826323_4" label="Multiple Working Sets" name="Aggregate:1-Tareas:2-Colas:">
+<workingSet IMemento.internal.id="1-Tareas"/>
+<workingSet IMemento.internal.id="2-Colas"/>
+</workingSet>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1717014860891_6" label="Multiple Working Sets" name="Aggregate:1-Tareas:2-Colas:3-Semaforo:">
+<workingSet IMemento.internal.id="1-Tareas"/>
+<workingSet IMemento.internal.id="2-Colas"/>
+<workingSet IMemento.internal.id="3-Semaforo"/>
+</workingSet>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1717014900779_8" label="Multiple Working Sets" name="Aggregate:1-Tareas:2-Colas:3-Semaforo:FreeRTOS-Lib:">
+<workingSet IMemento.internal.id="1-Tareas"/>
+<workingSet IMemento.internal.id="2-Colas"/>
+<workingSet IMemento.internal.id="3-Semaforo"/>
+<workingSet IMemento.internal.id="FreeRTOS-Lib"/>
+</workingSet>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1717631836311_9" label="Multiple Working Sets" name="Aggregate:1-Tareas:2-Colas:3-Semaforo:FreeRTOS-Lib:TP:">
+<workingSet IMemento.internal.id="1-Tareas"/>
+<workingSet IMemento.internal.id="2-Colas"/>
+<workingSet IMemento.internal.id="3-Semaforo"/>
+<workingSet IMemento.internal.id="FreeRTOS-Lib"/>
+<workingSet IMemento.internal.id="TP"/>
+</workingSet>
+<mruList name="1-Tareas"/>
 </workingSetManager>
