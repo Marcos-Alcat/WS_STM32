@@ -61,8 +61,8 @@ all: main-build
 main-build: HCSR04-test.elf secondary-outputs
 
 # Tool invocations
-HCSR04-test.elf: $(OBJS) $(USER_OBJS) C:\Users\Marcos\Documents\TD3\work\WS_STM32\HCSR04-test\STM32F103C8TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "HCSR04-test.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"C:\Users\Marcos\Documents\TD3\work\WS_STM32\HCSR04-test\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="HCSR04-test.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+HCSR04-test.elf: $(OBJS) $(USER_OBJS) D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\HCSR04-test\STM32F103C8TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "HCSR04-test.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\HCSR04-test\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="HCSR04-test.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

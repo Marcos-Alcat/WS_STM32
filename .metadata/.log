@@ -1,0 +1,21 @@
+!SESSION 2024-06-08 19:05:44.231 -----------------------------------------------
+eclipse.buildId=Version 1.6.1
+java.version=11.0.9.1
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=es_AR
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-06-08 19:05:51.292
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-06-08 19:05:51.332
+!MESSAGE Log4j initialized with config file D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\.metadata\.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-06-08 19:05:53.487
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 4 4 2024-06-08 19:05:54.245
+!MESSAGE com.st.stm32cube.ide.mcu.ide/META-INF/version/build_ref file not found, build reference will not be reported into properties
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-06-08 19:06:15.991
+!MESSAGE Indexed 'HCSR04-test' (19 sources, 97 headers) in 1,95 sec: 7.467 declarations; 36.085 references; 2 unresolved inclusions; 36 syntax errors; 188 unresolved names (0,43 %)
