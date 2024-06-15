@@ -3,6 +3,7 @@
   ******************************************************************************
   * @file           : main.c
   * @brief          : Main program body
+  * Based in example: https://microcontrollerslab.com/hc-sr04-ultrasonic-sensor-stm32-blue-pill-stm32cubeide/
   ******************************************************************************
   * @attention
   *
