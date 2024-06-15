@@ -3,13 +3,13 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Core/Inc/stm32f1xx_hal_conf.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h \
- C:/Users/Marcos/Documents/TD3/work/WS_STM32/freertos/Inc/stm32f1xx.h \
- C:/Users/Marcos/Documents/TD3/work/WS_STM32/freertos/Inc/stm32f103xb.h \
+ D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/stm32f1xx.h \
+ D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/stm32f103xb.h \
  ../Drivers/CMSIS/Include/core_cm3.h \
  ../Drivers/CMSIS/Include/cmsis_version.h \
  ../Drivers/CMSIS/Include/cmsis_compiler.h \
  ../Drivers/CMSIS/Include/cmsis_gcc.h \
- C:/Users/Marcos/Documents/TD3/work/WS_STM32/freertos/Inc/system_stm32f1xx.h \
+ D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/system_stm32f1xx.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc_ex.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h \
@@ -23,17 +23,17 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h \
- C:/Users/Marcos/Documents/TD3/work/WS_STM32/freertos/Inc/FreeRTOS.h \
- C:/Users/Marcos/Documents/TD3/work/WS_STM32/freertos/Inc/FreeRTOSConfig.h \
- C:/Users/Marcos/Documents/TD3/work/WS_STM32/freertos/Inc/projdefs.h \
- C:/Users/Marcos/Documents/TD3/work/WS_STM32/freertos/Inc/portable.h \
- C:/Users/Marcos/Documents/TD3/work/WS_STM32/freertos/Inc/deprecated_definitions.h \
- C:/Users/Marcos/Documents/TD3/work/WS_STM32/freertos/Inc/portmacro.h \
- C:/Users/Marcos/Documents/TD3/work/WS_STM32/freertos/Inc/mpu_wrappers.h \
- C:/Users/Marcos/Documents/TD3/work/WS_STM32/freertos/Inc/task.h \
- C:/Users/Marcos/Documents/TD3/work/WS_STM32/freertos/Inc/list.h \
- C:/Users/Marcos/Documents/TD3/work/WS_STM32/freertos/Inc/queue.h \
- C:/Users/Marcos/Documents/TD3/work/WS_STM32/freertos/Inc/task.h
+ D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/FreeRTOS.h \
+ D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/FreeRTOSConfig.h \
+ D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/projdefs.h \
+ D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/portable.h \
+ D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/deprecated_definitions.h \
+ D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/portmacro.h \
+ D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/mpu_wrappers.h \
+ D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/task.h \
+ D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/list.h \
+ D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/queue.h \
+ D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/task.h
 
 ../Core/Inc/main.h:
 
@@ -45,9 +45,9 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h:
 
-C:/Users/Marcos/Documents/TD3/work/WS_STM32/freertos/Inc/stm32f1xx.h:
+D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/stm32f1xx.h:
 
-C:/Users/Marcos/Documents/TD3/work/WS_STM32/freertos/Inc/stm32f103xb.h:
+D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/stm32f103xb.h:
 
 ../Drivers/CMSIS/Include/core_cm3.h:
 
@@ -57,7 +57,7 @@ C:/Users/Marcos/Documents/TD3/work/WS_STM32/freertos/Inc/stm32f103xb.h:
 
 ../Drivers/CMSIS/Include/cmsis_gcc.h:
 
-C:/Users/Marcos/Documents/TD3/work/WS_STM32/freertos/Inc/system_stm32f1xx.h:
+D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/system_stm32f1xx.h:
 
 ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h:
 
@@ -85,24 +85,24 @@ C:/Users/Marcos/Documents/TD3/work/WS_STM32/freertos/Inc/system_stm32f1xx.h:
 
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h:
 
-C:/Users/Marcos/Documents/TD3/work/WS_STM32/freertos/Inc/FreeRTOS.h:
+D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/FreeRTOS.h:
 
-C:/Users/Marcos/Documents/TD3/work/WS_STM32/freertos/Inc/FreeRTOSConfig.h:
+D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/FreeRTOSConfig.h:
 
-C:/Users/Marcos/Documents/TD3/work/WS_STM32/freertos/Inc/projdefs.h:
+D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/projdefs.h:
 
-C:/Users/Marcos/Documents/TD3/work/WS_STM32/freertos/Inc/portable.h:
+D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/portable.h:
 
-C:/Users/Marcos/Documents/TD3/work/WS_STM32/freertos/Inc/deprecated_definitions.h:
+D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/deprecated_definitions.h:
 
-C:/Users/Marcos/Documents/TD3/work/WS_STM32/freertos/Inc/portmacro.h:
+D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/portmacro.h:
 
-C:/Users/Marcos/Documents/TD3/work/WS_STM32/freertos/Inc/mpu_wrappers.h:
+D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/mpu_wrappers.h:
 
-C:/Users/Marcos/Documents/TD3/work/WS_STM32/freertos/Inc/task.h:
+D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/task.h:
 
-C:/Users/Marcos/Documents/TD3/work/WS_STM32/freertos/Inc/list.h:
+D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/list.h:
 
-C:/Users/Marcos/Documents/TD3/work/WS_STM32/freertos/Inc/queue.h:
+D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/queue.h:
 
-C:/Users/Marcos/Documents/TD3/work/WS_STM32/freertos/Inc/task.h:
+D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/task.h:

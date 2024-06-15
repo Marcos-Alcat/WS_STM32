@@ -46,6 +46,9 @@
 
 /* USER CODE END PV */
 
+
+
+
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
@@ -53,8 +56,12 @@ static void MX_GPIO_Init(void);
 
 /* USER CODE END PFP */
 
+
+
+
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+
 static void LedOn(void *pvParameters){
 	vTaskDelay(1000);
 	while(1){
@@ -73,6 +80,8 @@ static void LedOff(void *pvParameters){
 
 }
 /* USER CODE END 0 */
+
+
 
 /**
   * @brief  The application entry point.
@@ -120,6 +129,12 @@ int main(void)
 
   /* USER CODE END 3 */
 }
+
+
+
+
+
+
 
 /**
   * @brief System Clock Configuration

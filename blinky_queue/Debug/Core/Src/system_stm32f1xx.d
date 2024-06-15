@@ -1,11 +1,11 @@
 Core/Src/system_stm32f1xx.o: ../Core/Src/system_stm32f1xx.c \
- C:/Users/Marcos/Documents/TD3/work/WS_STM32/freertos/Inc/stm32f1xx.h \
- C:/Users/Marcos/Documents/TD3/work/WS_STM32/freertos/Inc/stm32f103xb.h \
+ D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/stm32f1xx.h \
+ D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/stm32f103xb.h \
  ../Drivers/CMSIS/Include/core_cm3.h \
  ../Drivers/CMSIS/Include/cmsis_version.h \
  ../Drivers/CMSIS/Include/cmsis_compiler.h \
  ../Drivers/CMSIS/Include/cmsis_gcc.h \
- C:/Users/Marcos/Documents/TD3/work/WS_STM32/freertos/Inc/system_stm32f1xx.h \
+ D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/system_stm32f1xx.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h \
  ../Core/Inc/stm32f1xx_hal_conf.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h \
@@ -24,9 +24,9 @@ Core/Src/system_stm32f1xx.o: ../Core/Src/system_stm32f1xx.c \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h
 
-C:/Users/Marcos/Documents/TD3/work/WS_STM32/freertos/Inc/stm32f1xx.h:
+D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/stm32f1xx.h:
 
-C:/Users/Marcos/Documents/TD3/work/WS_STM32/freertos/Inc/stm32f103xb.h:
+D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/stm32f103xb.h:
 
 ../Drivers/CMSIS/Include/core_cm3.h:
 
@@ -36,7 +36,7 @@ C:/Users/Marcos/Documents/TD3/work/WS_STM32/freertos/Inc/stm32f103xb.h:
 
 ../Drivers/CMSIS/Include/cmsis_gcc.h:
 
-C:/Users/Marcos/Documents/TD3/work/WS_STM32/freertos/Inc/system_stm32f1xx.h:
+D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/system_stm32f1xx.h:
 
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:
 

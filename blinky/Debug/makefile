@@ -61,8 +61,8 @@ all: main-build
 main-build: blinky.elf secondary-outputs
 
 # Tool invocations
-blinky.elf: $(OBJS) $(USER_OBJS) C:\Users\Marcos\Documents\STM32\ -\ WorkSpace\blinky\STM32F103C8TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "blinky.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"C:\Users\Marcos\Documents\STM32 - WorkSpace\blinky\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="blinky.map" -Wl,--gc-sections -static -L"C:\Users\Marcos\Documents\STM32 - WorkSpace\blinky\Debug" --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+blinky.elf: $(OBJS) $(USER_OBJS) D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\blinky\STM32F103C8TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "blinky.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\blinky\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="blinky.map" -Wl,--gc-sections -static -L"D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\blinky\Debug" --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
