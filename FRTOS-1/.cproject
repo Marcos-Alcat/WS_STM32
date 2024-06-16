@@ -85,7 +85,7 @@
                                     									
                                     <listOptionValue builtIn="false" value="&quot;${workspace_loc:/freertos/Inc}&quot;"/>
                                     									
-                                    <listOptionValue builtIn="false" value="&quot;${workspace_loc:/FRTOS-1/Core/Inc}&quot;"/>
+                                    <listOptionValue builtIn="false" value="&quot;${workspace_loc:/FRTOS-1-queue-LED-Switch/Core/Inc}&quot;"/>
                                     								
                                 </option>
                                 								
@@ -342,5 +342,7 @@
         </scannerConfigBuildInfo>
         	
     </storageModule>
+    	
+    <storageModule moduleId="refreshScope"/>
     
 </cproject>

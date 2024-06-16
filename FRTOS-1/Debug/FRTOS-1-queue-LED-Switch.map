@@ -1,17 +1,17 @@
 Archive member included to satisfy reference by file (symbol)
 
+D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+                              Core/Src/main.o (xQueueGenericCreate)
 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
                               Core/Src/main.o (xTaskCreate)
 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(timers.o)
                               D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o) (xTimerCreateTimerTask)
 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(heap_3.o)
-                              D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o) (pvPortMalloc)
+                              D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o) (pvPortMalloc)
 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(list.o)
-                              D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o) (vListInitialise)
+                              D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o) (vListInitialise)
 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(port.o)
                               D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o) (pxPortInitialiseStack)
-D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
-                              D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(timers.o) (xQueueGenericCreate)
 c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(lib_a-errno.o)
                               Core/Src/syscalls.o (__errno)
 c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(lib_a-exit.o)
@@ -56,6 +56,7 @@ __lock___sinit_recursive_mutex
                     0x1               c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(lib_a-lock.o)
 __lock___malloc_recursive_mutex
                     0x1               c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(lib_a-lock.o)
+my_queue            0x4               Core/Src/main.o
 htim1               0x48              Core/Src/stm32f1xx_hal_timebase_tim.o
 __lock___at_quick_exit_mutex
                     0x1               c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(lib_a-lock.o)
@@ -78,6 +79,7 @@ Discarded input sections
  .ARM.exidx     0x0000000000000000       0x10 c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/crt0.o
  .ARM.attributes
                 0x0000000000000000       0x1b c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/crt0.o
+ .group         0x0000000000000000        0xc Core/Src/main.o
  .group         0x0000000000000000        0xc Core/Src/main.o
  .group         0x0000000000000000        0xc Core/Src/main.o
  .group         0x0000000000000000        0xc Core/Src/main.o
@@ -2209,6 +2211,125 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x140 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.o
  .debug_macro   0x0000000000000000      0x8ed Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.o
  .debug_macro   0x0000000000000000       0x83 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.o
+ .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .text          0x0000000000000000        0x0 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .data          0x0000000000000000        0x0 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .bss           0x0000000000000000        0x0 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .text.prvInitialiseMutex
+                0x0000000000000000       0x34 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .text.xQueueCreateMutex
+                0x0000000000000000       0x30 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .text.xQueueGiveMutexRecursive
+                0x0000000000000000       0x68 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .text.xQueueTakeMutexRecursive
+                0x0000000000000000       0x6c D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .text.xQueueCreateCountingSemaphore
+                0x0000000000000000       0x5c D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .text.xQueueGenericSendFromISR
+                0x0000000000000000      0x164 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .text.xQueueGiveFromISR
+                0x0000000000000000      0x148 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .text.xQueueSemaphoreTake
+                0x0000000000000000      0x1fc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .text.xQueuePeek
+                0x0000000000000000      0x1c4 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .text.xQueueReceiveFromISR
+                0x0000000000000000      0x12e D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .text.xQueuePeekFromISR
+                0x0000000000000000       0xd2 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .text.uxQueueMessagesWaiting
+                0x0000000000000000       0x3c D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .text.uxQueueSpacesAvailable
+                0x0000000000000000       0x46 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .text.uxQueueMessagesWaitingFromISR
+                0x0000000000000000       0x3a D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .text.vQueueDelete
+                0x0000000000000000       0x3c D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .text.uxQueueGetQueueNumber
+                0x0000000000000000       0x16 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .text.vQueueSetQueueNumber
+                0x0000000000000000       0x1a D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .text.ucQueueGetQueueType
+                0x0000000000000000       0x18 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .text.prvGetDisinheritPriorityAfterTimeout
+                0x0000000000000000       0x2e D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .text.xQueueIsQueueEmptyFromISR
+                0x0000000000000000       0x46 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .text.xQueueIsQueueFullFromISR
+                0x0000000000000000       0x4a D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .text.pcQueueGetName
+                0x0000000000000000       0x68 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .text.vQueueUnregisterQueue
+                0x0000000000000000       0x70 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .debug_macro   0x0000000000000000       0x18 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .debug_macro   0x0000000000000000       0x22 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .debug_macro   0x0000000000000000       0x4c D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .debug_macro   0x0000000000000000       0x94 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .debug_macro   0x0000000000000000       0x3c D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .debug_macro   0x0000000000000000       0x34 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .debug_macro   0x0000000000000000       0x16 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .debug_macro   0x0000000000000000       0x16 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .debug_macro   0x0000000000000000       0x43 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .debug_macro   0x0000000000000000       0x57 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .debug_macro   0x0000000000000000       0x34 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .debug_macro   0x0000000000000000       0x10 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .debug_macro   0x0000000000000000       0x58 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .debug_macro   0x0000000000000000       0x71 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .debug_macro   0x0000000000000000       0x1c D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .debug_macro   0x0000000000000000      0x12a D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .debug_macro   0x0000000000000000      0x339 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .debug_macro   0x0000000000000000       0x16 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .debug_macro   0x0000000000000000       0x29 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .debug_macro   0x0000000000000000       0x35 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .debug_macro   0x0000000000000000      0x103 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .debug_macro   0x0000000000000000       0x6a D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .debug_macro   0x0000000000000000      0x1df D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .debug_macro   0x0000000000000000      0x15a D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .debug_macro   0x0000000000000000       0xcf D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .debug_macro   0x0000000000000000       0x22 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .debug_macro   0x0000000000000000       0x1f D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .debug_macro   0x0000000000000000       0x12 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .debug_macro   0x0000000000000000      0x3c9 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .debug_macro   0x0000000000000000       0xc3 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .debug_macro   0x0000000000000000      0x120 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .debug_macro   0x0000000000000000       0x80 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
  .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
  .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
  .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
@@ -2255,6 +2376,8 @@ Discarded input sections
                 0x0000000000000000       0xf0 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
  .text.xTaskDelayUntil
                 0x0000000000000000       0xfc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
+ .text.vTaskDelay
+                0x0000000000000000       0x68 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
  .text.eTaskGetState
                 0x0000000000000000       0xf4 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
  .text.uxTaskPriorityGet
@@ -2309,8 +2432,6 @@ Discarded input sections
                 0x0000000000000000       0x1c D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
  .text.xTaskPriorityInherit
                 0x0000000000000000      0x120 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
- .text.xTaskPriorityDisinherit
-                0x0000000000000000      0x12c D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
  .text.vTaskPriorityDisinheritAfterTimeout
                 0x0000000000000000      0x154 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
  .text.uxTaskResetEventItemValue
@@ -2331,6 +2452,7 @@ Discarded input sections
                 0x0000000000000000       0x74 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
  .text.ulTaskGenericNotifyValueClear
                 0x0000000000000000       0x60 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
+ .debug_macro   0x0000000000000000      0xaa2 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
  .debug_macro   0x0000000000000000       0x18 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
  .debug_macro   0x0000000000000000       0x22 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
  .debug_macro   0x0000000000000000       0x4c D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
@@ -2338,6 +2460,8 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x3c D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
  .debug_macro   0x0000000000000000       0x34 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
  .debug_macro   0x0000000000000000       0x16 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
+ .debug_macro   0x0000000000000000      0x10e D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
+ .debug_macro   0x0000000000000000       0x8d D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
  .debug_macro   0x0000000000000000       0x16 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
  .debug_macro   0x0000000000000000       0x43 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
  .debug_macro   0x0000000000000000       0x57 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
@@ -2350,10 +2474,13 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x339 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
  .debug_macro   0x0000000000000000       0x16 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
  .debug_macro   0x0000000000000000       0x29 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
+ .debug_macro   0x0000000000000000       0x16 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
  .debug_macro   0x0000000000000000       0x35 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
+ .debug_macro   0x0000000000000000       0x20 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
  .debug_macro   0x0000000000000000      0x103 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
  .debug_macro   0x0000000000000000       0x6a D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
  .debug_macro   0x0000000000000000      0x1df D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
+ .debug_macro   0x0000000000000000      0x1d8 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
  .debug_macro   0x0000000000000000      0x15a D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
  .debug_macro   0x0000000000000000       0xcf D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
  .debug_macro   0x0000000000000000       0x22 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
@@ -2465,6 +2592,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x3c9 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(timers.o)
  .debug_macro   0x0000000000000000       0xc3 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(timers.o)
  .debug_macro   0x0000000000000000      0x120 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(timers.o)
+ .debug_macro   0x0000000000000000       0x80 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(timers.o)
  .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(heap_3.o)
  .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(heap_3.o)
  .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(heap_3.o)
@@ -2650,137 +2778,6 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x3c9 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(port.o)
  .debug_macro   0x0000000000000000       0xc3 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(port.o)
  .debug_macro   0x0000000000000000      0x120 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(port.o)
- .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .group         0x0000000000000000        0xc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .text          0x0000000000000000        0x0 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .data          0x0000000000000000        0x0 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .bss           0x0000000000000000        0x0 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .text.prvInitialiseMutex
-                0x0000000000000000       0x34 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .text.xQueueCreateMutex
-                0x0000000000000000       0x30 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .text.xQueueGiveMutexRecursive
-                0x0000000000000000       0x68 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .text.xQueueTakeMutexRecursive
-                0x0000000000000000       0x6c D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .text.xQueueCreateCountingSemaphore
-                0x0000000000000000       0x5c D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .text.xQueueGenericSend
-                0x0000000000000000      0x1fc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .text.xQueueGenericSendFromISR
-                0x0000000000000000      0x164 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .text.xQueueGiveFromISR
-                0x0000000000000000      0x148 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .text.xQueueSemaphoreTake
-                0x0000000000000000      0x1fc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .text.xQueuePeek
-                0x0000000000000000      0x1c4 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .text.xQueueReceiveFromISR
-                0x0000000000000000      0x12e D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .text.xQueuePeekFromISR
-                0x0000000000000000       0xd2 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .text.uxQueueMessagesWaiting
-                0x0000000000000000       0x3c D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .text.uxQueueSpacesAvailable
-                0x0000000000000000       0x46 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .text.uxQueueMessagesWaitingFromISR
-                0x0000000000000000       0x3a D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .text.vQueueDelete
-                0x0000000000000000       0x3c D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .text.uxQueueGetQueueNumber
-                0x0000000000000000       0x16 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .text.vQueueSetQueueNumber
-                0x0000000000000000       0x1a D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .text.ucQueueGetQueueType
-                0x0000000000000000       0x18 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .text.prvGetDisinheritPriorityAfterTimeout
-                0x0000000000000000       0x2e D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .text.prvCopyDataToQueue
-                0x0000000000000000       0xd4 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .text.xQueueIsQueueEmptyFromISR
-                0x0000000000000000       0x46 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .text.prvIsQueueFull
-                0x0000000000000000       0x30 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .text.xQueueIsQueueFullFromISR
-                0x0000000000000000       0x4a D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .text.pcQueueGetName
-                0x0000000000000000       0x68 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .text.vQueueUnregisterQueue
-                0x0000000000000000       0x70 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .debug_macro   0x0000000000000000      0xaa2 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .debug_macro   0x0000000000000000       0x18 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .debug_macro   0x0000000000000000       0x22 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .debug_macro   0x0000000000000000       0x4c D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .debug_macro   0x0000000000000000       0x94 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .debug_macro   0x0000000000000000       0x3c D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .debug_macro   0x0000000000000000       0x34 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .debug_macro   0x0000000000000000       0x16 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .debug_macro   0x0000000000000000      0x10e D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .debug_macro   0x0000000000000000       0x8d D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .debug_macro   0x0000000000000000       0x16 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .debug_macro   0x0000000000000000       0x43 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .debug_macro   0x0000000000000000       0x57 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .debug_macro   0x0000000000000000       0x34 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .debug_macro   0x0000000000000000       0x10 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .debug_macro   0x0000000000000000       0x58 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .debug_macro   0x0000000000000000       0x71 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .debug_macro   0x0000000000000000       0x1c D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .debug_macro   0x0000000000000000      0x12a D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .debug_macro   0x0000000000000000      0x339 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .debug_macro   0x0000000000000000       0x16 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .debug_macro   0x0000000000000000       0x29 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .debug_macro   0x0000000000000000       0x16 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .debug_macro   0x0000000000000000       0x35 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .debug_macro   0x0000000000000000       0x20 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .debug_macro   0x0000000000000000      0x103 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .debug_macro   0x0000000000000000       0x6a D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .debug_macro   0x0000000000000000      0x1df D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .debug_macro   0x0000000000000000      0x1d8 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .debug_macro   0x0000000000000000      0x15a D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .debug_macro   0x0000000000000000       0xcf D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .debug_macro   0x0000000000000000       0x22 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .debug_macro   0x0000000000000000       0x1f D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .debug_macro   0x0000000000000000       0x12 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .debug_macro   0x0000000000000000      0x3c9 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .debug_macro   0x0000000000000000       0xc3 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .debug_macro   0x0000000000000000      0x120 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .debug_macro   0x0000000000000000       0x80 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
  .text          0x0000000000000000        0x0 c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(lib_a-errno.o)
  .data          0x0000000000000000        0x0 c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(lib_a-errno.o)
  .bss           0x0000000000000000        0x0 c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(lib_a-errno.o)
@@ -2924,494 +2921,501 @@ LOAD c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.exte
                 0x0000000008000000                g_pfnVectors
                 0x000000000800010c                . = ALIGN (0x4)
 
-.text           0x0000000008000110     0x3bcc
+.text           0x0000000008000110     0x3f98
                 0x0000000008000110                . = ALIGN (0x4)
  *(.text)
  .text          0x0000000008000110       0x40 c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7-m/nofp/crtbegin.o
  *(.text*)
- .text.ReadSw1  0x0000000008000150       0x20 Core/Src/main.o
- .text.LedOn    0x0000000008000170       0x2c Core/Src/main.o
- .text.LedOff   0x000000000800019c       0x24 Core/Src/main.o
- .text.main     0x00000000080001c0       0x6c Core/Src/main.o
-                0x00000000080001c0                main
+ .text.ReadSw1  0x0000000008000150       0x40 Core/Src/main.o
+ .text.LedOnOff
+                0x0000000008000190       0x44 Core/Src/main.o
+ .text.main     0x00000000080001d4       0x68 Core/Src/main.o
+                0x00000000080001d4                main
  .text.SystemClock_Config
-                0x000000000800022c       0x8a Core/Src/main.o
-                0x000000000800022c                SystemClock_Config
- *fill*         0x00000000080002b6        0x2 
+                0x000000000800023c       0x8a Core/Src/main.o
+                0x000000000800023c                SystemClock_Config
+ *fill*         0x00000000080002c6        0x2 
  .text.MX_GPIO_Init
-                0x00000000080002b8       0xcc Core/Src/main.o
+                0x00000000080002c8       0xcc Core/Src/main.o
  .text.HAL_TIM_PeriodElapsedCallback
-                0x0000000008000384       0x24 Core/Src/main.o
-                0x0000000008000384                HAL_TIM_PeriodElapsedCallback
+                0x0000000008000394       0x24 Core/Src/main.o
+                0x0000000008000394                HAL_TIM_PeriodElapsedCallback
  .text.Error_Handler
-                0x00000000080003a8        0xa Core/Src/main.o
-                0x00000000080003a8                Error_Handler
- *fill*         0x00000000080003b2        0x2 
+                0x00000000080003b8        0xa Core/Src/main.o
+                0x00000000080003b8                Error_Handler
+ *fill*         0x00000000080003c2        0x2 
  .text.HAL_MspInit
-                0x00000000080003b4       0x64 Core/Src/stm32f1xx_hal_msp.o
-                0x00000000080003b4                HAL_MspInit
+                0x00000000080003c4       0x64 Core/Src/stm32f1xx_hal_msp.o
+                0x00000000080003c4                HAL_MspInit
  .text.HAL_InitTick
-                0x0000000008000418       0xac Core/Src/stm32f1xx_hal_timebase_tim.o
-                0x0000000008000418                HAL_InitTick
+                0x0000000008000428       0xac Core/Src/stm32f1xx_hal_timebase_tim.o
+                0x0000000008000428                HAL_InitTick
  .text.NMI_Handler
-                0x00000000080004c4        0x6 Core/Src/stm32f1xx_it.o
-                0x00000000080004c4                NMI_Handler
+                0x00000000080004d4        0x6 Core/Src/stm32f1xx_it.o
+                0x00000000080004d4                NMI_Handler
  .text.HardFault_Handler
-                0x00000000080004ca        0x6 Core/Src/stm32f1xx_it.o
-                0x00000000080004ca                HardFault_Handler
+                0x00000000080004da        0x6 Core/Src/stm32f1xx_it.o
+                0x00000000080004da                HardFault_Handler
  .text.MemManage_Handler
-                0x00000000080004d0        0x6 Core/Src/stm32f1xx_it.o
-                0x00000000080004d0                MemManage_Handler
+                0x00000000080004e0        0x6 Core/Src/stm32f1xx_it.o
+                0x00000000080004e0                MemManage_Handler
  .text.BusFault_Handler
-                0x00000000080004d6        0x6 Core/Src/stm32f1xx_it.o
-                0x00000000080004d6                BusFault_Handler
+                0x00000000080004e6        0x6 Core/Src/stm32f1xx_it.o
+                0x00000000080004e6                BusFault_Handler
  .text.UsageFault_Handler
-                0x00000000080004dc        0x6 Core/Src/stm32f1xx_it.o
-                0x00000000080004dc                UsageFault_Handler
+                0x00000000080004ec        0x6 Core/Src/stm32f1xx_it.o
+                0x00000000080004ec                UsageFault_Handler
  .text.DebugMon_Handler
-                0x00000000080004e2        0xc Core/Src/stm32f1xx_it.o
-                0x00000000080004e2                DebugMon_Handler
- *fill*         0x00000000080004ee        0x2 
+                0x00000000080004f2        0xc Core/Src/stm32f1xx_it.o
+                0x00000000080004f2                DebugMon_Handler
+ *fill*         0x00000000080004fe        0x2 
  .text.TIM1_UP_IRQHandler
-                0x00000000080004f0       0x14 Core/Src/stm32f1xx_it.o
-                0x00000000080004f0                TIM1_UP_IRQHandler
- .text._sbrk    0x0000000008000504       0x6c Core/Src/sysmem.o
-                0x0000000008000504                _sbrk
+                0x0000000008000500       0x14 Core/Src/stm32f1xx_it.o
+                0x0000000008000500                TIM1_UP_IRQHandler
+ .text._sbrk    0x0000000008000514       0x6c Core/Src/sysmem.o
+                0x0000000008000514                _sbrk
  .text.SystemInit
-                0x0000000008000570        0xc Core/Src/system_stm32f1xx.o
-                0x0000000008000570                SystemInit
+                0x0000000008000580        0xc Core/Src/system_stm32f1xx.o
+                0x0000000008000580                SystemInit
  .text.Reset_Handler
-                0x000000000800057c       0x48 Core/Startup/startup_stm32f103c8tx.o
-                0x000000000800057c                Reset_Handler
+                0x000000000800058c       0x48 Core/Startup/startup_stm32f103c8tx.o
+                0x000000000800058c                Reset_Handler
  .text.Default_Handler
-                0x00000000080005c4        0x2 Core/Startup/startup_stm32f103c8tx.o
-                0x00000000080005c4                RTC_Alarm_IRQHandler
-                0x00000000080005c4                EXTI2_IRQHandler
-                0x00000000080005c4                TIM1_CC_IRQHandler
-                0x00000000080005c4                PVD_IRQHandler
-                0x00000000080005c4                EXTI3_IRQHandler
-                0x00000000080005c4                EXTI0_IRQHandler
-                0x00000000080005c4                I2C2_EV_IRQHandler
-                0x00000000080005c4                ADC1_2_IRQHandler
-                0x00000000080005c4                SPI1_IRQHandler
-                0x00000000080005c4                TAMPER_IRQHandler
-                0x00000000080005c4                DMA1_Channel4_IRQHandler
-                0x00000000080005c4                USART3_IRQHandler
-                0x00000000080005c4                RTC_IRQHandler
-                0x00000000080005c4                DMA1_Channel7_IRQHandler
-                0x00000000080005c4                CAN1_RX1_IRQHandler
-                0x00000000080005c4                TIM4_IRQHandler
-                0x00000000080005c4                I2C1_EV_IRQHandler
-                0x00000000080005c4                DMA1_Channel6_IRQHandler
-                0x00000000080005c4                TIM3_IRQHandler
-                0x00000000080005c4                RCC_IRQHandler
-                0x00000000080005c4                TIM1_TRG_COM_IRQHandler
-                0x00000000080005c4                DMA1_Channel1_IRQHandler
-                0x00000000080005c4                Default_Handler
-                0x00000000080005c4                EXTI15_10_IRQHandler
-                0x00000000080005c4                EXTI9_5_IRQHandler
-                0x00000000080005c4                SPI2_IRQHandler
-                0x00000000080005c4                DMA1_Channel5_IRQHandler
-                0x00000000080005c4                EXTI4_IRQHandler
-                0x00000000080005c4                USB_LP_CAN1_RX0_IRQHandler
-                0x00000000080005c4                USB_HP_CAN1_TX_IRQHandler
-                0x00000000080005c4                DMA1_Channel3_IRQHandler
-                0x00000000080005c4                WWDG_IRQHandler
-                0x00000000080005c4                TIM2_IRQHandler
-                0x00000000080005c4                TIM1_BRK_IRQHandler
-                0x00000000080005c4                EXTI1_IRQHandler
-                0x00000000080005c4                USART2_IRQHandler
-                0x00000000080005c4                I2C2_ER_IRQHandler
-                0x00000000080005c4                DMA1_Channel2_IRQHandler
-                0x00000000080005c4                CAN1_SCE_IRQHandler
-                0x00000000080005c4                FLASH_IRQHandler
-                0x00000000080005c4                USART1_IRQHandler
-                0x00000000080005c4                I2C1_ER_IRQHandler
-                0x00000000080005c4                USBWakeUp_IRQHandler
- *fill*         0x00000000080005c6        0x2 
+                0x00000000080005d4        0x2 Core/Startup/startup_stm32f103c8tx.o
+                0x00000000080005d4                RTC_Alarm_IRQHandler
+                0x00000000080005d4                EXTI2_IRQHandler
+                0x00000000080005d4                TIM1_CC_IRQHandler
+                0x00000000080005d4                PVD_IRQHandler
+                0x00000000080005d4                EXTI3_IRQHandler
+                0x00000000080005d4                EXTI0_IRQHandler
+                0x00000000080005d4                I2C2_EV_IRQHandler
+                0x00000000080005d4                ADC1_2_IRQHandler
+                0x00000000080005d4                SPI1_IRQHandler
+                0x00000000080005d4                TAMPER_IRQHandler
+                0x00000000080005d4                DMA1_Channel4_IRQHandler
+                0x00000000080005d4                USART3_IRQHandler
+                0x00000000080005d4                RTC_IRQHandler
+                0x00000000080005d4                DMA1_Channel7_IRQHandler
+                0x00000000080005d4                CAN1_RX1_IRQHandler
+                0x00000000080005d4                TIM4_IRQHandler
+                0x00000000080005d4                I2C1_EV_IRQHandler
+                0x00000000080005d4                DMA1_Channel6_IRQHandler
+                0x00000000080005d4                TIM3_IRQHandler
+                0x00000000080005d4                RCC_IRQHandler
+                0x00000000080005d4                TIM1_TRG_COM_IRQHandler
+                0x00000000080005d4                DMA1_Channel1_IRQHandler
+                0x00000000080005d4                Default_Handler
+                0x00000000080005d4                EXTI15_10_IRQHandler
+                0x00000000080005d4                EXTI9_5_IRQHandler
+                0x00000000080005d4                SPI2_IRQHandler
+                0x00000000080005d4                DMA1_Channel5_IRQHandler
+                0x00000000080005d4                EXTI4_IRQHandler
+                0x00000000080005d4                USB_LP_CAN1_RX0_IRQHandler
+                0x00000000080005d4                USB_HP_CAN1_TX_IRQHandler
+                0x00000000080005d4                DMA1_Channel3_IRQHandler
+                0x00000000080005d4                WWDG_IRQHandler
+                0x00000000080005d4                TIM2_IRQHandler
+                0x00000000080005d4                TIM1_BRK_IRQHandler
+                0x00000000080005d4                EXTI1_IRQHandler
+                0x00000000080005d4                USART2_IRQHandler
+                0x00000000080005d4                I2C2_ER_IRQHandler
+                0x00000000080005d4                DMA1_Channel2_IRQHandler
+                0x00000000080005d4                CAN1_SCE_IRQHandler
+                0x00000000080005d4                FLASH_IRQHandler
+                0x00000000080005d4                USART1_IRQHandler
+                0x00000000080005d4                I2C1_ER_IRQHandler
+                0x00000000080005d4                USBWakeUp_IRQHandler
+ *fill*         0x00000000080005d6        0x2 
  .text.HAL_Init
-                0x00000000080005c8       0x2c Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o
-                0x00000000080005c8                HAL_Init
+                0x00000000080005d8       0x2c Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o
+                0x00000000080005d8                HAL_Init
  .text.HAL_IncTick
-                0x00000000080005f4       0x24 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o
-                0x00000000080005f4                HAL_IncTick
+                0x0000000008000604       0x24 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o
+                0x0000000008000604                HAL_IncTick
  .text.HAL_GetTick
-                0x0000000008000618       0x14 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o
-                0x0000000008000618                HAL_GetTick
+                0x0000000008000628       0x14 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o
+                0x0000000008000628                HAL_GetTick
  .text.__NVIC_SetPriorityGrouping
-                0x000000000800062c       0x48 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o
+                0x000000000800063c       0x48 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o
  .text.__NVIC_GetPriorityGrouping
-                0x0000000008000674       0x1c Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o
+                0x0000000008000684       0x1c Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o
  .text.__NVIC_EnableIRQ
-                0x0000000008000690       0x38 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o
+                0x00000000080006a0       0x38 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o
  .text.__NVIC_SetPriority
-                0x00000000080006c8       0x54 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o
+                0x00000000080006d8       0x54 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o
  .text.NVIC_EncodePriority
-                0x000000000800071c       0x64 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o
+                0x000000000800072c       0x64 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o
  .text.HAL_NVIC_SetPriorityGrouping
-                0x0000000008000780       0x16 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o
-                0x0000000008000780                HAL_NVIC_SetPriorityGrouping
+                0x0000000008000790       0x16 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o
+                0x0000000008000790                HAL_NVIC_SetPriorityGrouping
  .text.HAL_NVIC_SetPriority
-                0x0000000008000796       0x38 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o
-                0x0000000008000796                HAL_NVIC_SetPriority
+                0x00000000080007a6       0x38 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o
+                0x00000000080007a6                HAL_NVIC_SetPriority
  .text.HAL_NVIC_EnableIRQ
-                0x00000000080007ce       0x1c Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o
-                0x00000000080007ce                HAL_NVIC_EnableIRQ
- *fill*         0x00000000080007ea        0x2 
+                0x00000000080007de       0x1c Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o
+                0x00000000080007de                HAL_NVIC_EnableIRQ
+ *fill*         0x00000000080007fa        0x2 
  .text.HAL_GPIO_Init
-                0x00000000080007ec      0x308 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.o
-                0x00000000080007ec                HAL_GPIO_Init
+                0x00000000080007fc      0x308 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.o
+                0x00000000080007fc                HAL_GPIO_Init
  .text.HAL_GPIO_ReadPin
-                0x0000000008000af4       0x2e Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.o
-                0x0000000008000af4                HAL_GPIO_ReadPin
+                0x0000000008000b04       0x2e Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.o
+                0x0000000008000b04                HAL_GPIO_ReadPin
  .text.HAL_GPIO_WritePin
-                0x0000000008000b22       0x30 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.o
-                0x0000000008000b22                HAL_GPIO_WritePin
- *fill*         0x0000000008000b52        0x2 
+                0x0000000008000b32       0x30 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.o
+                0x0000000008000b32                HAL_GPIO_WritePin
+ *fill*         0x0000000008000b62        0x2 
  .text.HAL_RCC_OscConfig
-                0x0000000008000b54      0x500 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o
-                0x0000000008000b54                HAL_RCC_OscConfig
+                0x0000000008000b64      0x500 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o
+                0x0000000008000b64                HAL_RCC_OscConfig
  .text.HAL_RCC_ClockConfig
-                0x0000000008001054      0x1d4 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o
-                0x0000000008001054                HAL_RCC_ClockConfig
+                0x0000000008001064      0x1d4 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o
+                0x0000000008001064                HAL_RCC_ClockConfig
  .text.HAL_RCC_GetSysClockFreq
-                0x0000000008001228       0xa8 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o
-                0x0000000008001228                HAL_RCC_GetSysClockFreq
+                0x0000000008001238       0xa8 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o
+                0x0000000008001238                HAL_RCC_GetSysClockFreq
  .text.HAL_RCC_GetHCLKFreq
-                0x00000000080012d0       0x14 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o
-                0x00000000080012d0                HAL_RCC_GetHCLKFreq
+                0x00000000080012e0       0x14 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o
+                0x00000000080012e0                HAL_RCC_GetHCLKFreq
  .text.HAL_RCC_GetPCLK2Freq
-                0x00000000080012e4       0x28 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o
-                0x00000000080012e4                HAL_RCC_GetPCLK2Freq
+                0x00000000080012f4       0x28 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o
+                0x00000000080012f4                HAL_RCC_GetPCLK2Freq
  .text.HAL_RCC_GetClockConfig
-                0x000000000800130c       0x60 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o
-                0x000000000800130c                HAL_RCC_GetClockConfig
+                0x000000000800131c       0x60 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o
+                0x000000000800131c                HAL_RCC_GetClockConfig
  .text.RCC_Delay
-                0x000000000800136c       0x3c Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o
+                0x000000000800137c       0x3c Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o
  .text.HAL_TIM_Base_Init
-                0x00000000080013a8       0x9e Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o
-                0x00000000080013a8                HAL_TIM_Base_Init
+                0x00000000080013b8       0x9e Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o
+                0x00000000080013b8                HAL_TIM_Base_Init
  .text.HAL_TIM_Base_MspInit
-                0x0000000008001446       0x12 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o
-                0x0000000008001446                HAL_TIM_Base_MspInit
+                0x0000000008001456       0x12 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o
+                0x0000000008001456                HAL_TIM_Base_MspInit
  .text.HAL_TIM_Base_Start_IT
-                0x0000000008001458       0xa4 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o
-                0x0000000008001458                HAL_TIM_Base_Start_IT
+                0x0000000008001468       0xa4 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o
+                0x0000000008001468                HAL_TIM_Base_Start_IT
  .text.HAL_TIM_IRQHandler
-                0x00000000080014fc      0x210 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o
-                0x00000000080014fc                HAL_TIM_IRQHandler
+                0x000000000800150c      0x210 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o
+                0x000000000800150c                HAL_TIM_IRQHandler
  .text.HAL_TIM_OC_DelayElapsedCallback
-                0x000000000800170c       0x12 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o
-                0x000000000800170c                HAL_TIM_OC_DelayElapsedCallback
+                0x000000000800171c       0x12 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o
+                0x000000000800171c                HAL_TIM_OC_DelayElapsedCallback
  .text.HAL_TIM_IC_CaptureCallback
-                0x000000000800171e       0x12 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o
-                0x000000000800171e                HAL_TIM_IC_CaptureCallback
+                0x000000000800172e       0x12 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o
+                0x000000000800172e                HAL_TIM_IC_CaptureCallback
  .text.HAL_TIM_PWM_PulseFinishedCallback
-                0x0000000008001730       0x12 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o
-                0x0000000008001730                HAL_TIM_PWM_PulseFinishedCallback
+                0x0000000008001740       0x12 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o
+                0x0000000008001740                HAL_TIM_PWM_PulseFinishedCallback
  .text.HAL_TIM_TriggerCallback
-                0x0000000008001742       0x12 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o
-                0x0000000008001742                HAL_TIM_TriggerCallback
+                0x0000000008001752       0x12 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o
+                0x0000000008001752                HAL_TIM_TriggerCallback
  .text.TIM_Base_SetConfig
-                0x0000000008001754       0xc4 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o
-                0x0000000008001754                TIM_Base_SetConfig
+                0x0000000008001764       0xc4 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o
+                0x0000000008001764                TIM_Base_SetConfig
  .text.HAL_TIMEx_CommutCallback
-                0x0000000008001818       0x12 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.o
-                0x0000000008001818                HAL_TIMEx_CommutCallback
+                0x0000000008001828       0x12 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.o
+                0x0000000008001828                HAL_TIMEx_CommutCallback
  .text.HAL_TIMEx_BreakCallback
-                0x000000000800182a       0x12 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.o
-                0x000000000800182a                HAL_TIMEx_BreakCallback
- .text.xTaskCreate
-                0x000000000800183c       0x8a D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
-                0x000000000800183c                xTaskCreate
- .text.prvInitialiseNewTask
-                0x00000000080018c6      0x11c D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
- *fill*         0x00000000080019e2        0x2 
- .text.prvAddNewTaskToReadyList
-                0x00000000080019e4      0x130 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
- .text.vTaskDelay
-                0x0000000008001b14       0x68 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
-                0x0000000008001b14                vTaskDelay
- .text.vTaskStartScheduler
-                0x0000000008001b7c       0xa4 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
-                0x0000000008001b7c                vTaskStartScheduler
- .text.vTaskSuspendAll
-                0x0000000008001c20       0x1c D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
-                0x0000000008001c20                vTaskSuspendAll
- .text.prvGetExpectedIdleTime
-                0x0000000008001c3c       0x6c D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
- .text.xTaskResumeAll
-                0x0000000008001ca8      0x1f8 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
-                0x0000000008001ca8                xTaskResumeAll
- .text.xTaskGetTickCount
-                0x0000000008001ea0       0x1c D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
-                0x0000000008001ea0                xTaskGetTickCount
- .text.vTaskStepTick
-                0x0000000008001ebc       0xb4 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
-                0x0000000008001ebc                vTaskStepTick
- .text.xTaskIncrementTick
-                0x0000000008001f70      0x230 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
-                0x0000000008001f70                xTaskIncrementTick
- .text.vTaskSwitchContext
-                0x00000000080021a0       0xb8 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
-                0x00000000080021a0                vTaskSwitchContext
- .text.vTaskPlaceOnEventList
-                0x0000000008002258       0x48 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
-                0x0000000008002258                vTaskPlaceOnEventList
- .text.vTaskPlaceOnEventListRestricted
-                0x00000000080022a0       0x8c D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
-                0x00000000080022a0                vTaskPlaceOnEventListRestricted
- .text.xTaskRemoveFromEventList
-                0x000000000800232c      0x1b0 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
-                0x000000000800232c                xTaskRemoveFromEventList
- .text.vTaskInternalSetTimeOutState
-                0x00000000080024dc       0x2c D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
-                0x00000000080024dc                vTaskInternalSetTimeOutState
- .text.xTaskCheckForTimeOut
-                0x0000000008002508       0xcc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
-                0x0000000008002508                xTaskCheckForTimeOut
- .text.vTaskMissedYield
-                0x00000000080025d4       0x18 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
-                0x00000000080025d4                vTaskMissedYield
- .text.prvIdleTask
-                0x00000000080025ec       0x80 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
- .text.eTaskConfirmSleepModeStatus
-                0x000000000800266c       0x6c D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
-                0x000000000800266c                eTaskConfirmSleepModeStatus
- .text.prvInitialiseTaskLists
-                0x00000000080026d8       0x80 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
- .text.prvCheckTasksWaitingTermination
-                0x0000000008002758       0x5c D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
- .text.prvDeleteTCB
-                0x00000000080027b4       0x20 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
- .text.prvResetNextTaskUnblockTime
-                0x00000000080027d4       0x34 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
- .text.xTaskGetSchedulerState
-                0x0000000008002808       0x3c D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
-                0x0000000008002808                xTaskGetSchedulerState
- .text.prvAddCurrentTaskToDelayedList
-                0x0000000008002844       0xdc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
- .text.xTimerCreateTimerTask
-                0x0000000008002920       0x64 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(timers.o)
-                0x0000000008002920                xTimerCreateTimerTask
- .text.prvReloadTimer
-                0x0000000008002984       0x42 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(timers.o)
- *fill*         0x00000000080029c6        0x2 
- .text.prvProcessExpiredTimer
-                0x00000000080029c8       0x60 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(timers.o)
- .text.prvTimerTask
-                0x0000000008002a28       0x24 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(timers.o)
- .text.prvProcessTimerOrBlockTask
-                0x0000000008002a4c       0x9c D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(timers.o)
- .text.prvGetNextExpireTime
-                0x0000000008002ae8       0x44 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(timers.o)
- .text.prvSampleTimeNow
-                0x0000000008002b2c       0x40 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(timers.o)
- .text.prvInsertTimerInActiveList
-                0x0000000008002b6c       0x84 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(timers.o)
- .text.prvProcessReceivedCommands
-                0x0000000008002bf0      0x17c D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(timers.o)
- .text.prvSwitchTimerLists
-                0x0000000008002d6c       0x4c D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(timers.o)
- .text.prvCheckForValidListAndQueue
-                0x0000000008002db8       0x6c D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(timers.o)
- .text.pvPortMalloc
-                0x0000000008002e24       0x24 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(heap_3.o)
-                0x0000000008002e24                pvPortMalloc
- .text.vPortFree
-                0x0000000008002e48       0x24 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(heap_3.o)
-                0x0000000008002e48                vPortFree
- .text.vListInitialise
-                0x0000000008002e6c       0x3e D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(list.o)
-                0x0000000008002e6c                vListInitialise
- .text.vListInitialiseItem
-                0x0000000008002eaa       0x18 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(list.o)
-                0x0000000008002eaa                vListInitialiseItem
- .text.vListInsert
-                0x0000000008002ec2       0x70 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(list.o)
-                0x0000000008002ec2                vListInsert
- .text.uxListRemove
-                0x0000000008002f32       0x52 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(list.o)
-                0x0000000008002f32                uxListRemove
- .text.pxPortInitialiseStack
-                0x0000000008002f84       0x58 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(port.o)
-                0x0000000008002f84                pxPortInitialiseStack
- .text.prvTaskExitError
-                0x0000000008002fdc       0x58 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(port.o)
- *fill*         0x0000000008003034        0xc 
- .text.SVC_Handler
-                0x0000000008003040       0x28 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(port.o)
-                0x0000000008003040                SVC_Handler
- .text.prvPortStartFirstTask
-                0x0000000008003068       0x24 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(port.o)
- .text.xPortStartScheduler
-                0x000000000800308c       0xe4 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(port.o)
-                0x000000000800308c                xPortStartScheduler
- .text.vPortEnterCritical
-                0x0000000008003170       0x60 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(port.o)
-                0x0000000008003170                vPortEnterCritical
- .text.vPortExitCritical
-                0x00000000080031d0       0x50 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(port.o)
-                0x00000000080031d0                vPortExitCritical
- .text.PendSV_Handler
-                0x0000000008003220       0x48 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(port.o)
-                0x0000000008003220                PendSV_Handler
- .text.SysTick_Handler
-                0x0000000008003268       0x44 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(port.o)
-                0x0000000008003268                SysTick_Handler
- .text.vPortSuppressTicksAndSleep
-                0x00000000080032ac      0x194 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(port.o)
-                0x00000000080032ac                vPortSuppressTicksAndSleep
- .text.vPortSetupTimerInterrupt
-                0x0000000008003440       0x78 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(port.o)
-                0x0000000008003440                vPortSetupTimerInterrupt
+                0x000000000800183a       0x12 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.o
+                0x000000000800183a                HAL_TIMEx_BreakCallback
  .text.xQueueGenericReset
-                0x00000000080034b8      0x120 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
-                0x00000000080034b8                xQueueGenericReset
+                0x000000000800184c      0x120 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+                0x000000000800184c                xQueueGenericReset
  .text.xQueueGenericCreate
-                0x00000000080035d8       0x9c D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
-                0x00000000080035d8                xQueueGenericCreate
+                0x000000000800196c       0x9c D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+                0x000000000800196c                xQueueGenericCreate
  .text.prvInitialiseNewQueue
-                0x0000000008003674       0x46 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- *fill*         0x00000000080036ba        0x2 
+                0x0000000008001a08       0x46 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ *fill*         0x0000000008001a4e        0x2 
+ .text.xQueueGenericSend
+                0x0000000008001a50      0x1fc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+                0x0000000008001a50                xQueueGenericSend
  .text.xQueueReceive
-                0x00000000080036bc      0x1c0 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
-                0x00000000080036bc                xQueueReceive
+                0x0000000008001c4c      0x1c0 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+                0x0000000008001c4c                xQueueReceive
+ .text.prvCopyDataToQueue
+                0x0000000008001e0c       0xd4 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
  .text.prvCopyDataFromQueue
-                0x000000000800387c       0x4c D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+                0x0000000008001ee0       0x4c D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
  .text.prvUnlockQueue
-                0x00000000080038c8       0xa4 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+                0x0000000008001f2c       0xa4 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
  .text.prvIsQueueEmpty
-                0x000000000800396c       0x2c D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+                0x0000000008001fd0       0x2c D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .text.prvIsQueueFull
+                0x0000000008001ffc       0x30 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
  .text.vQueueAddToRegistry
-                0x0000000008003998       0x9c D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
-                0x0000000008003998                vQueueAddToRegistry
+                0x000000000800202c       0x9c D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+                0x000000000800202c                vQueueAddToRegistry
  .text.vQueueWaitForMessageRestricted
-                0x0000000008003a34       0x68 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
-                0x0000000008003a34                vQueueWaitForMessageRestricted
- .text.__errno  0x0000000008003a9c        0xc c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(lib_a-errno.o)
-                0x0000000008003a9c                __errno
+                0x00000000080020c8       0x68 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+                0x00000000080020c8                vQueueWaitForMessageRestricted
+ .text.xTaskCreate
+                0x0000000008002130       0x8a D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
+                0x0000000008002130                xTaskCreate
+ .text.prvInitialiseNewTask
+                0x00000000080021ba      0x11c D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
+ *fill*         0x00000000080022d6        0x2 
+ .text.prvAddNewTaskToReadyList
+                0x00000000080022d8      0x130 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
+ .text.vTaskStartScheduler
+                0x0000000008002408       0xa4 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
+                0x0000000008002408                vTaskStartScheduler
+ .text.vTaskSuspendAll
+                0x00000000080024ac       0x1c D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
+                0x00000000080024ac                vTaskSuspendAll
+ .text.prvGetExpectedIdleTime
+                0x00000000080024c8       0x6c D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
+ .text.xTaskResumeAll
+                0x0000000008002534      0x1f8 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
+                0x0000000008002534                xTaskResumeAll
+ .text.xTaskGetTickCount
+                0x000000000800272c       0x1c D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
+                0x000000000800272c                xTaskGetTickCount
+ .text.vTaskStepTick
+                0x0000000008002748       0xb4 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
+                0x0000000008002748                vTaskStepTick
+ .text.xTaskIncrementTick
+                0x00000000080027fc      0x230 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
+                0x00000000080027fc                xTaskIncrementTick
+ .text.vTaskSwitchContext
+                0x0000000008002a2c       0xb8 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
+                0x0000000008002a2c                vTaskSwitchContext
+ .text.vTaskPlaceOnEventList
+                0x0000000008002ae4       0x48 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
+                0x0000000008002ae4                vTaskPlaceOnEventList
+ .text.vTaskPlaceOnEventListRestricted
+                0x0000000008002b2c       0x8c D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
+                0x0000000008002b2c                vTaskPlaceOnEventListRestricted
+ .text.xTaskRemoveFromEventList
+                0x0000000008002bb8      0x1b0 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
+                0x0000000008002bb8                xTaskRemoveFromEventList
+ .text.vTaskInternalSetTimeOutState
+                0x0000000008002d68       0x2c D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
+                0x0000000008002d68                vTaskInternalSetTimeOutState
+ .text.xTaskCheckForTimeOut
+                0x0000000008002d94       0xcc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
+                0x0000000008002d94                xTaskCheckForTimeOut
+ .text.vTaskMissedYield
+                0x0000000008002e60       0x18 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
+                0x0000000008002e60                vTaskMissedYield
+ .text.prvIdleTask
+                0x0000000008002e78       0x80 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
+ .text.eTaskConfirmSleepModeStatus
+                0x0000000008002ef8       0x6c D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
+                0x0000000008002ef8                eTaskConfirmSleepModeStatus
+ .text.prvInitialiseTaskLists
+                0x0000000008002f64       0x80 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
+ .text.prvCheckTasksWaitingTermination
+                0x0000000008002fe4       0x5c D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
+ .text.prvDeleteTCB
+                0x0000000008003040       0x20 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
+ .text.prvResetNextTaskUnblockTime
+                0x0000000008003060       0x34 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
+ .text.xTaskGetSchedulerState
+                0x0000000008003094       0x3c D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
+                0x0000000008003094                xTaskGetSchedulerState
+ .text.xTaskPriorityDisinherit
+                0x00000000080030d0      0x12c D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
+                0x00000000080030d0                xTaskPriorityDisinherit
+ .text.prvAddCurrentTaskToDelayedList
+                0x00000000080031fc       0xdc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
+ .text.xTimerCreateTimerTask
+                0x00000000080032d8       0x64 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(timers.o)
+                0x00000000080032d8                xTimerCreateTimerTask
+ .text.prvReloadTimer
+                0x000000000800333c       0x42 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(timers.o)
+ *fill*         0x000000000800337e        0x2 
+ .text.prvProcessExpiredTimer
+                0x0000000008003380       0x60 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(timers.o)
+ .text.prvTimerTask
+                0x00000000080033e0       0x24 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(timers.o)
+ .text.prvProcessTimerOrBlockTask
+                0x0000000008003404       0x9c D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(timers.o)
+ .text.prvGetNextExpireTime
+                0x00000000080034a0       0x44 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(timers.o)
+ .text.prvSampleTimeNow
+                0x00000000080034e4       0x40 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(timers.o)
+ .text.prvInsertTimerInActiveList
+                0x0000000008003524       0x84 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(timers.o)
+ .text.prvProcessReceivedCommands
+                0x00000000080035a8      0x17c D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(timers.o)
+ .text.prvSwitchTimerLists
+                0x0000000008003724       0x4c D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(timers.o)
+ .text.prvCheckForValidListAndQueue
+                0x0000000008003770       0x6c D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(timers.o)
+ .text.pvPortMalloc
+                0x00000000080037dc       0x24 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(heap_3.o)
+                0x00000000080037dc                pvPortMalloc
+ .text.vPortFree
+                0x0000000008003800       0x24 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(heap_3.o)
+                0x0000000008003800                vPortFree
+ .text.vListInitialise
+                0x0000000008003824       0x3e D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(list.o)
+                0x0000000008003824                vListInitialise
+ .text.vListInitialiseItem
+                0x0000000008003862       0x18 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(list.o)
+                0x0000000008003862                vListInitialiseItem
+ .text.vListInsert
+                0x000000000800387a       0x70 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(list.o)
+                0x000000000800387a                vListInsert
+ .text.uxListRemove
+                0x00000000080038ea       0x52 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(list.o)
+                0x00000000080038ea                uxListRemove
+ .text.pxPortInitialiseStack
+                0x000000000800393c       0x58 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(port.o)
+                0x000000000800393c                pxPortInitialiseStack
+ .text.prvTaskExitError
+                0x0000000008003994       0x58 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(port.o)
+ *fill*         0x00000000080039ec        0x4 
+ .text.SVC_Handler
+                0x00000000080039f0       0x28 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(port.o)
+                0x00000000080039f0                SVC_Handler
+ .text.prvPortStartFirstTask
+                0x0000000008003a18       0x24 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(port.o)
+ .text.xPortStartScheduler
+                0x0000000008003a3c       0xe4 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(port.o)
+                0x0000000008003a3c                xPortStartScheduler
+ .text.vPortEnterCritical
+                0x0000000008003b20       0x60 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(port.o)
+                0x0000000008003b20                vPortEnterCritical
+ .text.vPortExitCritical
+                0x0000000008003b80       0x50 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(port.o)
+                0x0000000008003b80                vPortExitCritical
+ .text.PendSV_Handler
+                0x0000000008003bd0       0x48 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(port.o)
+                0x0000000008003bd0                PendSV_Handler
+ .text.SysTick_Handler
+                0x0000000008003c18       0x44 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(port.o)
+                0x0000000008003c18                SysTick_Handler
+ .text.vPortSuppressTicksAndSleep
+                0x0000000008003c5c      0x194 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(port.o)
+                0x0000000008003c5c                vPortSuppressTicksAndSleep
+ .text.vPortSetupTimerInterrupt
+                0x0000000008003df0       0x78 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(port.o)
+                0x0000000008003df0                vPortSetupTimerInterrupt
+ .text.__errno  0x0000000008003e68        0xc c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(lib_a-errno.o)
+                0x0000000008003e68                __errno
  .text.__libc_init_array
-                0x0000000008003aa8       0x48 c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(lib_a-init.o)
-                0x0000000008003aa8                __libc_init_array
- .text.malloc   0x0000000008003af0       0x10 c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(lib_a-malloc.o)
-                0x0000000008003af0                malloc
- .text.free     0x0000000008003b00       0x10 c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(lib_a-malloc.o)
-                0x0000000008003b00                free
- .text.memcpy   0x0000000008003b10       0x1c c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(lib_a-memcpy-stub.o)
-                0x0000000008003b10                memcpy
- .text.memset   0x0000000008003b2c       0x10 c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(lib_a-memset.o)
-                0x0000000008003b2c                memset
- .text._free_r  0x0000000008003b3c       0x98 c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(lib_a-nano-freer.o)
-                0x0000000008003b3c                _free_r
+                0x0000000008003e74       0x48 c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(lib_a-init.o)
+                0x0000000008003e74                __libc_init_array
+ .text.malloc   0x0000000008003ebc       0x10 c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(lib_a-malloc.o)
+                0x0000000008003ebc                malloc
+ .text.free     0x0000000008003ecc       0x10 c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(lib_a-malloc.o)
+                0x0000000008003ecc                free
+ .text.memcpy   0x0000000008003edc       0x1c c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(lib_a-memcpy-stub.o)
+                0x0000000008003edc                memcpy
+ .text.memset   0x0000000008003ef8       0x10 c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(lib_a-memset.o)
+                0x0000000008003ef8                memset
+ .text._free_r  0x0000000008003f08       0x98 c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(lib_a-nano-freer.o)
+                0x0000000008003f08                _free_r
  .text._malloc_r
-                0x0000000008003bd4       0xb4 c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(lib_a-nano-mallocr.o)
-                0x0000000008003bd4                _malloc_r
- .text._sbrk_r  0x0000000008003c88       0x20 c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(lib_a-sbrkr.o)
-                0x0000000008003c88                _sbrk_r
+                0x0000000008003fa0       0xb4 c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(lib_a-nano-mallocr.o)
+                0x0000000008003fa0                _malloc_r
+ .text._sbrk_r  0x0000000008004054       0x20 c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(lib_a-sbrkr.o)
+                0x0000000008004054                _sbrk_r
  .text.__malloc_lock
-                0x0000000008003ca8        0xc c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(lib_a-mlock.o)
-                0x0000000008003ca8                __malloc_lock
+                0x0000000008004074        0xc c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(lib_a-mlock.o)
+                0x0000000008004074                __malloc_lock
  .text.__malloc_unlock
-                0x0000000008003cb4        0xc c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(lib_a-mlock.o)
-                0x0000000008003cb4                __malloc_unlock
+                0x0000000008004080        0xc c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(lib_a-mlock.o)
+                0x0000000008004080                __malloc_unlock
  .text.__retarget_lock_acquire_recursive
-                0x0000000008003cc0        0x2 c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(lib_a-lock.o)
-                0x0000000008003cc0                __retarget_lock_acquire_recursive
+                0x000000000800408c        0x2 c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(lib_a-lock.o)
+                0x000000000800408c                __retarget_lock_acquire_recursive
  .text.__retarget_lock_release_recursive
-                0x0000000008003cc2        0x2 c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(lib_a-lock.o)
-                0x0000000008003cc2                __retarget_lock_release_recursive
+                0x000000000800408e        0x2 c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(lib_a-lock.o)
+                0x000000000800408e                __retarget_lock_release_recursive
  *(.glue_7)
- .glue_7        0x0000000008003cc4        0x0 linker stubs
+ .glue_7        0x0000000008004090        0x0 linker stubs
  *(.glue_7t)
- .glue_7t       0x0000000008003cc4        0x0 linker stubs
+ .glue_7t       0x0000000008004090        0x0 linker stubs
  *(.eh_frame)
- .eh_frame      0x0000000008003cc4        0x0 c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7-m/nofp/crtbegin.o
+ .eh_frame      0x0000000008004090        0x0 c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7-m/nofp/crtbegin.o
  *(.init)
- .init          0x0000000008003cc4        0x4 c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7-m/nofp/crti.o
-                0x0000000008003cc4                _init
- .init          0x0000000008003cc8        0x8 c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7-m/nofp/crtn.o
+ .init          0x0000000008004090        0x4 c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7-m/nofp/crti.o
+                0x0000000008004090                _init
+ .init          0x0000000008004094        0x8 c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7-m/nofp/crtn.o
  *(.fini)
- .fini          0x0000000008003cd0        0x4 c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7-m/nofp/crti.o
-                0x0000000008003cd0                _fini
- .fini          0x0000000008003cd4        0x8 c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7-m/nofp/crtn.o
-                0x0000000008003cdc                . = ALIGN (0x4)
-                0x0000000008003cdc                _etext = .
+ .fini          0x000000000800409c        0x4 c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7-m/nofp/crti.o
+                0x000000000800409c                _fini
+ .fini          0x00000000080040a0        0x8 c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7-m/nofp/crtn.o
+                0x00000000080040a8                . = ALIGN (0x4)
+                0x00000000080040a8                _etext = .
 
-.vfp11_veneer   0x0000000008003cdc        0x0
- .vfp11_veneer  0x0000000008003cdc        0x0 linker stubs
+.vfp11_veneer   0x00000000080040a8        0x0
+ .vfp11_veneer  0x00000000080040a8        0x0 linker stubs
 
-.v4_bx          0x0000000008003cdc        0x0
- .v4_bx         0x0000000008003cdc        0x0 linker stubs
+.v4_bx          0x00000000080040a8        0x0
+ .v4_bx         0x00000000080040a8        0x0 linker stubs
 
-.iplt           0x0000000008003cdc        0x0
- .iplt          0x0000000008003cdc        0x0 c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7-m/nofp/crtbegin.o
+.iplt           0x00000000080040a8        0x0
+ .iplt          0x00000000080040a8        0x0 c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7-m/nofp/crtbegin.o
 
-.rodata         0x0000000008003cdc       0x48
-                0x0000000008003cdc                . = ALIGN (0x4)
+.rodata         0x00000000080040a8       0x48
+                0x00000000080040a8                . = ALIGN (0x4)
  *(.rodata)
- .rodata        0x0000000008003cdc        0x1 Core/Src/main.o
- *fill*         0x0000000008003cdd        0x3 
- .rodata        0x0000000008003ce0        0x5 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
- *fill*         0x0000000008003ce5        0x3 
- .rodata        0x0000000008003ce8        0xd D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(timers.o)
+ .rodata        0x00000000080040a8        0x1 Core/Src/main.o
+ *fill*         0x00000000080040a9        0x3 
+ .rodata        0x00000000080040ac        0x5 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
+ *fill*         0x00000000080040b1        0x3 
+ .rodata        0x00000000080040b4        0xd D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(timers.o)
  *(.rodata*)
- *fill*         0x0000000008003cf5        0x3 
+ *fill*         0x00000000080040c1        0x3 
  .rodata.AHBPrescTable
-                0x0000000008003cf8       0x10 Core/Src/system_stm32f1xx.o
-                0x0000000008003cf8                AHBPrescTable
+                0x00000000080040c4       0x10 Core/Src/system_stm32f1xx.o
+                0x00000000080040c4                AHBPrescTable
  .rodata.APBPrescTable
-                0x0000000008003d08        0x8 Core/Src/system_stm32f1xx.o
-                0x0000000008003d08                APBPrescTable
+                0x00000000080040d4        0x8 Core/Src/system_stm32f1xx.o
+                0x00000000080040d4                APBPrescTable
  .rodata.aPLLMULFactorTable.6037
-                0x0000000008003d10       0x10 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o
+                0x00000000080040dc       0x10 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o
  .rodata.aPredivFactorTable.6038
-                0x0000000008003d20        0x2 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o
-                0x0000000008003d24                . = ALIGN (0x4)
- *fill*         0x0000000008003d22        0x2 
+                0x00000000080040ec        0x2 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o
+                0x00000000080040f0                . = ALIGN (0x4)
+ *fill*         0x00000000080040ee        0x2 
 
-.rel.dyn        0x0000000008003d24        0x0
- .rel.iplt      0x0000000008003d24        0x0 c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7-m/nofp/crtbegin.o
+.rel.dyn        0x00000000080040f0        0x0
+ .rel.iplt      0x00000000080040f0        0x0 c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7-m/nofp/crtbegin.o
 
-.ARM.extab      0x0000000008003d24        0x0
-                0x0000000008003d24                . = ALIGN (0x4)
+.ARM.extab      0x00000000080040f0        0x0
+                0x00000000080040f0                . = ALIGN (0x4)
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x0000000008003d24                . = ALIGN (0x4)
+                0x00000000080040f0                . = ALIGN (0x4)
 
-.ARM            0x0000000008003d24        0x0
-                0x0000000008003d24                . = ALIGN (0x4)
-                0x0000000008003d24                __exidx_start = .
+.ARM            0x00000000080040f0        0x0
+                0x00000000080040f0                . = ALIGN (0x4)
+                0x00000000080040f0                __exidx_start = .
  *(.ARM.exidx*)
-                0x0000000008003d24                __exidx_end = .
-                0x0000000008003d24                . = ALIGN (0x4)
+                0x00000000080040f0                __exidx_end = .
+                0x00000000080040f0                . = ALIGN (0x4)
 
-.preinit_array  0x0000000008003d24        0x0
-                0x0000000008003d24                . = ALIGN (0x4)
-                0x0000000008003d24                PROVIDE (__preinit_array_start = .)
+.preinit_array  0x00000000080040f0        0x0
+                0x00000000080040f0                . = ALIGN (0x4)
+                0x00000000080040f0                PROVIDE (__preinit_array_start = .)
  *(.preinit_array*)
-                0x0000000008003d24                PROVIDE (__preinit_array_end = .)
-                0x0000000008003d24                . = ALIGN (0x4)
+                0x00000000080040f0                PROVIDE (__preinit_array_end = .)
+                0x00000000080040f0                . = ALIGN (0x4)
 
-.init_array     0x0000000008003d24        0x4
-                0x0000000008003d24                . = ALIGN (0x4)
-                0x0000000008003d24                PROVIDE (__init_array_start = .)
+.init_array     0x00000000080040f0        0x4
+                0x00000000080040f0                . = ALIGN (0x4)
+                0x00000000080040f0                PROVIDE (__init_array_start = .)
  *(SORT_BY_NAME(.init_array.*))
  *(.init_array*)
- .init_array    0x0000000008003d24        0x4 c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7-m/nofp/crtbegin.o
-                0x0000000008003d28                PROVIDE (__init_array_end = .)
-                0x0000000008003d28                . = ALIGN (0x4)
+ .init_array    0x00000000080040f0        0x4 c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7-m/nofp/crtbegin.o
+                0x00000000080040f4                PROVIDE (__init_array_end = .)
+                0x00000000080040f4                . = ALIGN (0x4)
 
-.fini_array     0x0000000008003d28        0x4
-                0x0000000008003d28                . = ALIGN (0x4)
+.fini_array     0x00000000080040f4        0x4
+                0x00000000080040f4                . = ALIGN (0x4)
                 [!provide]                        PROVIDE (__fini_array_start = .)
  *(SORT_BY_NAME(.fini_array.*))
  *(.fini_array*)
- .fini_array    0x0000000008003d28        0x4 c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7-m/nofp/crtbegin.o
+ .fini_array    0x00000000080040f4        0x4 c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7-m/nofp/crtbegin.o
                 [!provide]                        PROVIDE (__fini_array_end = .)
-                0x0000000008003d2c                . = ALIGN (0x4)
-                0x0000000008003d2c                _sidata = LOADADDR (.data)
+                0x00000000080040f8                . = ALIGN (0x4)
+                0x00000000080040f8                _sidata = LOADADDR (.data)
 
-.data           0x0000000020000000       0x78 load address 0x0000000008003d2c
+.data           0x0000000020000000       0x78 load address 0x00000000080040f8
                 0x0000000020000000                . = ALIGN (0x4)
                 0x0000000020000000                _sdata = .
  *(.data)
@@ -3441,126 +3445,130 @@ LOAD c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.exte
                 0x0000000020000078                . = ALIGN (0x4)
                 0x0000000020000078                _edata = .
 
-.igot.plt       0x0000000020000078        0x0 load address 0x0000000008003da4
+.igot.plt       0x0000000020000078        0x0 load address 0x0000000008004170
  .igot.plt      0x0000000020000078        0x0 c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7-m/nofp/crtbegin.o
                 0x0000000020000078                . = ALIGN (0x4)
 
-.bss            0x0000000020000078      0x218 load address 0x0000000008003da4
+.bss            0x0000000020000078      0x220 load address 0x0000000008004170
                 0x0000000020000078                _sbss = .
                 0x0000000020000078                __bss_start__ = _sbss
  *(.bss)
  .bss           0x0000000020000078       0x1c c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7-m/nofp/crtbegin.o
  *(.bss*)
+ .bss.estado    0x0000000020000094        0x4 Core/Src/main.o
+                0x0000000020000094                estado
  .bss.__sbrk_heap_end
-                0x0000000020000094        0x4 Core/Src/sysmem.o
+                0x0000000020000098        0x4 Core/Src/sysmem.o
  .bss.pxCurrentTCB
-                0x0000000020000098        0x4 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
-                0x0000000020000098                pxCurrentTCB
+                0x000000002000009c        0x4 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
+                0x000000002000009c                pxCurrentTCB
  .bss.pxReadyTasksLists
-                0x000000002000009c       0x64 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
+                0x00000000200000a0       0x64 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
  .bss.xDelayedTaskList1
-                0x0000000020000100       0x14 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
+                0x0000000020000104       0x14 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
  .bss.xDelayedTaskList2
-                0x0000000020000114       0x14 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
+                0x0000000020000118       0x14 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
  .bss.pxDelayedTaskList
-                0x0000000020000128        0x4 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
- .bss.pxOverflowDelayedTaskList
                 0x000000002000012c        0x4 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
+ .bss.pxOverflowDelayedTaskList
+                0x0000000020000130        0x4 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
  .bss.xPendingReadyList
-                0x0000000020000130       0x14 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
+                0x0000000020000134       0x14 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
  .bss.xTasksWaitingTermination
-                0x0000000020000144       0x14 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
+                0x0000000020000148       0x14 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
  .bss.uxDeletedTasksWaitingCleanUp
-                0x0000000020000158        0x4 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
+                0x000000002000015c        0x4 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
  .bss.xSuspendedTaskList
-                0x000000002000015c       0x14 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
+                0x0000000020000160       0x14 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
  .bss.uxCurrentNumberOfTasks
-                0x0000000020000170        0x4 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
- .bss.xTickCount
                 0x0000000020000174        0x4 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
- .bss.uxTopReadyPriority
+ .bss.xTickCount
                 0x0000000020000178        0x4 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
- .bss.xSchedulerRunning
+ .bss.uxTopReadyPriority
                 0x000000002000017c        0x4 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
- .bss.xPendedTicks
+ .bss.xSchedulerRunning
                 0x0000000020000180        0x4 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
- .bss.xYieldPending
+ .bss.xPendedTicks
                 0x0000000020000184        0x4 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
- .bss.xNumOfOverflows
+ .bss.xYieldPending
                 0x0000000020000188        0x4 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
- .bss.uxTaskNumber
+ .bss.xNumOfOverflows
                 0x000000002000018c        0x4 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
- .bss.xNextTaskUnblockTime
+ .bss.uxTaskNumber
                 0x0000000020000190        0x4 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
- .bss.xIdleTaskHandle
+ .bss.xNextTaskUnblockTime
                 0x0000000020000194        0x4 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
- .bss.uxSchedulerSuspended
+ .bss.xIdleTaskHandle
                 0x0000000020000198        0x4 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
+ .bss.uxSchedulerSuspended
+                0x000000002000019c        0x4 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
  .bss.xActiveTimerList1
-                0x000000002000019c       0x14 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(timers.o)
+                0x00000000200001a0       0x14 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(timers.o)
  .bss.xActiveTimerList2
-                0x00000000200001b0       0x14 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(timers.o)
+                0x00000000200001b4       0x14 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(timers.o)
  .bss.pxCurrentTimerList
-                0x00000000200001c4        0x4 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(timers.o)
- .bss.pxOverflowTimerList
                 0x00000000200001c8        0x4 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(timers.o)
- .bss.xTimerQueue
+ .bss.pxOverflowTimerList
                 0x00000000200001cc        0x4 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(timers.o)
- .bss.xTimerTaskHandle
+ .bss.xTimerQueue
                 0x00000000200001d0        0x4 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(timers.o)
- .bss.xLastTime.5553
+ .bss.xTimerTaskHandle
                 0x00000000200001d4        0x4 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(timers.o)
+ .bss.xLastTime.5553
+                0x00000000200001d8        0x4 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(timers.o)
  .bss.ulTimerCountsForOneTick
-                0x00000000200001d8        0x4 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(port.o)
- .bss.xMaximumPossibleSuppressedTicks
                 0x00000000200001dc        0x4 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(port.o)
- .bss.ulStoppedTimerCompensation
+ .bss.xMaximumPossibleSuppressedTicks
                 0x00000000200001e0        0x4 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(port.o)
+ .bss.ulStoppedTimerCompensation
+                0x00000000200001e4        0x4 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(port.o)
  .bss.ucMaxSysCallPriority
-                0x00000000200001e4        0x1 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(port.o)
- *fill*         0x00000000200001e5        0x3 
+                0x00000000200001e8        0x1 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(port.o)
+ *fill*         0x00000000200001e9        0x3 
  .bss.ulMaxPRIGROUPValue
-                0x00000000200001e8        0x4 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(port.o)
+                0x00000000200001ec        0x4 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(port.o)
  .bss.__malloc_free_list
-                0x00000000200001ec        0x4 c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(lib_a-nano-mallocr.o)
-                0x00000000200001ec                __malloc_free_list
- .bss.__malloc_sbrk_start
                 0x00000000200001f0        0x4 c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(lib_a-nano-mallocr.o)
-                0x00000000200001f0                __malloc_sbrk_start
+                0x00000000200001f0                __malloc_free_list
+ .bss.__malloc_sbrk_start
+                0x00000000200001f4        0x4 c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(lib_a-nano-mallocr.o)
+                0x00000000200001f4                __malloc_sbrk_start
  *(COMMON)
- COMMON         0x00000000200001f4       0x48 Core/Src/stm32f1xx_hal_timebase_tim.o
-                0x00000000200001f4                htim1
- COMMON         0x000000002000023c        0x4 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o
-                0x000000002000023c                uwTick
- COMMON         0x0000000020000240       0x40 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
-                0x0000000020000240                xQueueRegistry
- COMMON         0x0000000020000280        0x4 c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(lib_a-reent.o)
-                0x0000000020000280                errno
- COMMON         0x0000000020000284        0x9 c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(lib_a-lock.o)
-                0x0000000020000284                __lock___atexit_recursive_mutex
-                0x0000000020000285                __lock___arc4random_mutex
-                0x0000000020000286                __lock___env_recursive_mutex
-                0x0000000020000287                __lock___sinit_recursive_mutex
-                0x0000000020000288                __lock___malloc_recursive_mutex
-                0x0000000020000289                __lock___at_quick_exit_mutex
-                0x000000002000028a                __lock___dd_hash_mutex
-                0x000000002000028b                __lock___tz_mutex
-                0x000000002000028c                __lock___sfp_recursive_mutex
-                0x0000000020000290                . = ALIGN (0x4)
- *fill*         0x000000002000028d        0x3 
-                0x0000000020000290                _ebss = .
-                0x0000000020000290                __bss_end__ = _ebss
+ COMMON         0x00000000200001f8        0x4 Core/Src/main.o
+                0x00000000200001f8                my_queue
+ COMMON         0x00000000200001fc       0x48 Core/Src/stm32f1xx_hal_timebase_tim.o
+                0x00000000200001fc                htim1
+ COMMON         0x0000000020000244        0x4 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o
+                0x0000000020000244                uwTick
+ COMMON         0x0000000020000248       0x40 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+                0x0000000020000248                xQueueRegistry
+ COMMON         0x0000000020000288        0x4 c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(lib_a-reent.o)
+                0x0000000020000288                errno
+ COMMON         0x000000002000028c        0x9 c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(lib_a-lock.o)
+                0x000000002000028c                __lock___atexit_recursive_mutex
+                0x000000002000028d                __lock___arc4random_mutex
+                0x000000002000028e                __lock___env_recursive_mutex
+                0x000000002000028f                __lock___sinit_recursive_mutex
+                0x0000000020000290                __lock___malloc_recursive_mutex
+                0x0000000020000291                __lock___at_quick_exit_mutex
+                0x0000000020000292                __lock___dd_hash_mutex
+                0x0000000020000293                __lock___tz_mutex
+                0x0000000020000294                __lock___sfp_recursive_mutex
+                0x0000000020000298                . = ALIGN (0x4)
+ *fill*         0x0000000020000295        0x3 
+                0x0000000020000298                _ebss = .
+                0x0000000020000298                __bss_end__ = _ebss
 
 ._user_heap_stack
-                0x0000000020000290      0x600 load address 0x0000000008003da4
-                0x0000000020000290                . = ALIGN (0x8)
+                0x0000000020000298      0x600 load address 0x0000000008004170
+                0x0000000020000298                . = ALIGN (0x8)
                 [!provide]                        PROVIDE (end = .)
-                0x0000000020000290                PROVIDE (_end = .)
-                0x0000000020000490                . = (. + _Min_Heap_Size)
- *fill*         0x0000000020000290      0x200 
-                0x0000000020000890                . = (. + _Min_Stack_Size)
- *fill*         0x0000000020000490      0x400 
-                0x0000000020000890                . = ALIGN (0x8)
+                0x0000000020000298                PROVIDE (_end = .)
+                0x0000000020000498                . = (. + _Min_Heap_Size)
+ *fill*         0x0000000020000298      0x200 
+                0x0000000020000898                . = (. + _Min_Stack_Size)
+ *fill*         0x0000000020000498      0x400 
+                0x0000000020000898                . = ALIGN (0x8)
 
 /DISCARD/
  libc.a(*)
@@ -3601,17 +3609,17 @@ LOAD c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.exte
  .ARM.attributes
                 0x000000000000025a       0x2d Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.o
  .ARM.attributes
-                0x0000000000000287       0x2d D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
+                0x0000000000000287       0x2d D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
  .ARM.attributes
-                0x00000000000002b4       0x2d D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(timers.o)
+                0x00000000000002b4       0x2d D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
  .ARM.attributes
-                0x00000000000002e1       0x2d D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(heap_3.o)
+                0x00000000000002e1       0x2d D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(timers.o)
  .ARM.attributes
-                0x000000000000030e       0x2d D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(list.o)
+                0x000000000000030e       0x2d D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(heap_3.o)
  .ARM.attributes
-                0x000000000000033b       0x2d D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(port.o)
+                0x000000000000033b       0x2d D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(list.o)
  .ARM.attributes
-                0x0000000000000368       0x2d D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+                0x0000000000000368       0x2d D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(port.o)
  .ARM.attributes
                 0x0000000000000395       0x2d c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(lib_a-errno.o)
  .ARM.attributes
@@ -3638,251 +3646,251 @@ LOAD c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.exte
                 0x0000000000000584       0x2d c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(lib_a-lock.o)
  .ARM.attributes
                 0x00000000000005b1       0x1d c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7-m/nofp/crtn.o
-OUTPUT(FRTOS-1.elf elf32-littlearm)
+OUTPUT(FRTOS-1-queue-LED-Switch.elf elf32-littlearm)
 LOAD linker stubs
 LOAD c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc.a
 LOAD c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libm.a
 LOAD c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7-m/nofp\libgcc.a
 
-.debug_info     0x0000000000000000    0x11153
- .debug_info    0x0000000000000000      0xb93 Core/Src/main.o
- .debug_info    0x0000000000000b93      0x2fc Core/Src/stm32f1xx_hal_msp.o
- .debug_info    0x0000000000000e8f      0xa1e Core/Src/stm32f1xx_hal_timebase_tim.o
- .debug_info    0x00000000000018ad      0x783 Core/Src/stm32f1xx_it.o
- .debug_info    0x0000000000002030      0xa25 Core/Src/sysmem.o
- .debug_info    0x0000000000002a55      0x2be Core/Src/system_stm32f1xx.o
- .debug_info    0x0000000000002d13       0x22 Core/Startup/startup_stm32f103c8tx.o
- .debug_info    0x0000000000002d35      0x76a Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o
- .debug_info    0x000000000000349f      0xbdc Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o
- .debug_info    0x000000000000407b      0x701 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.o
- .debug_info    0x000000000000477c      0x893 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o
- .debug_info    0x000000000000500f     0x2c12 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o
- .debug_info    0x0000000000007c21     0x157f Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.o
- .debug_info    0x00000000000091a0     0x2f75 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
- .debug_info    0x000000000000c115     0x1534 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(timers.o)
- .debug_info    0x000000000000d649      0x9af D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(heap_3.o)
- .debug_info    0x000000000000dff8      0xb82 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(list.o)
- .debug_info    0x000000000000eb7a      0x58a D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(port.o)
- .debug_info    0x000000000000f104     0x204f D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+.debug_info     0x0000000000000000    0x1118f
+ .debug_info    0x0000000000000000      0xbcf Core/Src/main.o
+ .debug_info    0x0000000000000bcf      0x2fc Core/Src/stm32f1xx_hal_msp.o
+ .debug_info    0x0000000000000ecb      0xa1e Core/Src/stm32f1xx_hal_timebase_tim.o
+ .debug_info    0x00000000000018e9      0x783 Core/Src/stm32f1xx_it.o
+ .debug_info    0x000000000000206c      0xa25 Core/Src/sysmem.o
+ .debug_info    0x0000000000002a91      0x2be Core/Src/system_stm32f1xx.o
+ .debug_info    0x0000000000002d4f       0x22 Core/Startup/startup_stm32f103c8tx.o
+ .debug_info    0x0000000000002d71      0x76a Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o
+ .debug_info    0x00000000000034db      0xbdc Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o
+ .debug_info    0x00000000000040b7      0x701 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.o
+ .debug_info    0x00000000000047b8      0x893 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o
+ .debug_info    0x000000000000504b     0x2c12 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o
+ .debug_info    0x0000000000007c5d     0x157f Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.o
+ .debug_info    0x00000000000091dc     0x204f D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .debug_info    0x000000000000b22b     0x2f75 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
+ .debug_info    0x000000000000e1a0     0x1534 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(timers.o)
+ .debug_info    0x000000000000f6d4      0x9af D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(heap_3.o)
+ .debug_info    0x0000000000010083      0xb82 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(list.o)
+ .debug_info    0x0000000000010c05      0x58a D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(port.o)
 
-.debug_abbrev   0x0000000000000000     0x2796
- .debug_abbrev  0x0000000000000000      0x219 Core/Src/main.o
- .debug_abbrev  0x0000000000000219      0x11d Core/Src/stm32f1xx_hal_msp.o
- .debug_abbrev  0x0000000000000336      0x1bf Core/Src/stm32f1xx_hal_timebase_tim.o
- .debug_abbrev  0x00000000000004f5      0x176 Core/Src/stm32f1xx_it.o
- .debug_abbrev  0x000000000000066b      0x1bf Core/Src/sysmem.o
- .debug_abbrev  0x000000000000082a      0x14e Core/Src/system_stm32f1xx.o
- .debug_abbrev  0x0000000000000978       0x12 Core/Startup/startup_stm32f103c8tx.o
- .debug_abbrev  0x000000000000098a      0x1ed Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o
- .debug_abbrev  0x0000000000000b77      0x313 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o
- .debug_abbrev  0x0000000000000e8a      0x1e8 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.o
- .debug_abbrev  0x0000000000001072      0x273 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o
- .debug_abbrev  0x00000000000012e5      0x25e Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o
- .debug_abbrev  0x0000000000001543      0x266 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.o
- .debug_abbrev  0x00000000000017a9      0x398 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
- .debug_abbrev  0x0000000000001b41      0x2ea D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(timers.o)
- .debug_abbrev  0x0000000000001e2b      0x1e5 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(heap_3.o)
- .debug_abbrev  0x0000000000002010      0x1f7 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(list.o)
- .debug_abbrev  0x0000000000002207      0x25c D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(port.o)
- .debug_abbrev  0x0000000000002463      0x333 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+.debug_abbrev   0x0000000000000000     0x27b2
+ .debug_abbrev  0x0000000000000000      0x235 Core/Src/main.o
+ .debug_abbrev  0x0000000000000235      0x11d Core/Src/stm32f1xx_hal_msp.o
+ .debug_abbrev  0x0000000000000352      0x1bf Core/Src/stm32f1xx_hal_timebase_tim.o
+ .debug_abbrev  0x0000000000000511      0x176 Core/Src/stm32f1xx_it.o
+ .debug_abbrev  0x0000000000000687      0x1bf Core/Src/sysmem.o
+ .debug_abbrev  0x0000000000000846      0x14e Core/Src/system_stm32f1xx.o
+ .debug_abbrev  0x0000000000000994       0x12 Core/Startup/startup_stm32f103c8tx.o
+ .debug_abbrev  0x00000000000009a6      0x1ed Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o
+ .debug_abbrev  0x0000000000000b93      0x313 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o
+ .debug_abbrev  0x0000000000000ea6      0x1e8 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.o
+ .debug_abbrev  0x000000000000108e      0x273 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o
+ .debug_abbrev  0x0000000000001301      0x25e Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o
+ .debug_abbrev  0x000000000000155f      0x266 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.o
+ .debug_abbrev  0x00000000000017c5      0x333 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .debug_abbrev  0x0000000000001af8      0x398 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
+ .debug_abbrev  0x0000000000001e90      0x2ea D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(timers.o)
+ .debug_abbrev  0x000000000000217a      0x1e5 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(heap_3.o)
+ .debug_abbrev  0x000000000000235f      0x1f7 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(list.o)
+ .debug_abbrev  0x0000000000002556      0x25c D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(port.o)
 
-.debug_aranges  0x0000000000000000      0xe90
+.debug_aranges  0x0000000000000000      0xe88
  .debug_aranges
-                0x0000000000000000       0x58 Core/Src/main.o
+                0x0000000000000000       0x50 Core/Src/main.o
  .debug_aranges
-                0x0000000000000058       0x20 Core/Src/stm32f1xx_hal_msp.o
+                0x0000000000000050       0x20 Core/Src/stm32f1xx_hal_msp.o
  .debug_aranges
-                0x0000000000000078       0x30 Core/Src/stm32f1xx_hal_timebase_tim.o
+                0x0000000000000070       0x30 Core/Src/stm32f1xx_hal_timebase_tim.o
  .debug_aranges
-                0x00000000000000a8       0x50 Core/Src/stm32f1xx_it.o
+                0x00000000000000a0       0x50 Core/Src/stm32f1xx_it.o
  .debug_aranges
-                0x00000000000000f8       0x20 Core/Src/sysmem.o
+                0x00000000000000f0       0x20 Core/Src/sysmem.o
  .debug_aranges
-                0x0000000000000118       0x28 Core/Src/system_stm32f1xx.o
+                0x0000000000000110       0x28 Core/Src/system_stm32f1xx.o
  .debug_aranges
-                0x0000000000000140       0x28 Core/Startup/startup_stm32f103c8tx.o
+                0x0000000000000138       0x28 Core/Startup/startup_stm32f103c8tx.o
  .debug_aranges
-                0x0000000000000168       0xe0 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o
+                0x0000000000000160       0xe0 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o
  .debug_aranges
-                0x0000000000000248      0x100 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o
+                0x0000000000000240      0x100 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o
  .debug_aranges
-                0x0000000000000348       0x58 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.o
+                0x0000000000000340       0x58 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.o
  .debug_aranges
-                0x00000000000003a0       0x90 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o
+                0x0000000000000398       0x90 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o
  .debug_aranges
-                0x0000000000000430      0x3d0 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o
+                0x0000000000000428      0x3d0 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o
  .debug_aranges
-                0x0000000000000800      0x168 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.o
+                0x00000000000007f8      0x168 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.o
  .debug_aranges
-                0x0000000000000968      0x228 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
+                0x0000000000000960      0x130 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
  .debug_aranges
-                0x0000000000000b90       0xe8 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(timers.o)
+                0x0000000000000a90      0x228 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
  .debug_aranges
-                0x0000000000000c78       0x28 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(heap_3.o)
+                0x0000000000000cb8       0xe8 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(timers.o)
  .debug_aranges
-                0x0000000000000ca0       0x40 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(list.o)
+                0x0000000000000da0       0x28 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(heap_3.o)
  .debug_aranges
-                0x0000000000000ce0       0x80 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(port.o)
+                0x0000000000000dc8       0x40 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(list.o)
  .debug_aranges
-                0x0000000000000d60      0x130 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+                0x0000000000000e08       0x80 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(port.o)
 
-.debug_ranges   0x0000000000000000      0xd68
- .debug_ranges  0x0000000000000000       0x48 Core/Src/main.o
- .debug_ranges  0x0000000000000048       0x10 Core/Src/stm32f1xx_hal_msp.o
- .debug_ranges  0x0000000000000058       0x20 Core/Src/stm32f1xx_hal_timebase_tim.o
- .debug_ranges  0x0000000000000078       0x40 Core/Src/stm32f1xx_it.o
- .debug_ranges  0x00000000000000b8       0x10 Core/Src/sysmem.o
- .debug_ranges  0x00000000000000c8       0x18 Core/Src/system_stm32f1xx.o
- .debug_ranges  0x00000000000000e0       0x20 Core/Startup/startup_stm32f103c8tx.o
- .debug_ranges  0x0000000000000100       0xd0 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o
- .debug_ranges  0x00000000000001d0       0xf0 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o
- .debug_ranges  0x00000000000002c0       0x48 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.o
- .debug_ranges  0x0000000000000308       0x80 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o
- .debug_ranges  0x0000000000000388      0x3c0 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o
- .debug_ranges  0x0000000000000748      0x158 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.o
- .debug_ranges  0x00000000000008a0      0x218 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
- .debug_ranges  0x0000000000000ab8       0xd8 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(timers.o)
- .debug_ranges  0x0000000000000b90       0x18 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(heap_3.o)
- .debug_ranges  0x0000000000000ba8       0x30 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(list.o)
- .debug_ranges  0x0000000000000bd8       0x70 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(port.o)
- .debug_ranges  0x0000000000000c48      0x120 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+.debug_ranges   0x0000000000000000      0xd60
+ .debug_ranges  0x0000000000000000       0x40 Core/Src/main.o
+ .debug_ranges  0x0000000000000040       0x10 Core/Src/stm32f1xx_hal_msp.o
+ .debug_ranges  0x0000000000000050       0x20 Core/Src/stm32f1xx_hal_timebase_tim.o
+ .debug_ranges  0x0000000000000070       0x40 Core/Src/stm32f1xx_it.o
+ .debug_ranges  0x00000000000000b0       0x10 Core/Src/sysmem.o
+ .debug_ranges  0x00000000000000c0       0x18 Core/Src/system_stm32f1xx.o
+ .debug_ranges  0x00000000000000d8       0x20 Core/Startup/startup_stm32f103c8tx.o
+ .debug_ranges  0x00000000000000f8       0xd0 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o
+ .debug_ranges  0x00000000000001c8       0xf0 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o
+ .debug_ranges  0x00000000000002b8       0x48 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.o
+ .debug_ranges  0x0000000000000300       0x80 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o
+ .debug_ranges  0x0000000000000380      0x3c0 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o
+ .debug_ranges  0x0000000000000740      0x158 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.o
+ .debug_ranges  0x0000000000000898      0x120 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .debug_ranges  0x00000000000009b8      0x218 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
+ .debug_ranges  0x0000000000000bd0       0xd8 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(timers.o)
+ .debug_ranges  0x0000000000000ca8       0x18 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(heap_3.o)
+ .debug_ranges  0x0000000000000cc0       0x30 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(list.o)
+ .debug_ranges  0x0000000000000cf0       0x70 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(port.o)
 
-.debug_macro    0x0000000000000000    0x1909c
- .debug_macro   0x0000000000000000      0x215 Core/Src/main.o
- .debug_macro   0x0000000000000215      0xa9c Core/Src/main.o
- .debug_macro   0x0000000000000cb1      0x215 Core/Src/main.o
- .debug_macro   0x0000000000000ec6       0x2e Core/Src/main.o
- .debug_macro   0x0000000000000ef4       0x22 Core/Src/main.o
- .debug_macro   0x0000000000000f16       0x22 Core/Src/main.o
- .debug_macro   0x0000000000000f38       0x8e Core/Src/main.o
- .debug_macro   0x0000000000000fc6       0x51 Core/Src/main.o
- .debug_macro   0x0000000000001017      0x103 Core/Src/main.o
- .debug_macro   0x000000000000111a       0x6a Core/Src/main.o
- .debug_macro   0x0000000000001184      0x1df Core/Src/main.o
- .debug_macro   0x0000000000001363       0x1c Core/Src/main.o
- .debug_macro   0x000000000000137f       0x22 Core/Src/main.o
- .debug_macro   0x00000000000013a1       0xc3 Core/Src/main.o
- .debug_macro   0x0000000000001464      0xd23 Core/Src/main.o
- .debug_macro   0x0000000000002187     0xe09e Core/Src/main.o
- .debug_macro   0x0000000000010225       0x6d Core/Src/main.o
- .debug_macro   0x0000000000010292     0x348d Core/Src/main.o
- .debug_macro   0x000000000001371f      0x174 Core/Src/main.o
- .debug_macro   0x0000000000013893       0x5c Core/Src/main.o
- .debug_macro   0x00000000000138ef      0x5bc Core/Src/main.o
- .debug_macro   0x0000000000013eab      0x289 Core/Src/main.o
- .debug_macro   0x0000000000014134      0x1cb Core/Src/main.o
- .debug_macro   0x00000000000142ff      0x114 Core/Src/main.o
- .debug_macro   0x0000000000014413      0x1b2 Core/Src/main.o
- .debug_macro   0x00000000000145c5       0x27 Core/Src/main.o
- .debug_macro   0x00000000000145ec      0x136 Core/Src/main.o
- .debug_macro   0x0000000000014722      0x1bc Core/Src/main.o
- .debug_macro   0x00000000000148de       0x34 Core/Src/main.o
- .debug_macro   0x0000000000014912       0x3c Core/Src/main.o
- .debug_macro   0x000000000001494e       0x57 Core/Src/main.o
- .debug_macro   0x00000000000149a5       0x87 Core/Src/main.o
- .debug_macro   0x0000000000014a2c      0x240 Core/Src/main.o
- .debug_macro   0x0000000000014c6c      0x140 Core/Src/main.o
- .debug_macro   0x0000000000014dac      0x8ed Core/Src/main.o
- .debug_macro   0x0000000000015699       0x83 Core/Src/main.o
- .debug_macro   0x000000000001571c       0x1c Core/Src/main.o
- .debug_macro   0x0000000000015738      0x1d8 Core/Src/main.o
- .debug_macro   0x0000000000015910      0x15a Core/Src/main.o
- .debug_macro   0x0000000000015a6a       0xcf Core/Src/main.o
- .debug_macro   0x0000000000015b39       0x22 Core/Src/main.o
- .debug_macro   0x0000000000015b5b       0x1f Core/Src/main.o
- .debug_macro   0x0000000000015b7a       0x12 Core/Src/main.o
- .debug_macro   0x0000000000015b8c      0x3c9 Core/Src/main.o
- .debug_macro   0x0000000000015f55       0xc3 Core/Src/main.o
- .debug_macro   0x0000000000016018      0x120 Core/Src/main.o
- .debug_macro   0x0000000000016138      0x1a8 Core/Src/stm32f1xx_hal_msp.o
- .debug_macro   0x00000000000162e0      0x199 Core/Src/stm32f1xx_hal_timebase_tim.o
- .debug_macro   0x0000000000016479      0x1b2 Core/Src/stm32f1xx_it.o
- .debug_macro   0x000000000001662b       0xff Core/Src/sysmem.o
- .debug_macro   0x000000000001672a      0x23b Core/Src/sysmem.o
- .debug_macro   0x0000000000016965      0x199 Core/Src/system_stm32f1xx.o
- .debug_macro   0x0000000000016afe      0x1bd Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o
- .debug_macro   0x0000000000016cbb      0x199 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o
- .debug_macro   0x0000000000016e54      0x204 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.o
- .debug_macro   0x0000000000017058      0x1ab Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o
- .debug_macro   0x0000000000017203      0x19a Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o
- .debug_macro   0x000000000001739d      0x199 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.o
- .debug_macro   0x0000000000017536      0x284 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
- .debug_macro   0x00000000000177ba      0xaa2 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
- .debug_macro   0x000000000001825c      0x10e D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
- .debug_macro   0x000000000001836a       0x8d D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
- .debug_macro   0x00000000000183f7       0x16 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
- .debug_macro   0x000000000001840d       0x20 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
- .debug_macro   0x000000000001842d      0x1d8 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
- .debug_macro   0x0000000000018605       0x91 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
- .debug_macro   0x0000000000018696       0x17 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
- .debug_macro   0x00000000000186ad      0x1e7 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(timers.o)
- .debug_macro   0x0000000000018894       0x80 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(timers.o)
- .debug_macro   0x0000000000018914       0x97 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(timers.o)
- .debug_macro   0x00000000000189ab      0x1a7 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(heap_3.o)
- .debug_macro   0x0000000000018b52      0x198 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(list.o)
- .debug_macro   0x0000000000018cea      0x183 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(port.o)
- .debug_macro   0x0000000000018e6d      0x22f D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+.debug_macro    0x0000000000000000    0x190af
+ .debug_macro   0x0000000000000000      0x228 Core/Src/main.o
+ .debug_macro   0x0000000000000228      0xa9c Core/Src/main.o
+ .debug_macro   0x0000000000000cc4      0x215 Core/Src/main.o
+ .debug_macro   0x0000000000000ed9       0x2e Core/Src/main.o
+ .debug_macro   0x0000000000000f07       0x22 Core/Src/main.o
+ .debug_macro   0x0000000000000f29       0x22 Core/Src/main.o
+ .debug_macro   0x0000000000000f4b       0x8e Core/Src/main.o
+ .debug_macro   0x0000000000000fd9       0x51 Core/Src/main.o
+ .debug_macro   0x000000000000102a      0x103 Core/Src/main.o
+ .debug_macro   0x000000000000112d       0x6a Core/Src/main.o
+ .debug_macro   0x0000000000001197      0x1df Core/Src/main.o
+ .debug_macro   0x0000000000001376       0x1c Core/Src/main.o
+ .debug_macro   0x0000000000001392       0x22 Core/Src/main.o
+ .debug_macro   0x00000000000013b4       0xc3 Core/Src/main.o
+ .debug_macro   0x0000000000001477      0xd23 Core/Src/main.o
+ .debug_macro   0x000000000000219a     0xe09e Core/Src/main.o
+ .debug_macro   0x0000000000010238       0x6d Core/Src/main.o
+ .debug_macro   0x00000000000102a5     0x348d Core/Src/main.o
+ .debug_macro   0x0000000000013732      0x174 Core/Src/main.o
+ .debug_macro   0x00000000000138a6       0x5c Core/Src/main.o
+ .debug_macro   0x0000000000013902      0x5bc Core/Src/main.o
+ .debug_macro   0x0000000000013ebe      0x289 Core/Src/main.o
+ .debug_macro   0x0000000000014147      0x1cb Core/Src/main.o
+ .debug_macro   0x0000000000014312      0x114 Core/Src/main.o
+ .debug_macro   0x0000000000014426      0x1b2 Core/Src/main.o
+ .debug_macro   0x00000000000145d8       0x27 Core/Src/main.o
+ .debug_macro   0x00000000000145ff      0x136 Core/Src/main.o
+ .debug_macro   0x0000000000014735      0x1bc Core/Src/main.o
+ .debug_macro   0x00000000000148f1       0x34 Core/Src/main.o
+ .debug_macro   0x0000000000014925       0x3c Core/Src/main.o
+ .debug_macro   0x0000000000014961       0x57 Core/Src/main.o
+ .debug_macro   0x00000000000149b8       0x87 Core/Src/main.o
+ .debug_macro   0x0000000000014a3f      0x240 Core/Src/main.o
+ .debug_macro   0x0000000000014c7f      0x140 Core/Src/main.o
+ .debug_macro   0x0000000000014dbf      0x8ed Core/Src/main.o
+ .debug_macro   0x00000000000156ac       0x83 Core/Src/main.o
+ .debug_macro   0x000000000001572f       0x1c Core/Src/main.o
+ .debug_macro   0x000000000001574b      0x1d8 Core/Src/main.o
+ .debug_macro   0x0000000000015923      0x15a Core/Src/main.o
+ .debug_macro   0x0000000000015a7d       0xcf Core/Src/main.o
+ .debug_macro   0x0000000000015b4c       0x22 Core/Src/main.o
+ .debug_macro   0x0000000000015b6e       0x1f Core/Src/main.o
+ .debug_macro   0x0000000000015b8d       0x12 Core/Src/main.o
+ .debug_macro   0x0000000000015b9f      0x3c9 Core/Src/main.o
+ .debug_macro   0x0000000000015f68       0xc3 Core/Src/main.o
+ .debug_macro   0x000000000001602b      0x120 Core/Src/main.o
+ .debug_macro   0x000000000001614b       0x80 Core/Src/main.o
+ .debug_macro   0x00000000000161cb      0x1a8 Core/Src/stm32f1xx_hal_msp.o
+ .debug_macro   0x0000000000016373      0x199 Core/Src/stm32f1xx_hal_timebase_tim.o
+ .debug_macro   0x000000000001650c      0x1b2 Core/Src/stm32f1xx_it.o
+ .debug_macro   0x00000000000166be       0xff Core/Src/sysmem.o
+ .debug_macro   0x00000000000167bd      0x23b Core/Src/sysmem.o
+ .debug_macro   0x00000000000169f8      0x199 Core/Src/system_stm32f1xx.o
+ .debug_macro   0x0000000000016b91      0x1bd Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o
+ .debug_macro   0x0000000000016d4e      0x199 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o
+ .debug_macro   0x0000000000016ee7      0x204 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.o
+ .debug_macro   0x00000000000170eb      0x1ab Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o
+ .debug_macro   0x0000000000017296      0x19a Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o
+ .debug_macro   0x0000000000017430      0x199 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.o
+ .debug_macro   0x00000000000175c9      0x22f D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .debug_macro   0x00000000000177f8      0xaa2 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .debug_macro   0x000000000001829a      0x10e D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .debug_macro   0x00000000000183a8       0x8d D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .debug_macro   0x0000000000018435       0x16 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .debug_macro   0x000000000001844b       0x20 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .debug_macro   0x000000000001846b      0x1d8 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .debug_macro   0x0000000000018643      0x284 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
+ .debug_macro   0x00000000000188c7       0x91 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
+ .debug_macro   0x0000000000018958       0x17 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
+ .debug_macro   0x000000000001896f      0x1e7 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(timers.o)
+ .debug_macro   0x0000000000018b56       0x97 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(timers.o)
+ .debug_macro   0x0000000000018bed      0x1a7 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(heap_3.o)
+ .debug_macro   0x0000000000018d94      0x198 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(list.o)
+ .debug_macro   0x0000000000018f2c      0x183 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(port.o)
 
-.debug_line     0x0000000000000000     0xf6e0
- .debug_line    0x0000000000000000      0x899 Core/Src/main.o
- .debug_line    0x0000000000000899      0x69c Core/Src/stm32f1xx_hal_msp.o
- .debug_line    0x0000000000000f35      0x6f7 Core/Src/stm32f1xx_hal_timebase_tim.o
- .debug_line    0x000000000000162c      0x775 Core/Src/stm32f1xx_it.o
- .debug_line    0x0000000000001da1      0x4f8 Core/Src/sysmem.o
- .debug_line    0x0000000000002299      0x719 Core/Src/system_stm32f1xx.o
- .debug_line    0x00000000000029b2       0x86 Core/Startup/startup_stm32f103c8tx.o
- .debug_line    0x0000000000002a38      0x946 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o
- .debug_line    0x000000000000337e      0xb2e Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o
- .debug_line    0x0000000000003eac      0x9df Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.o
- .debug_line    0x000000000000488b      0xd52 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o
- .debug_line    0x00000000000055dd     0x33c5 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o
- .debug_line    0x00000000000089a2     0x189c Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.o
- .debug_line    0x000000000000a23e     0x1f71 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
- .debug_line    0x000000000000c1af      0xb93 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(timers.o)
- .debug_line    0x000000000000cd42      0x5a6 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(heap_3.o)
- .debug_line    0x000000000000d2e8      0x674 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(list.o)
- .debug_line    0x000000000000d95c      0x804 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(port.o)
- .debug_line    0x000000000000e160     0x1580 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+.debug_line     0x0000000000000000     0xf6de
+ .debug_line    0x0000000000000000      0x897 Core/Src/main.o
+ .debug_line    0x0000000000000897      0x69c Core/Src/stm32f1xx_hal_msp.o
+ .debug_line    0x0000000000000f33      0x6f7 Core/Src/stm32f1xx_hal_timebase_tim.o
+ .debug_line    0x000000000000162a      0x775 Core/Src/stm32f1xx_it.o
+ .debug_line    0x0000000000001d9f      0x4f8 Core/Src/sysmem.o
+ .debug_line    0x0000000000002297      0x719 Core/Src/system_stm32f1xx.o
+ .debug_line    0x00000000000029b0       0x86 Core/Startup/startup_stm32f103c8tx.o
+ .debug_line    0x0000000000002a36      0x946 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o
+ .debug_line    0x000000000000337c      0xb2e Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o
+ .debug_line    0x0000000000003eaa      0x9df Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.o
+ .debug_line    0x0000000000004889      0xd52 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o
+ .debug_line    0x00000000000055db     0x33c5 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o
+ .debug_line    0x00000000000089a0     0x189c Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.o
+ .debug_line    0x000000000000a23c     0x1580 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .debug_line    0x000000000000b7bc     0x1f71 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
+ .debug_line    0x000000000000d72d      0xb93 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(timers.o)
+ .debug_line    0x000000000000e2c0      0x5a6 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(heap_3.o)
+ .debug_line    0x000000000000e866      0x674 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(list.o)
+ .debug_line    0x000000000000eeda      0x804 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(port.o)
 
-.debug_str      0x0000000000000000    0x901c2
- .debug_str     0x0000000000000000    0x86962 Core/Src/main.o
-                                      0x86d71 (size before relaxing)
- .debug_str     0x0000000000086962       0x5a Core/Src/stm32f1xx_hal_msp.o
+.debug_str      0x0000000000000000    0x901dd
+ .debug_str     0x0000000000000000    0x870c3 Core/Src/main.o
+                                      0x874e1 (size before relaxing)
+ .debug_str     0x00000000000870c3       0x5a Core/Src/stm32f1xx_hal_msp.o
                                       0x81ad2 (size before relaxing)
- .debug_str     0x00000000000869bc      0x30e Core/Src/stm32f1xx_hal_timebase_tim.o
+ .debug_str     0x000000000008711d      0x30e Core/Src/stm32f1xx_hal_timebase_tim.o
                                       0x822ce (size before relaxing)
- .debug_str     0x0000000000086cca       0x92 Core/Src/stm32f1xx_it.o
+ .debug_str     0x000000000008742b       0x92 Core/Src/stm32f1xx_it.o
                                       0x81f91 (size before relaxing)
- .debug_str     0x0000000000086d5c     0x2099 Core/Src/sysmem.o
+ .debug_str     0x00000000000874bd     0x2099 Core/Src/sysmem.o
                                        0x6261 (size before relaxing)
- .debug_str     0x0000000000088df5       0x52 Core/Src/system_stm32f1xx.o
+ .debug_str     0x0000000000089556       0x52 Core/Src/system_stm32f1xx.o
                                       0x81a70 (size before relaxing)
- .debug_str     0x0000000000088e47       0x36 Core/Startup/startup_stm32f103c8tx.o
+ .debug_str     0x00000000000895a8       0x36 Core/Startup/startup_stm32f103c8tx.o
                                          0x75 (size before relaxing)
- .debug_str     0x0000000000088e7d      0x2b9 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o
+ .debug_str     0x00000000000895de      0x2b9 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o
                                       0x82101 (size before relaxing)
- .debug_str     0x0000000000089136      0x300 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o
+ .debug_str     0x0000000000089897      0x300 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o
                                       0x82109 (size before relaxing)
- .debug_str     0x0000000000089436      0x324 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.o
+ .debug_str     0x0000000000089b97      0x324 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.o
                                       0x81e34 (size before relaxing)
- .debug_str     0x000000000008975a      0x245 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o
+ .debug_str     0x0000000000089ebb      0x245 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o
                                       0x81e6d (size before relaxing)
- .debug_str     0x000000000008999f      0xe4d Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o
+ .debug_str     0x000000000008a100      0xe4d Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o
                                       0x82e46 (size before relaxing)
- .debug_str     0x000000000008a7ec      0x538 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.o
+ .debug_str     0x000000000008af4d      0x538 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.o
                                       0x825f7 (size before relaxing)
- .debug_str     0x000000000008ad24     0x3506 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
-                                       0xdea3 (size before relaxing)
- .debug_str     0x000000000008e22a      0xcb1 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(timers.o)
-                                       0xd493 (size before relaxing)
- .debug_str     0x000000000008eedb       0x1c D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(heap_3.o)
-                                       0xbee3 (size before relaxing)
- .debug_str     0x000000000008eef7       0x9b D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(list.o)
-                                       0xad8b (size before relaxing)
- .debug_str     0x000000000008ef92      0x80e D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(port.o)
-                                       0x94d8 (size before relaxing)
- .debug_str     0x000000000008f7a0      0xa22 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .debug_str     0x000000000008b485     0x21d8 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
                                        0xd2b0 (size before relaxing)
+ .debug_str     0x000000000008d65d     0x1d45 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
+                                       0xdea3 (size before relaxing)
+ .debug_str     0x000000000008f3a2      0x576 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(timers.o)
+                                       0xd493 (size before relaxing)
+ .debug_str     0x000000000008f918       0x1c D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(heap_3.o)
+                                       0xbee3 (size before relaxing)
+ .debug_str     0x000000000008f934       0x9b D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(list.o)
+                                       0xad8b (size before relaxing)
+ .debug_str     0x000000000008f9cf      0x80e D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(port.o)
+                                       0x94d8 (size before relaxing)
 
 .comment        0x0000000000000000       0x53
  .comment       0x0000000000000000       0x53 Core/Src/main.o
@@ -3898,40 +3906,40 @@ LOAD c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.exte
  .comment       0x0000000000000053       0x54 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o
  .comment       0x0000000000000053       0x54 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o
  .comment       0x0000000000000053       0x54 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.o
+ .comment       0x0000000000000053       0x54 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
  .comment       0x0000000000000053       0x54 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
  .comment       0x0000000000000053       0x54 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(timers.o)
  .comment       0x0000000000000053       0x54 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(heap_3.o)
  .comment       0x0000000000000053       0x54 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(list.o)
  .comment       0x0000000000000053       0x54 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(port.o)
- .comment       0x0000000000000053       0x54 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
 
-.debug_frame    0x0000000000000000     0x3dc8
- .debug_frame   0x0000000000000000      0x118 Core/Src/main.o
- .debug_frame   0x0000000000000118       0x38 Core/Src/stm32f1xx_hal_msp.o
- .debug_frame   0x0000000000000150       0x74 Core/Src/stm32f1xx_hal_timebase_tim.o
- .debug_frame   0x00000000000001c4       0xc4 Core/Src/stm32f1xx_it.o
- .debug_frame   0x0000000000000288       0x34 Core/Src/sysmem.o
- .debug_frame   0x00000000000002bc       0x58 Core/Src/system_stm32f1xx.o
- .debug_frame   0x0000000000000314      0x334 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o
- .debug_frame   0x0000000000000648      0x428 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o
- .debug_frame   0x0000000000000a70      0x14c Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.o
- .debug_frame   0x0000000000000bbc      0x218 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o
- .debug_frame   0x0000000000000dd4     0x11bc Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o
- .debug_frame   0x0000000000001f90      0x638 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.o
- .debug_frame   0x00000000000025c8      0x988 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
- .debug_frame   0x0000000000002f50      0x3c8 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(timers.o)
- .debug_frame   0x0000000000003318       0x58 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(heap_3.o)
- .debug_frame   0x0000000000003370       0xd8 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(list.o)
- .debug_frame   0x0000000000003448      0x1bc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(port.o)
- .debug_frame   0x0000000000003604      0x530 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
- .debug_frame   0x0000000000003b34       0x20 c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(lib_a-errno.o)
- .debug_frame   0x0000000000003b54       0x2c c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(lib_a-init.o)
- .debug_frame   0x0000000000003b80       0x30 c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(lib_a-malloc.o)
- .debug_frame   0x0000000000003bb0       0x28 c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(lib_a-memcpy-stub.o)
- .debug_frame   0x0000000000003bd8       0x20 c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(lib_a-memset.o)
- .debug_frame   0x0000000000003bf8       0x38 c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(lib_a-nano-freer.o)
- .debug_frame   0x0000000000003c30       0x30 c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(lib_a-nano-mallocr.o)
- .debug_frame   0x0000000000003c60       0x2c c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(lib_a-sbrkr.o)
- .debug_frame   0x0000000000003c8c       0x30 c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(lib_a-mlock.o)
- .debug_frame   0x0000000000003cbc       0x5c c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(lib_a-reent.o)
- .debug_frame   0x0000000000003d18       0xb0 c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(lib_a-lock.o)
+.debug_frame    0x0000000000000000     0x3da8
+ .debug_frame   0x0000000000000000       0xf8 Core/Src/main.o
+ .debug_frame   0x00000000000000f8       0x38 Core/Src/stm32f1xx_hal_msp.o
+ .debug_frame   0x0000000000000130       0x74 Core/Src/stm32f1xx_hal_timebase_tim.o
+ .debug_frame   0x00000000000001a4       0xc4 Core/Src/stm32f1xx_it.o
+ .debug_frame   0x0000000000000268       0x34 Core/Src/sysmem.o
+ .debug_frame   0x000000000000029c       0x58 Core/Src/system_stm32f1xx.o
+ .debug_frame   0x00000000000002f4      0x334 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o
+ .debug_frame   0x0000000000000628      0x428 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o
+ .debug_frame   0x0000000000000a50      0x14c Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.o
+ .debug_frame   0x0000000000000b9c      0x218 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o
+ .debug_frame   0x0000000000000db4     0x11bc Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o
+ .debug_frame   0x0000000000001f70      0x638 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.o
+ .debug_frame   0x00000000000025a8      0x530 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(queue.o)
+ .debug_frame   0x0000000000002ad8      0x988 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(tasks.o)
+ .debug_frame   0x0000000000003460      0x3c8 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(timers.o)
+ .debug_frame   0x0000000000003828       0x58 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(heap_3.o)
+ .debug_frame   0x0000000000003880       0xd8 D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(list.o)
+ .debug_frame   0x0000000000003958      0x1bc D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug\libfreertos.a(port.o)
+ .debug_frame   0x0000000000003b14       0x20 c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(lib_a-errno.o)
+ .debug_frame   0x0000000000003b34       0x2c c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(lib_a-init.o)
+ .debug_frame   0x0000000000003b60       0x30 c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(lib_a-malloc.o)
+ .debug_frame   0x0000000000003b90       0x28 c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(lib_a-memcpy-stub.o)
+ .debug_frame   0x0000000000003bb8       0x20 c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(lib_a-memset.o)
+ .debug_frame   0x0000000000003bd8       0x38 c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(lib_a-nano-freer.o)
+ .debug_frame   0x0000000000003c10       0x30 c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(lib_a-nano-mallocr.o)
+ .debug_frame   0x0000000000003c40       0x2c c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(lib_a-sbrkr.o)
+ .debug_frame   0x0000000000003c6c       0x30 c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(lib_a-mlock.o)
+ .debug_frame   0x0000000000003c9c       0x5c c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(lib_a-reent.o)
+ .debug_frame   0x0000000000003cf8       0xb0 c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(lib_a-lock.o)

@@ -14,6 +14,7 @@
   * License. You may obtain a copy of the License at:
   *                        opensource.org/licenses/BSD-3-Clause
   *
+  *Ejemplo simple con FreeRtos, LED(PB13), Switch(PB5), comunicación usando "Queue".
   ******************************************************************************
   */
 /* USER CODE END Header */
@@ -24,6 +25,7 @@
 /* USER CODE BEGIN Includes */
 #include "FreeRTOS.h"
 #include "task.h"
+#include "queue.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -43,7 +45,8 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-
+QueueHandle_t my_queue;
+int estado = 0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -55,32 +58,24 @@ static void MX_GPIO_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
 static void ReadSw1(void *pvParameters){
-	int state = 0;
+	uint32_t sw1_state = 0;
 	while(1){
-		state = HAL_GPIO_ReadPin(SW1_GPIO_Port, SW1_Pin);
+		sw1_state = HAL_GPIO_ReadPin(SW1_GPIO_Port, SW1_Pin);
+		estado = sw1_state;
+		xQueueSend(my_queue, &sw1_state, portMAX_DELAY);
 	}
-
 }
 
-
-static void LedOn(void *pvParameters){
-	vTaskDelay(1000);
+static void LedOnOff(void *pvParameters){
+	uint32_t read_sw1_state;
 	while(1){
- 		HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);
-		vTaskDelay(2000);
-	}
-
-}
-
-static void LedOff(void *pvParameters){
-
-	while(1){
+		xQueueReceive(my_queue, &read_sw1_state, portMAX_DELAY);
+		if(read_sw1_state)
 		HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_SET);
-		vTaskDelay(2000);
+		else
+ 		HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);
 	}
-
 }
 /* USER CODE END 0 */
 
@@ -112,21 +107,20 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+
   /* USER CODE BEGIN 2 */
-
-  xTaskCreate(LedOn, "", 100, NULL, 1, NULL);
-  xTaskCreate(LedOff, "", 100, NULL, 1, NULL);
+  xTaskCreate(LedOnOff, "", 100, NULL, 1, NULL);
   xTaskCreate(ReadSw1, "", 100, NULL, 1, NULL);
-
+  my_queue = xQueueCreate(1,sizeof(uint32_t));
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   vTaskStartScheduler();
+  /* USER CODE END WHILE */
 
-    /* USER CODE END WHILE */
 
-    /* USER CODE BEGIN 3 */
+  /* USER CODE BEGIN 3 */
 
   /* USER CODE END 3 */
 }

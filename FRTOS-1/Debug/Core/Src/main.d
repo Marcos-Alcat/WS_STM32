@@ -32,7 +32,9 @@ Core/Src/main.o: ../Core/Src/main.c \
  D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/portmacro.h \
  D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/mpu_wrappers.h \
  D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/task.h \
- D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/list.h
+ D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/list.h \
+ D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/queue.h \
+ D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/task.h
 
 D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/FRTOS-1/Core/Inc/main.h:
 
@@ -101,3 +103,7 @@ D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/mpu_wrappers.h:
 D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/task.h:
 
 D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/list.h:
+
+D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/queue.h:
+
+D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/task.h:
