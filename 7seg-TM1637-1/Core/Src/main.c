@@ -95,7 +95,7 @@ int main(void)
 
   tm1637Init();
       // Optionally set brightness. 0 is off. By default, initialized to full brightness.
-      tm1637SetBrightness(1);
+      tm1637SetBrightness(5);
       // Display the value "1234" and turn on the `:` that is between digits 2 and 3.
       tm1637DisplayDecimal(12, 0);
   /* USER CODE BEGIN WHILE */

@@ -37,13 +37,13 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  16 .debug_macro  00016925  00000000  00000000  0002b650  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_line   0000a1ec  00000000  00000000  00041f75  2**0
+ 17 .debug_line   0000a1ee  00000000  00000000  00041f75  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    0008420f  00000000  00000000  0004c161  2**0
+ 18 .debug_str    0008420f  00000000  00000000  0004c163  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000053  00000000  00000000  000d0370  2**0
+ 19 .comment      00000053  00000000  00000000  000d0372  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  00002768  00000000  00000000  000d03c4  2**2
+ 20 .debug_frame  00002768  00000000  00000000  000d03c8  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -106,16 +106,16 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
  8000158:	f000 f850 	bl	80001fc <MX_GPIO_Init>
-  /* USER CODE BEGIN 2 */
-
-  /* USER CODE END 2 */
 
   /* Infinite loop */
+
+  //https://github.com/embedded-programmer/stm32-tm1637/tree/master
+
   tm1637Init();
  800015c:	f000 f888 	bl	8000270 <tm1637Init>
       // Optionally set brightness. 0 is off. By default, initialized to full brightness.
-      tm1637SetBrightness(1);
- 8000160:	2001      	movs	r0, #1
+      tm1637SetBrightness(5);
+ 8000160:	2005      	movs	r0, #5
  8000162:	f000 f937 	bl	80003d4 <tm1637SetBrightness>
       // Display the value "1234" and turn on the `:` that is between digits 2 and 3.
       tm1637DisplayDecimal(12, 0);
