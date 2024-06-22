@@ -1,0 +1,13 @@
+tm1637_lib.c:36:6:tm1637_SetBrightness	16	static
+tm1637_lib.c:45:6:tm1637_DisplayUpdate	24	static
+tm1637_lib.c:69:9:tm1637_NumberToSegments	16	static
+tm1637_lib.c:100:6:tm1637_ShowNumber	24	static
+tm1637_lib.c:116:6:tm1637_Start	8	static
+tm1637_lib.c:124:6:tm1637_Stop	8	static
+tm1637_lib.c:135:9:tm1637_ReadACK	16	static
+tm1637_lib.c:148:6:tm1637_WriteByte	24	static
+tm1637_lib.c:167:6:SomeDelay	24	static,ignoring_inline_asm
+tm1637_lib.c:180:6:tm1637_CLK_SetHigh	8	static
+tm1637_lib.c:185:6:tm1637_CLK_SetLow	8	static
+tm1637_lib.c:190:6:tm1637_DIO_SetHigh	8	static
+tm1637_lib.c:195:6:tm1637_DIO_SetLow	8	static
