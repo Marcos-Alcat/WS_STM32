@@ -52,7 +52,10 @@ uint32_t val2 = 0;
 //uint16_t distance  = 0;
 float distance  = 0;
 char string[15];
-QueueHandle_t my_queue;
+QueueHandle_t queue_AM, queue_PA, queue_CA;
+struct datConf { int max; int min;};
+int max = 50;
+int min = 10;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -82,7 +85,7 @@ static void Medir(void *pvParameters){
 		val2 = __HAL_TIM_GET_COUNTER (&htim2);
 		//distance = (val2-val1)* 0.036/2;
 		distancia = (val2-val1)* 0.036/2;
-		xQueueSend(my_queue, &distancia, portMAX_DELAY);
+		xQueueSend(queue_AM, &distancia, portMAX_DELAY);
 		vTaskDelay(60/portTICK_PERIOD_MS);
 	}
 }
@@ -90,8 +93,29 @@ static void Medir(void *pvParameters){
 static void Display(void *pvParameters){
 	uint32_t distancia = 0;
 	while(1){
-		xQueueReceive(my_queue, &distancia, portMAX_DELAY);
+		xQueueReceive(queue_PA, &distancia, portMAX_DELAY);
 		tm1637_ShowNumber(distancia);
+	}
+}
+
+static void Alarm(void *pvParameters){
+	uint32_t distancia = 0;
+	struct datConf config;
+	while(1){
+		xQueueReceive(queue_AM, &distancia, portMAX_DELAY);
+		xQueueSend(queue_PA, &distancia, portMAX_DELAY);
+		xQueueReceive(queue_CA, &config, portMAX_DELAY);
+		if((distancia > config.max)||(distancia < config.min)){HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_SET);}
+		else {HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);}
+	}
+}
+
+static void Config(void *pvParameters){
+	struct datConf config;
+	while(1){
+		config.max = max;
+		config.min = min;
+		xQueueSend(queue_CA, &config, portMAX_DELAY);
 	}
 }
 /* USER CODE END 0 */
@@ -131,20 +155,23 @@ int main(void)
   tm1637_SetBrightness(3);//Set max brightness
   tm1637_DisplayUpdate(0,0,0,0);//Clear display (all segments off)
 
-  my_queue = xQueueCreate(1,sizeof(uint32_t));
+  queue_PA = xQueueCreate(1,sizeof(uint32_t));
+  queue_AM = xQueueCreate(1,sizeof(uint32_t));
+  queue_CA = xQueueCreate(1,sizeof(struct datConf));
+
   xTaskCreate(Medir, "", 100, NULL, 1, NULL);
   xTaskCreate(Display, "", 100, NULL, 1, NULL);
-
+  xTaskCreate(Alarm, "", 100, NULL, 1, NULL);
+  xTaskCreate(Config, "", 100, NULL, 1, NULL);
+  vTaskStartScheduler();
   /* USER CODE END 2 */
 
   /* Infinite loop */
-  vTaskStartScheduler();
   /* USER CODE BEGIN WHILE */
   while (1)
   {
     /* USER CODE END WHILE */
 
-	HAL_Delay(10);
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
@@ -243,15 +270,26 @@ static void MX_GPIO_Init(void)
   GPIO_InitTypeDef GPIO_InitStruct = {0};
 
   /* GPIO Ports Clock Enable */
+  __HAL_RCC_GPIOC_CLK_ENABLE();
   __HAL_RCC_GPIOD_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
   __HAL_RCC_GPIOB_CLK_ENABLE();
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(TRIG_GPIO_Port, TRIG_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOB, TM1637_DIO_Pin|TM1637_CLK_Pin, GPIO_PIN_SET);
+
+  /*Configure GPIO pin : LED_Pin */
+  GPIO_InitStruct.Pin = LED_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(LED_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pin : TRIG_Pin */
   GPIO_InitStruct.Pin = TRIG_Pin;
