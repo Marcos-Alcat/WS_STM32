@@ -61,9 +61,9 @@ static void LedBlink2(void *pvParameters){
 	//uint32_t sw1_state = 0;
 	while(1){
 		HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_SET);
-		vTaskDelay(500/portTICK_PERIOD_MS);
+		HAL_Delay(500);
  		HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);
- 		vTaskDelay(500/portTICK_PERIOD_MS);
+ 		HAL_Delay(500);
 	}
 }
 
@@ -71,10 +71,10 @@ static void LedBlink1(void *pvParameters){
 	//uint32_t read_sw1_state;
 	while(1){
 		HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_SET);
-		vTaskDelay(100/portTICK_PERIOD_MS);
+		HAL_Delay(100);
  		HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);
- 		vTaskDelay(100/portTICK_PERIOD_MS);
-
+ 		HAL_Delay(100);
+ 		//vTaskDelay(100/portTICK_PERIOD_MS); //recordar que sale de la tarea si lo uso.
 	}
 }
 /* USER CODE END 0 */
@@ -108,8 +108,8 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   /* USER CODE BEGIN 2 */
-  xTaskCreate(LedBlink1, "", 100, NULL, 1, NULL);
-  xTaskCreate(LedBlink2, "", 100, NULL, 2, NULL);
+  xTaskCreate(LedBlink1, "Blink 1", 100, NULL, 2, NULL);
+  xTaskCreate(LedBlink2, "Blink 2", 100, NULL, 1, NULL);
   vTaskStartScheduler();
   /* USER CODE END 2 */
 
@@ -204,8 +204,8 @@ static void MX_GPIO_Init(void)
 /* USER CODE BEGIN 4 */
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
-	if(read_sw1_state) read_sw1_state = 0;
-	else read_sw1_state = 1;
+	//if(read_sw1_state) read_sw1_state = 0;
+	//else read_sw1_state = 1;
 
 	//HAL_GPIO_ReadPin(SW1_GPIO_Port, SW1_Pin);
 }
