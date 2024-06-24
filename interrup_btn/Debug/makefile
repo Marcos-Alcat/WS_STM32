@@ -61,8 +61,8 @@ all: main-build
 main-build: interrup_btn.elf secondary-outputs
 
 # Tool invocations
-interrup_btn.elf: $(OBJS) $(USER_OBJS) C:\Users\Marcos\Documents\STM32\ -\ WorkSpace\interrup_btn\STM32F103C8TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "interrup_btn.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"C:\Users\Marcos\Documents\STM32 - WorkSpace\interrup_btn\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="interrup_btn.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+interrup_btn.elf: $(OBJS) $(USER_OBJS) D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\interrup_btn\STM32F103C8TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "interrup_btn.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\interrup_btn\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="interrup_btn.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
