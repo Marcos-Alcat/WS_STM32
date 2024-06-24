@@ -24,7 +24,8 @@
 /* USER CODE BEGIN Includes */
 #include "FreeRTOS.h"
 #include "task.h"
-#include "queue.h"
+//#include "queue.h"
+#include "semphr.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -35,6 +36,7 @@
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 int read_sw1_state = 0;
+SemaphoreHandle_t my_semph1;
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -60,10 +62,20 @@ static void MX_GPIO_Init(void);
 static void LedBlink2(void *pvParameters){
 	//uint32_t sw1_state = 0;
 	while(1){
+		/* Se usa el semáforo para esperar por el evento. El semáforo fue creado antes
+		que se inicie el scheduler, por lo tanto, antes que esta tarea se ejecute por pri
+		mera vez. La tarea se bloquea indefinidamente, por lo que la función saldrá del
+		estado bloqueado recién cuando el semáforo este disponible. Por lo tanto, no hay
+		necesidad de chequear por el valor de retorno de la función. */
+		xSemaphoreTake(my_semph1, portMAX_DELAY);
 		HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_SET);
 		HAL_Delay(500);
  		HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);
  		HAL_Delay(500);
+ 		HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_SET);
+		HAL_Delay(500);
+		HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);
+		HAL_Delay(500);
 	}
 }
 
@@ -108,8 +120,10 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   /* USER CODE BEGIN 2 */
-  xTaskCreate(LedBlink1, "Blink 1", 100, NULL, 2, NULL);
-  xTaskCreate(LedBlink2, "Blink 2", 100, NULL, 1, NULL);
+  vSemaphoreCreateBinary(my_semph1);
+  //xSemaphoreGive(my_semph1);
+  xTaskCreate(LedBlink1, "Blink 1", 100, NULL, 1, NULL);
+  xTaskCreate(LedBlink2, "Blink 2", 100, NULL, 2, NULL);
   vTaskStartScheduler();
   /* USER CODE END 2 */
 
@@ -206,7 +220,8 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
 	//if(read_sw1_state) read_sw1_state = 0;
 	//else read_sw1_state = 1;
-
+	xSemaphoreGiveFromISR(my_semph1, pdTRUE); //rompe....
+	//xSemaphoreGive(my_semph1);
 	//HAL_GPIO_ReadPin(SW1_GPIO_Port, SW1_Pin);
 }
 /* USER CODE END 4 */
