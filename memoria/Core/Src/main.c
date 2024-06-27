@@ -3,8 +3,6 @@
   ******************************************************************************
   * @file           : main.c
   * @brief          : Main program body
-  * Ref 1: https://microcontrollerslab.com/stm32-blue-pill-adc-polling-interrupt-dma/
-  * Ref 2: https://github.com/fabimass/stm32f103-freertos/tree/main/adc/adc_isr
   ******************************************************************************
   * @attention
   *
@@ -21,12 +19,19 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "string.h"
+#include "FLASH_PAGE_F1.h"
 
-/* Private includes ----------------------------------------------------------*/
-/* USER CODE BEGIN Includes */
 #include "FreeRTOS.h"
 #include "task.h"
 #include "queue.h"
+
+QueueHandle_t CM;
+
+
+/* Private includes ----------------------------------------------------------*/
+/* USER CODE BEGIN Includes */
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -44,7 +49,6 @@
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
-ADC_HandleTypeDef hadc1;
 
 /* USER CODE BEGIN PV */
 
@@ -53,76 +57,12 @@ ADC_HandleTypeDef hadc1;
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
-static void MX_ADC1_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-QueueHandle_t adc_queue;
-
-#define THRESHOLD_VALUE 2048
-
-static void Adc(void *pvParameters){
-
-	while (1){
-
-		// Starts conversion
-		/*
-		 * La función HAL-ADC-Start-IT() es responsable de permitir la interrupción y inicio de la conversión de ADC de los canales regulares.
-		 * Toma en un solo parámetro que es el puntero de la estructura ADC-HandleTypeDef que contiene los parámetros de configuración para el
-		 * ADC especificado. En nuestro caso es "&hadc1.
-		 */
-		HAL_ADC_Start_IT(&hadc1);
-
-		// This delay marks the conversion rate
-		vTaskDelay(100/portTICK_PERIOD_MS);
-	}
-}
-
-static void Led(void *pvParameters){
-	uint16_t received_value;
-	while (1){
-		// Reads the value from the queue
-		xQueueReceive(adc_queue,&received_value,portMAX_DELAY);
-		if ( received_value > THRESHOLD_VALUE ) {
-			// If the value coming from the queue is greater than the threshold, turn on the led
-			HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);
-		}
-		else {
-			// Else turn it off
-			HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_SET);
-		}
-	}
-}
-
-static void Config(void *pvParameters){
-	uint16_t received_value;
-	while (1){
-		// Reads the value from the queue
-		xQueueReceive(adc_queue,&received_value,portMAX_DELAY);
-
-	}
-}
-
-void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
-{
-	static portBASE_TYPE xHigherPriorityTaskWoken = pdFALSE;
-	static uint16_t adc_value = 0;
-
-	// Obtains the conversion result
-	adc_value = HAL_ADC_GetValue(hadc);
-
-	// Sends the value to the queue
-	xQueueOverwriteFromISR(adc_queue, &adc_value, &xHigherPriorityTaskWoken); //en la cinfig de interrup: ADC1 y ADC2 global poner una prioridad de 5, sino queda trabado ahí.
-
-	portEND_SWITCHING_ISR(xHigherPriorityTaskWoken);
-
-	//dos botones: max: 1981
-	//boton up: 2750
-	//boton min: 2574
-}
 
 /* USER CODE END 0 */
 
@@ -130,52 +70,171 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
   * @brief  The application entry point.
   * @retval int
   */
-int main(void)
+int read_sw1_state = 0;
+
+typedef struct
 {
-  /* USER CODE BEGIN 1 */
+	uint32_t maximo;
+	uint32_t minimo;
+}secuencias;
 
-  /* USER CODE END 1 */
+uint32_t estados = 0;
 
-  /* MCU Configuration--------------------------------------------------------*/
+secuencias secuencia[3];
+secuencias secuencia_cola;
 
-  /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
-  HAL_Init();
+uint32_t valores_max[5] = {450,300,100,200,2}; ///VALORES QUE RECIBE DE COLA
+uint32_t valores_min[5] = {400,30,10,0,1}; ///VALORES QUE RECIBE DE COLA
 
-  /* USER CODE BEGIN Init */
+int tarea = 0;
 
-  /* USER CODE END Init */
+TaskHandle_t xTarea_config_Handle = NULL,xTarea_memoria_Handle=NULL;
 
-  /* Configure the system clock */
-  SystemClock_Config();
+void Tarea_config( void *pvParameters )
+{
+	unsigned portBASE_TYPE uxPriority;
+	uxPriority = uxTaskPriorityGet( NULL );
 
-  /* USER CODE BEGIN SysInit */
+	secuencias cola,envio;
+	int contador=0;
+	for( ;; )
+	{
+		 if(read_sw1_state)
+		 {
+			 envio.maximo = 78;
+			 envio.minimo = 7;
+			 HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_SET);
+			 xQueueReceive(CM,&cola,portMAX_DELAY);
+			 xQueueSend(CM, &envio, portMAX_DELAY);
+			 vTaskPrioritySet( xTarea_memoria_Handle, 4 );
+			 /// vTaskPrioritySet( NULL, 1 ); LE BAJO LA PRIORIDAD ASI LA MEMORIA VUELVE GRABA , BAJA Y QUEDAN LAS OTRAS 4 CON MAS PRIORIDAD
+		 }
+		else
+			HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);
 
-  /* USER CODE END SysInit */
+		 xQueuePeek(CM,&cola,portMAX_DELAY);
+		 ///xQueueSend(my_queue, &envio, portMAX_DELAY); X2 ENVIO A ALARMA Y A PANTALLA
 
-  /* Initialize all configured peripherals */
-  MX_GPIO_Init();
-  MX_ADC1_Init();
-  /* USER CODE BEGIN 2 */
-  adc_queue = xQueueCreate(1,sizeof(uint16_t));
+		 tarea = 2;
 
-  xTaskCreate(Adc, "ADC task", configMINIMAL_STACK_SIZE, NULL, 2, NULL);
-  xTaskCreate(Led, "Led task", configMINIMAL_STACK_SIZE, NULL, 2, NULL);
-  xTaskCreate(AConfig, "Config task", configMINIMAL_STACK_SIZE, NULL, 3, NULL);
-
-  vTaskStartScheduler();
-
-  /* USER CODE END 2 */
-
-  /* Infinite loop */
-  /* USER CODE BEGIN WHILE */
-  while (1)
-  {
-    /* USER CODE END WHILE */
-
-    /* USER CODE BEGIN 3 */
-  }
-  /* USER CODE END 3 */
+	}
 }
+
+
+void Tarea_memoria( void *pvParameters )
+{
+unsigned portBASE_TYPE uxPriority;
+uxPriority = uxTaskPriorityGet( NULL );
+
+secuencias recepcion;
+for( ;; )
+	{
+	/// Tarea memoria ///////////////////////
+		  tarea = 1;
+		  if(estados==0)
+		  {
+			  /// solo de prueba /////////////////////////////////////////////////
+
+				Flash_Write_NUM(0x08005C10, 100);
+				Flash_Write_NUM(0x08006010, 0);
+
+				Flash_Write_NUM(0x08006410, 70);
+				Flash_Write_NUM(0x08006810, 30);
+
+				Flash_Write_NUM(0x08006C10, 40);
+				Flash_Write_NUM(0x08007010, 25);
+			  /// //////////////////////////////////////////////////////////////
+
+			  ///inicializacion memoria //////////////////////////////////
+			   secuencia[2].maximo = Flash_Read_NUM(0x08006C10);
+			   secuencia[2].minimo = Flash_Read_NUM(0x08007010);
+
+			   secuencia[1].maximo = Flash_Read_NUM(0x08006410);
+			   secuencia[1].minimo = Flash_Read_NUM(0x08006810);
+
+			   secuencia[0].maximo = Flash_Read_NUM(0x08005C10);
+			   secuencia[0].minimo = Flash_Read_NUM(0x08006010);
+			  /// //////////////////////////////////////////////////////////////////////////////////
+			  /// inicializa - carga : ARRANCA EL SISTEMA CON EL VALOR ULTIMO GUARDADO DE LA SECUENCIA EN MEMORIA, Y SE CARGA A LA COLA CM
+
+			  xQueueSend(CM, &secuencia[0], portMAX_DELAY);
+			  /// cambia estado
+			  estados = 1;
+		  }
+		  else
+		  {
+			  /// CADA VES QUE RECIBE UN DATO DE LA COLA CM LO GUARDA EN PRIMER LUGAR , LOS DATOS ANTERIORWS LOS DESPLAZA 1 Y LUEGO GUARAD EN MEMORIA Y LUEGO SE BLOQUEA
+			  xQueuePeek(CM,&recepcion,portMAX_DELAY);
+			  /// graba
+
+			  secuencia[2] = secuencia[1];
+			  Flash_Write_NUM(0x08006C10, secuencia[2].maximo);
+			  Flash_Write_NUM(0x08007010, secuencia[2].minimo);
+
+			  secuencia[1] = secuencia[0];
+			  Flash_Write_NUM(0x08006410, secuencia[1].maximo);
+			  Flash_Write_NUM(0x08006810, secuencia[1].minimo);
+
+			  secuencia[0] = recepcion;
+			  Flash_Write_NUM(0x08005C10, recepcion.maximo);
+			  Flash_Write_NUM(0x08006010, recepcion.minimo);
+			  /// si lo hago al reves pierdo datos
+
+			  vTaskPrioritySet( xTarea_config_Handle, 1 );
+
+		  }
+		  /// ///////////////////////////
+		  vTaskPrioritySet( NULL, 1 );
+	}
+}
+
+
+
+void Tareas_restantes( void *pvParameters )
+{
+	unsigned portBASE_TYPE uxPriority;
+	uxPriority = uxTaskPriorityGet( NULL );
+
+	secuencias recepcion;
+	for( ;; )
+	{
+		tarea = 3;
+		if(read_sw1_state)
+		 {
+			 HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_SET);
+			 vTaskPrioritySet( xTarea_config_Handle, 3 );
+		 }
+		else
+			HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);
+	}
+}
+
+
+
+
+
+int main( void )
+{
+	HAL_Init();
+	SystemClock_Config();
+	MX_GPIO_Init();
+
+	xTaskCreate( Tarea_memoria, "Tarea_memoria", 1000, NULL, 4, &xTarea_memoria_Handle );///MAX_priority???????
+	xTaskCreate( Tarea_config, "Tarea_config", 1000, NULL, 3, &xTarea_config_Handle );
+	xTaskCreate( Tareas_restantes, "Tareas_restantes", 1000, NULL, 2, NULL );
+	/* El manipulador de tarea es el último parámetro. */
+	CM = xQueueCreate(1,sizeof(secuencias));
+	/* Inicio el Scheduler para que last areas comiencen a ejecutarse. */
+	vTaskStartScheduler();
+
+	for( ;; );
+}
+
+
+/// int valor;
+/// valor = Flash_Read_NUM(0x08007410); ////COMPROBAR QUE CUANDO LEO UNA HOJA SIN ESCRIBIR VALE 0
+/// QUE PASA SI PONGO MAXIMO 40 Y MIN 60, O SEA MAX < MIN???????????????
+
 
 /**
   * @brief System Clock Configuration
@@ -185,7 +244,6 @@ void SystemClock_Config(void)
 {
   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
-  RCC_PeriphCLKInitTypeDef PeriphClkInit = {0};
 
   /** Initializes the RCC Oscillators according to the specified parameters
   * in the RCC_OscInitTypeDef structure.
@@ -214,57 +272,6 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
-  PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_ADC;
-  PeriphClkInit.AdcClockSelection = RCC_ADCPCLK2_DIV6;
-  if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
-  {
-    Error_Handler();
-  }
-}
-
-/**
-  * @brief ADC1 Initialization Function
-  * @param None
-  * @retval None
-  */
-static void MX_ADC1_Init(void)
-{
-
-  /* USER CODE BEGIN ADC1_Init 0 */
-
-  /* USER CODE END ADC1_Init 0 */
-
-  ADC_ChannelConfTypeDef sConfig = {0};
-
-  /* USER CODE BEGIN ADC1_Init 1 */
-
-  /* USER CODE END ADC1_Init 1 */
-  /** Common config
-  */
-  hadc1.Instance = ADC1;
-  hadc1.Init.ScanConvMode = ADC_SCAN_DISABLE;
-  hadc1.Init.ContinuousConvMode = DISABLE;
-  hadc1.Init.DiscontinuousConvMode = DISABLE;
-  hadc1.Init.ExternalTrigConv = ADC_SOFTWARE_START;
-  hadc1.Init.DataAlign = ADC_DATAALIGN_RIGHT;
-  hadc1.Init.NbrOfConversion = 1;
-  if (HAL_ADC_Init(&hadc1) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  /** Configure Regular Channel
-  */
-  sConfig.Channel = ADC_CHANNEL_5;
-  sConfig.Rank = ADC_REGULAR_RANK_1;
-  sConfig.SamplingTime = ADC_SAMPLETIME_1CYCLE_5;
-  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  /* USER CODE BEGIN ADC1_Init 2 */
-
-  /* USER CODE END ADC1_Init 2 */
-
 }
 
 /**
@@ -290,6 +297,16 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(LED_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : SW1_Pin */
+  GPIO_InitStruct.Pin = SW1_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  HAL_GPIO_Init(SW1_GPIO_Port, &GPIO_InitStruct);
+
+  /* EXTI interrupt init*/
+  HAL_NVIC_SetPriority(EXTI9_5_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(EXTI9_5_IRQn);
 
 }
 
@@ -351,3 +368,14 @@ void assert_failed(uint8_t *file, uint32_t line)
 #endif /* USE_FULL_ASSERT */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
+
+
+
+
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+{
+	if(read_sw1_state) read_sw1_state = 0;
+	else read_sw1_state = 1;
+
+	//HAL_GPIO_ReadPin(SW1_GPIO_Port, SW1_Pin);
+}

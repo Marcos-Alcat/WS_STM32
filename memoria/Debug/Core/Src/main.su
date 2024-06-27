@@ -1,0 +1,9 @@
+main.c:93:6:Tarea_config	40	static
+main.c:124:6:Tarea_memoria	32	static
+main.c:193:6:Tareas_restantes	32	static
+main.c:216:5:main	16	static
+main.c:243:6:SystemClock_Config	72	static
+main.c:282:13:MX_GPIO_Init	40	static
+main.c:325:6:HAL_TIM_PeriodElapsedCallback	16	static
+main.c:342:6:Error_Handler	4	static,ignoring_inline_asm
+main.c:375:6:HAL_GPIO_EXTI_Callback	16	static
