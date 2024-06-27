@@ -27,6 +27,7 @@
 #include "FreeRTOS.h"
 #include "task.h"
 #include "queue.h"
+#include "semphr.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -61,11 +62,17 @@ static void MX_ADC1_Init(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 QueueHandle_t adc_queue;
+SemaphoreHandle_t my_semph1;
 
+//para cambio de prioridades:
+TaskHandle_t xTarea_Config_Handle = NULL, xTarea_ADC_Handle=NULL;
+
+int tarea = 0;
 #define THRESHOLD_VALUE 2048
 
 static void Adc(void *pvParameters){
-
+	//unsigned portBASE_TYPE uxPriority;
+	//uxPriority = uxTaskPriorityGet( NULL );
 	while (1){
 
 		// Starts conversion
@@ -75,9 +82,10 @@ static void Adc(void *pvParameters){
 		 * ADC especificado. En nuestro caso es "&hadc1.
 		 */
 		HAL_ADC_Start_IT(&hadc1);
-
+		HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_SET);
+		HAL_Delay(80);
 		// This delay marks the conversion rate
-		vTaskDelay(100/portTICK_PERIOD_MS);
+		//vTaskDelay(100/portTICK_PERIOD_MS);
 	}
 }
 
@@ -98,11 +106,18 @@ static void Led(void *pvParameters){
 }
 
 static void Config(void *pvParameters){
+	//unsigned portBASE_TYPE uxPriority;
+	//uxPriority = uxTaskPriorityGet( NULL );
 	uint16_t received_value;
-	while (1){
-		// Reads the value from the queue
-		xQueueReceive(adc_queue,&received_value,portMAX_DELAY);
 
+	while (1){
+		xSemaphoreTake(my_semph1, portMAX_DELAY);
+		vTaskPrioritySet( xTarea_ADC_Handle, 3);
+		// Reads the value from the queue
+		HAL_ADC_Start_IT(&hadc1);
+		xQueueReceive(adc_queue,&received_value,portMAX_DELAY);
+		HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);
+		HAL_Delay(80);
 	}
 }
 
@@ -116,7 +131,9 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
 
 	// Sends the value to the queue
 	xQueueOverwriteFromISR(adc_queue, &adc_value, &xHigherPriorityTaskWoken); //en la cinfig de interrup: ADC1 y ADC2 global poner una prioridad de 5, sino queda trabado ahí.
-
+	if(adc_value<2300)
+		xSemaphoreGiveFromISR(my_semph1, &xHigherPriorityTaskWoken);
+	//xQueueOverwriteFromISR(adc_queue, &adc_value, &xHigherPriorityTaskWoken);
 	portEND_SWITCHING_ISR(xHigherPriorityTaskWoken);
 
 	//dos botones: max: 1981
@@ -157,10 +174,11 @@ int main(void)
   MX_ADC1_Init();
   /* USER CODE BEGIN 2 */
   adc_queue = xQueueCreate(1,sizeof(uint16_t));
-
-  xTaskCreate(Adc, "ADC task", configMINIMAL_STACK_SIZE, NULL, 2, NULL);
+  vSemaphoreCreateBinary(my_semph1);
+  xSemaphoreTake(my_semph1, portMAX_DELAY);
+  xTaskCreate(Adc, "ADC task", configMINIMAL_STACK_SIZE, NULL, 2, &xTarea_ADC_Handle);
   xTaskCreate(Led, "Led task", configMINIMAL_STACK_SIZE, NULL, 2, NULL);
-  xTaskCreate(AConfig, "Config task", configMINIMAL_STACK_SIZE, NULL, 3, NULL);
+  xTaskCreate(Config, "Config task", configMINIMAL_STACK_SIZE, NULL, 3, &xTarea_Config_Handle);
 
   vTaskStartScheduler();
 

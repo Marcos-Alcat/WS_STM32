@@ -35,7 +35,9 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/task.h \
  D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/list.h \
  D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/queue.h \
- D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/task.h
+ D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/task.h \
+ D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/semphr.h \
+ D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/queue.h
 
 ../Core/Inc/main.h:
 
@@ -112,3 +114,7 @@ D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/list.h:
 D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/queue.h:
 
 D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/task.h:
+
+D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/semphr.h:
+
+D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/queue.h:
