@@ -70,9 +70,16 @@ SemaphoreHandle_t my_semph1;
 //para cambio de prioridades:
 TaskHandle_t xTarea_Config_Handle = NULL, xTarea_ADC_Handle=NULL;
 
+//var globales para usar live expretion//
+int add_tiempo = 0;
 int tarea = 0;
-uint32_t pMillis;
+//var globales para usar live expretion//
+
+
 #define THRESHOLD_VALUE 2048
+#define BTN_USER_OK 2100      //presiono dos botones valor ADC aprox: 1981.
+#define BTN_USER_UP 2800	  //presiono boton UP valor ADC aprox: 2750.
+#define BTN_USER_DOWN 2600    //presiono boton DOWN valor ADC aprox: 2574.
 
 static void Adc(void *pvParameters){
 	//unsigned portBASE_TYPE uxPriority;
@@ -113,29 +120,36 @@ static void Config(void *pvParameters){
 	//unsigned portBASE_TYPE uxPriority;
 	//uxPriority = uxTaskPriorityGet( NULL );
 	uint16_t received_value;
+	uint32_t futuro = 0, ahora = 0;
+
 	while (1){
 		xSemaphoreTake(my_semph1, portMAX_DELAY);
 		vTaskPrioritySet( xTarea_ADC_Handle, 3);
-		HAL_ADC_Start_IT(&hadc1);
+		//HAL_ADC_Start_IT(&hadc1);
 		xQueueReceive(adc_queue,&received_value,portMAX_DELAY);
 
-		HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);
-		while(received_value<2300){
+		HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET); //Enciende el PIN.
+		while(received_value<BTN_USER_OK){
 			HAL_ADC_Start_IT(&hadc1);
 			xQueueReceive(adc_queue,&received_value,portMAX_DELAY);
 		}
-		HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_SET);
+		HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_SET); //Apaga el PIN.
 
-		//vTaskDelay(1000/portTICK_PERIOD_MS);
+		vTaskDelay(1000/portTICK_PERIOD_MS);
 
-		//tomo el tiempo
-		pMillis = HAL_GetTick();
-		while (HAL_GetTick()>(pMillis + 4000000000)) {
-			HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);
+		HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET); //Enciende el PIN.
+		ahora = HAL_GetTick();          //toma valor del Tick para ciclo inicial.
+	    futuro = ahora + 2000;          //valor del Tick mas un segundo.
+	    while(ahora - futuro){          //si son iguales sale del ciclo while.
+	       ahora = HAL_GetTick();      //actualiza valor del tick.
+	       HAL_ADC_Start_IT(&hadc1);
+	       xQueueReceive(adc_queue,&received_value,portMAX_DELAY);
+		   if (received_value < BTN_USER_UP){       //en caso de añadir tiempo(contrlado desde LIVE EXPRETION)
+			   ahora = HAL_GetTick();  //actualiza valor del tick.
+			   futuro = ahora + 2000;  //valor del Tick mas un segundo.
+		   }
 		}
-		//entro a un while que compara ese tiempo con el tiempo actual, si pasan 4 segundos sale
-		pMillis = pMillis - HAL_GetTick();
-		HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_SET);
+		HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_SET); //Apaga el PIN.
 
 		//HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);
 		//HAL_Delay(80);
@@ -152,7 +166,7 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
 
 	// Sends the value to the queue
 	xQueueOverwriteFromISR(adc_queue, &adc_value, &xHigherPriorityTaskWoken); //en la cinfig de interrup: ADC1 y ADC2 global poner una prioridad de 5, sino queda trabado ahí.
-	if(adc_value<2300)
+	if(adc_value<BTN_USER_OK)
 		xSemaphoreGiveFromISR(my_semph1, &xHigherPriorityTaskWoken);
 	//xQueueOverwriteFromISR(adc_queue, &adc_value, &xHigherPriorityTaskWoken);
 	portEND_SWITCHING_ISR(xHigherPriorityTaskWoken);

@@ -61,8 +61,8 @@ all: main-build
 main-build: interrup-RTOS-ADC.elf secondary-outputs
 
 # Tool invocations
-interrup-RTOS-ADC.elf: $(OBJS) $(USER_OBJS) D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\interrup-RTOS-ADC\STM32F103C8TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "interrup-RTOS-ADC.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\interrup-RTOS-ADC\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="interrup-RTOS-ADC.map" -Wl,--gc-sections -static -Wl,--start-group -lfreertos -Wl,--end-group -L"D:\Documentos\STM32-WorkSpace\Mis_Ejers\WS_STM32\freertos\Debug" --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+interrup-RTOS-ADC.elf: $(OBJS) $(USER_OBJS) E:\Documentos\Documentos\TD3\work\WS_STM32\interrup-RTOS-ADC\STM32F103C8TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "interrup-RTOS-ADC.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"E:\Documentos\Documentos\TD3\work\WS_STM32\interrup-RTOS-ADC\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="interrup-RTOS-ADC.map" -Wl,--gc-sections -static -Wl,--start-group -lfreertos -Wl,--end-group -L"C:\Users\Marcos\Documents\STM32 - WorkSpace\freertos\Debug" --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
