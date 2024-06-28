@@ -47,6 +47,8 @@
 /* Private variables ---------------------------------------------------------*/
 ADC_HandleTypeDef hadc1;
 
+TIM_HandleTypeDef htim2;
+
 /* USER CODE BEGIN PV */
 
 /* USER CODE END PV */
@@ -55,6 +57,7 @@ ADC_HandleTypeDef hadc1;
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_ADC1_Init(void);
+static void MX_TIM2_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -68,6 +71,7 @@ SemaphoreHandle_t my_semph1;
 TaskHandle_t xTarea_Config_Handle = NULL, xTarea_ADC_Handle=NULL;
 
 int tarea = 0;
+uint32_t pMillis;
 #define THRESHOLD_VALUE 2048
 
 static void Adc(void *pvParameters){
@@ -96,11 +100,11 @@ static void Led(void *pvParameters){
 		xQueueReceive(adc_queue,&received_value,portMAX_DELAY);
 		if ( received_value > THRESHOLD_VALUE ) {
 			// If the value coming from the queue is greater than the threshold, turn on the led
-			HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);
+			//HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);
 		}
 		else {
 			// Else turn it off
-			HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_SET);
+			//HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_SET);
 		}
 	}
 }
@@ -109,7 +113,6 @@ static void Config(void *pvParameters){
 	//unsigned portBASE_TYPE uxPriority;
 	//uxPriority = uxTaskPriorityGet( NULL );
 	uint16_t received_value;
-
 	while (1){
 		xSemaphoreTake(my_semph1, portMAX_DELAY);
 		vTaskPrioritySet( xTarea_ADC_Handle, 3);
@@ -123,9 +126,16 @@ static void Config(void *pvParameters){
 		}
 		HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_SET);
 
-		//tomo el tiempo
-		//entro a un while que compara ese tiempo con el tiempo actual, si pasan 4 segundos sale
+		//vTaskDelay(1000/portTICK_PERIOD_MS);
 
+		//tomo el tiempo
+		pMillis = HAL_GetTick();
+		while (HAL_GetTick()>(pMillis + 4000000000)) {
+			HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);
+		}
+		//entro a un while que compara ese tiempo con el tiempo actual, si pasan 4 segundos sale
+		pMillis = pMillis - HAL_GetTick();
+		HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_SET);
 
 		//HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);
 		//HAL_Delay(80);
@@ -183,13 +193,16 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_ADC1_Init();
+  MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
+  HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_SET);
+  HAL_TIM_Base_Start(&htim2);
   adc_queue = xQueueCreate(1,sizeof(uint16_t));
   vSemaphoreCreateBinary(my_semph1);
   xSemaphoreTake(my_semph1, portMAX_DELAY);
   xTaskCreate(Adc, "ADC task", configMINIMAL_STACK_SIZE, NULL, 2, &xTarea_ADC_Handle);
   xTaskCreate(Led, "Led task", configMINIMAL_STACK_SIZE, NULL, 2, NULL);
-  xTaskCreate(Config, "Config task", configMINIMAL_STACK_SIZE, NULL, 3, &xTarea_Config_Handle);
+  xTaskCreate(Config, "Config task", 200, NULL, 3, &xTarea_Config_Handle);
 
   vTaskStartScheduler();
 
@@ -197,6 +210,8 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+
+
   while (1)
   {
     /* USER CODE END WHILE */
@@ -205,6 +220,43 @@ int main(void)
   }
   /* USER CODE END 3 */
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /**
   * @brief System Clock Configuration
@@ -293,6 +345,51 @@ static void MX_ADC1_Init(void)
   /* USER CODE BEGIN ADC1_Init 2 */
 
   /* USER CODE END ADC1_Init 2 */
+
+}
+
+/**
+  * @brief TIM2 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_TIM2_Init(void)
+{
+
+  /* USER CODE BEGIN TIM2_Init 0 */
+
+  /* USER CODE END TIM2_Init 0 */
+
+  TIM_ClockConfigTypeDef sClockSourceConfig = {0};
+  TIM_MasterConfigTypeDef sMasterConfig = {0};
+
+  /* USER CODE BEGIN TIM2_Init 1 */
+
+  /* USER CODE END TIM2_Init 1 */
+  htim2.Instance = TIM2;
+  htim2.Init.Prescaler = 71;
+  htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim2.Init.Period = 65535;
+  htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if (HAL_TIM_Base_Init(&htim2) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+  if (HAL_TIM_ConfigClockSource(&htim2, &sClockSourceConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+  if (HAL_TIMEx_MasterConfigSynchronization(&htim2, &sMasterConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN TIM2_Init 2 */
+
+  /* USER CODE END TIM2_Init 2 */
 
 }
 

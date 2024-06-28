@@ -168,7 +168,6 @@ void DebugMon_Handler(void)
   * @brief This function handles System tick timer.
   */
 
-
 /******************************************************************************/
 /* STM32F1xx Peripheral Interrupt Handlers                                    */
 /* Add here the Interrupt Handlers for the used peripherals.                  */
