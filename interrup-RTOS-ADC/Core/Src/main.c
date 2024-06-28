@@ -82,8 +82,8 @@ static void Adc(void *pvParameters){
 		 * ADC especificado. En nuestro caso es "&hadc1.
 		 */
 		HAL_ADC_Start_IT(&hadc1);
-		HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_SET);
-		HAL_Delay(80);
+		//HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_SET);
+		//HAL_Delay(80);
 		// This delay marks the conversion rate
 		//vTaskDelay(100/portTICK_PERIOD_MS);
 	}
@@ -113,11 +113,22 @@ static void Config(void *pvParameters){
 	while (1){
 		xSemaphoreTake(my_semph1, portMAX_DELAY);
 		vTaskPrioritySet( xTarea_ADC_Handle, 3);
-		// Reads the value from the queue
 		HAL_ADC_Start_IT(&hadc1);
 		xQueueReceive(adc_queue,&received_value,portMAX_DELAY);
+
 		HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);
-		HAL_Delay(80);
+		while(received_value<2300){
+			HAL_ADC_Start_IT(&hadc1);
+			xQueueReceive(adc_queue,&received_value,portMAX_DELAY);
+		}
+		HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_SET);
+
+		//tomo el tiempo
+		//entro a un while que compara ese tiempo con el tiempo actual, si pasan 4 segundos sale
+
+
+		//HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);
+		//HAL_Delay(80);
 	}
 }
 
