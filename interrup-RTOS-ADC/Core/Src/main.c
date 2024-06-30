@@ -64,31 +64,44 @@ static void MX_TIM2_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-QueueHandle_t adc_queue;
+QueueHandle_t queue_ADC, queue_PA;
 SemaphoreHandle_t ADC_semph;
 
 //para cambio de prioridades:
-TaskHandle_t xTarea_Config_Handle = NULL, xTarea_ADC_Handle=NULL;
+TaskHandle_t xTarea_Config_Handle = NULL, xTarea_Pantalla_Handle=NULL;
 
 //var globales para usar live expretion//
 int add_tiempo = 0;
 int tarea = 0;
 int cola_max = 10;
 int cola_min = 0;
+uint16_t max = 70, min = 20; //xq pinto asi....
 //var globales para usar live expretion//
 
 
 #define THRESHOLD_VALUE 2048
-#define BTN_USER_OK 2100      //presiono dos botones valor ADC aprox: 1981.
-#define BTN_USER_UP 2800	  //presiono boton UP valor ADC aprox: 2750.
-#define BTN_USER_DOWN 2600    //presiono boton DOWN valor ADC aprox: 2574.
 
-static void Adc(void *pvParameters){
+#define BTN_USER_UP 2750	  //presiono boton UP valor ADC aprox: 2750.
+#define BTN_USER_DOWN 2570    //presiono boton DOWN valor ADC aprox: 2574.
+//	BTN_USER_UP - BTN_USER_DOWN = DIDERENCIA(180). Es la diferencia entre ellos.
+//  Damos margen de 60 y queda: DIDERENCIA(180) -60 --> 120.. dividido 2 --> 60... asi que.
+//  BTN_USER_UP - 60   = 2690     y   BTN_USER_UP + 60   = 2810
+//  BTN_USER_DOWN + 60 = 2630     y   BTN_USER_DOWN - 60 = 2510
+#define BTN_USER_UP_INF  BTN_USER_UP - 60
+#define BTN_USER_UP_SUP  BTN_USER_UP + 60
+#define BTN_USER_DOWN_INF  BTN_USER_DOWN - 60
+#define BTN_USER_DOWN_SUP  BTN_USER_DOWN + 60
+#define BTN_USER_OK 2100      //presiono dos botones valor ADC aprox: 1981.
+
+
+static void Pantalla(void *pvParameters){
 	//unsigned portBASE_TYPE uxPriority;
 	//uxPriority = uxTaskPriorityGet( NULL );
+	uint16_t display_value;
 	while (1){
 
-		// Starts conversion
+		xQueuePeek(queue_PA,&display_value,portMAX_DELAY); //recibe valor que esta configurando tarea Config.
+		tm1637_ShowNumber(display_value);
 		/*
 		 * La función HAL-ADC-Start-IT() es responsable de permitir la interrupción y inicio de la conversión de ADC de los canales regulares.
 		 * Toma en un solo parámetro que es el puntero de la estructura ADC-HandleTypeDef que contiene los parámetros de configuración para el
@@ -98,7 +111,7 @@ static void Adc(void *pvParameters){
 		//HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_SET);
 		//HAL_Delay(80);
 		// This delay marks the conversion rate
-		//vTaskDelay(100/portTICK_PERIOD_MS);
+		//
 	}
 }
 
@@ -106,7 +119,7 @@ static void Led(void *pvParameters){
 	uint16_t received_value;
 	while (1){
 		// Reads the value from the queue
-		xQueueReceive(adc_queue,&received_value,portMAX_DELAY);
+		xQueueReceive(queue_ADC,&received_value,portMAX_DELAY);
 		if ( received_value > THRESHOLD_VALUE ) {
 			// If the value coming from the queue is greater than the threshold, turn on the led
 			//HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);
@@ -121,11 +134,11 @@ static void Led(void *pvParameters){
 static void Config(void *pvParameters){
 	//unsigned portBASE_TYPE uxPriority;
 	//uxPriority = uxTaskPriorityGet( NULL );
-	uint16_t ADC_value;
+	uint16_t ADC_value, display_value=0;
 	char init_estate = 1;
 	char Param_Config = 2;
 	char E_Confir = 0;
-	char max = 70, min = 20; //xq pinto asi....
+	//char max = 70, min = 20; //xq pinto asi.... Las puse globales solo para verlas... van locales.
 	while (1){
 
 		xSemaphoreTake(ADC_semph, portMAX_DELAY);
@@ -136,48 +149,59 @@ static void Config(void *pvParameters){
 				//sube valores a cola CM. Es una especie de confirmacion de que estan bien.
 				//sube prioridad de memoria.
 				//vuelve a tomar el semaforo y asi se bloquea. CREO....
+				xSemaphoreTake(ADC_semph, portMAX_DELAY);
 			}
 		}
 		//Si llego a esta etapa significa que debe configurar valores, para eso fuerza interrupcion ADC para actualizar cola.
 		HAL_ADC_Start_IT(&hadc1);
-		xQueueReceive(adc_queue,&ADC_value,portMAX_DELAY);
+		xQueueReceive(queue_ADC,&ADC_value,portMAX_DELAY);
 
 		//la tarea pantalla debe poder leer su propia prioridad para saber si lee la cola CP(config-pantalla) o cola PA(Pantalla-Alarma)
-		vTaskPrioritySet( xTarea_ADC_Handle, 3); //si aun no hay datos en la cola CP pantalla si bloquea hasat que primero aparezca valor de max. CREO.
+		vTaskPrioritySet( xTarea_Pantalla_Handle, 3); //si aun no hay datos en la cola CP pantalla si bloquea hasat que primero aparezca valor de max. CREO.
 
 
 		//es muy probable que los if que tienen en su condicion un Param_Config se reemplacen por Switch CASE.
 		if(Param_Config == 2){
-			if ((BTN_USER_UP > ADC_value) && (ADC_value > BTN_USER_DOWN)){  //condicion que responde a boton UP.
+			if ((ADC_value > BTN_USER_UP_INF) && (ADC_value < BTN_USER_UP_SUP)){  //condicion que responde a boton UP.
 				max++;
 				E_Confir = 1;
-			} //REBISAR ESTOY QUEMADO... JAJAJ
-			else if ((BTN_USER_UP < ADC_value) && (ADC_value < BTN_USER_DOWN)){  //condicion que responde a boton DOWN.
+			}
+			else if ((ADC_value > BTN_USER_DOWN_INF) && (ADC_value < BTN_USER_DOWN_SUP)){  //condicion que responde a boton DOWN.
 				max--;
 				E_Confir = 1;
 			}
 			//aca se manda el valor de max a la cola CP para verlo en el display.
+			xQueueReceive(queue_PA,&display_value,portMAX_DELAY);
+			xQueueSend(queue_PA,&max,portMAX_DELAY);
+			vTaskDelay(50/portTICK_PERIOD_MS); //demora para que no incremente tan rapido, sale de la tarea y retora.
 		}
+
 		else if(Param_Config == 1){
-			if ((BTN_USER_UP > ADC_value) && (ADC_value > BTN_USER_DOWN)){  //condicion que responde a boton UP.
+			if ((ADC_value > BTN_USER_UP_INF) && (ADC_value < BTN_USER_UP_SUP)){  //condicion que responde a boton UP.
 				min++;
 				E_Confir = 1;
-			} //REBISAR ESTOY QUEMADO... JAJAJ
-			else if ((BTN_USER_UP < ADC_value) && (ADC_value < BTN_USER_DOWN)){  //condicion que responde a boton DOWN.
+			}
+			else if ((ADC_value > BTN_USER_DOWN_INF) && (ADC_value < BTN_USER_DOWN_SUP)){  //condicion que responde a boton DOWN.
 				min--;
 				E_Confir = 1;
 			}
 			//aca se manda el valor de max a la cola CP para verlo en el display.
+			xQueueReceive(queue_PA,&display_value,portMAX_DELAY);
+			xQueueSend(queue_PA,&min,portMAX_DELAY);
+			vTaskDelay(50/portTICK_PERIOD_MS); //demora para que no incremente tan rapido, sale de la tarea y retora.
 		}
 
 		//este es el if de confirmacion de parametro:
 		if((BTN_USER_OK > ADC_value)&&(E_Confir)){ //esto significa que se presionaron los dos botones y que prebiamente se configiro un parametro.
 			Param_Config--;
 			E_Confir=0;
+			vTaskDelay(50/portTICK_PERIOD_MS); //demora para que no incremente tan rapido.
 		}
+
 
 		if(Param_Config>0) xSemaphoreGive(ADC_semph);  //mientras no se hayan configurado maximo y minimo sigue dando semaforo.
 		else{											//si ya configuro ambos parametros debe finalizar.
+			Param_Config = 2;
 			xSemaphoreTake(ADC_semph, portMAX_DELAY);
 			//va a una funcion de finalizacion que:
 			/*
@@ -199,10 +223,11 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
 	adc_value = HAL_ADC_GetValue(hadc);
 
 	// Sends the value to the queue
-	xQueueOverwriteFromISR(adc_queue, &adc_value, &xHigherPriorityTaskWoken); //en la cinfig de interrup: ADC1 y ADC2 global poner una prioridad de 5, sino queda trabado ahí.
+	xQueueOverwriteFromISR(queue_ADC, &adc_value, &xHigherPriorityTaskWoken); //en la cinfig de interrup: ADC1 y ADC2 global poner una prioridad de 5, sino queda trabado ahí.
+
+	//En caso de que se presionen dos botones debe entregar semaforo para config.
 	if(adc_value<BTN_USER_OK)
 		xSemaphoreGiveFromISR(ADC_semph, &xHigherPriorityTaskWoken);
-	//xQueueOverwriteFromISR(adc_queue, &adc_value, &xHigherPriorityTaskWoken);
 	portEND_SWITCHING_ISR(xHigherPriorityTaskWoken);
 
 	//dos botones: max: 1981
@@ -245,13 +270,26 @@ int main(void)
   /* USER CODE BEGIN 2 */
   HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_SET);
   HAL_TIM_Base_Start(&htim2);
-  adc_queue = xQueueCreate(1,sizeof(uint16_t));
+
+  //Creacion de Colas:
+  queue_ADC = xQueueCreate(1,sizeof(uint16_t));
+  queue_PA = xQueueCreate(1,sizeof(uint16_t));
+  int display_value = 0;
+  xQueueSend(queue_PA,&display_value,portMAX_DELAY);
+
+  //Creacion de semaforos:
   vSemaphoreCreateBinary(ADC_semph);
   xSemaphoreTake(ADC_semph, portMAX_DELAY);
-  xTaskCreate(Adc, "ADC task", configMINIMAL_STACK_SIZE, NULL, 2, &xTarea_ADC_Handle);
+
+  //Creacion de tareas:
+  xTaskCreate(Pantalla, "Pantalla task", configMINIMAL_STACK_SIZE, NULL, 2, &xTarea_Pantalla_Handle);
   xTaskCreate(Led, "Led task", configMINIMAL_STACK_SIZE, NULL, 2, NULL);
   xTaskCreate(Config, "Config task", 200, NULL, 3, &xTarea_Config_Handle);
 
+  //inicializa display:
+  tm1637_SetBrightness(3);//Set max brightness
+  tm1637_DisplayUpdate(0,0,0,0);//Clear display (all segments off)
+  tm1637_ShowNumber(122);
   vTaskStartScheduler();
 
   /* USER CODE END 2 */
@@ -268,43 +306,6 @@ int main(void)
   }
   /* USER CODE END 3 */
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /**
   * @brief System Clock Configuration
@@ -454,9 +455,13 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOC_CLK_ENABLE();
   __HAL_RCC_GPIOD_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
+  __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOB, TM1637_DIO_Pin|TM1637_CLK_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pin : LED_Pin */
   GPIO_InitStruct.Pin = LED_Pin;
@@ -464,6 +469,20 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(LED_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : TM1637_DIO_Pin */
+  GPIO_InitStruct.Pin = TM1637_DIO_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_MEDIUM;
+  HAL_GPIO_Init(TM1637_DIO_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : TM1637_CLK_Pin */
+  GPIO_InitStruct.Pin = TM1637_CLK_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_OD;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_MEDIUM;
+  HAL_GPIO_Init(TM1637_CLK_GPIO_Port, &GPIO_InitStruct);
 
 }
 
