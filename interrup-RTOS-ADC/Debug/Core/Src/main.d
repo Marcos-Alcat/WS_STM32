@@ -25,19 +25,19 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h \
- C:/Users/Marcos/Documents/STM32\ -\ WorkSpace/freertos/Inc/FreeRTOS.h \
- C:/Users/Marcos/Documents/STM32\ -\ WorkSpace/freertos/Inc/FreeRTOSConfig.h \
- C:/Users/Marcos/Documents/STM32\ -\ WorkSpace/freertos/Inc/projdefs.h \
- C:/Users/Marcos/Documents/STM32\ -\ WorkSpace/freertos/Inc/portable.h \
- C:/Users/Marcos/Documents/STM32\ -\ WorkSpace/freertos/Inc/deprecated_definitions.h \
- C:/Users/Marcos/Documents/STM32\ -\ WorkSpace/freertos/Inc/portmacro.h \
- C:/Users/Marcos/Documents/STM32\ -\ WorkSpace/freertos/Inc/mpu_wrappers.h \
- C:/Users/Marcos/Documents/STM32\ -\ WorkSpace/freertos/Inc/task.h \
- C:/Users/Marcos/Documents/STM32\ -\ WorkSpace/freertos/Inc/list.h \
- C:/Users/Marcos/Documents/STM32\ -\ WorkSpace/freertos/Inc/queue.h \
- C:/Users/Marcos/Documents/STM32\ -\ WorkSpace/freertos/Inc/task.h \
- C:/Users/Marcos/Documents/STM32\ -\ WorkSpace/freertos/Inc/semphr.h \
- C:/Users/Marcos/Documents/STM32\ -\ WorkSpace/freertos/Inc/queue.h
+ D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/FreeRTOS.h \
+ D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/FreeRTOSConfig.h \
+ D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/projdefs.h \
+ D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/portable.h \
+ D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/deprecated_definitions.h \
+ D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/portmacro.h \
+ D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/mpu_wrappers.h \
+ D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/task.h \
+ D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/list.h \
+ D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/queue.h \
+ D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/task.h \
+ D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/semphr.h \
+ D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/queue.h
 
 ../Core/Inc/main.h:
 
@@ -93,28 +93,28 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h:
 
-C:/Users/Marcos/Documents/STM32\ -\ WorkSpace/freertos/Inc/FreeRTOS.h:
+D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/FreeRTOS.h:
 
-C:/Users/Marcos/Documents/STM32\ -\ WorkSpace/freertos/Inc/FreeRTOSConfig.h:
+D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/FreeRTOSConfig.h:
 
-C:/Users/Marcos/Documents/STM32\ -\ WorkSpace/freertos/Inc/projdefs.h:
+D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/projdefs.h:
 
-C:/Users/Marcos/Documents/STM32\ -\ WorkSpace/freertos/Inc/portable.h:
+D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/portable.h:
 
-C:/Users/Marcos/Documents/STM32\ -\ WorkSpace/freertos/Inc/deprecated_definitions.h:
+D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/deprecated_definitions.h:
 
-C:/Users/Marcos/Documents/STM32\ -\ WorkSpace/freertos/Inc/portmacro.h:
+D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/portmacro.h:
 
-C:/Users/Marcos/Documents/STM32\ -\ WorkSpace/freertos/Inc/mpu_wrappers.h:
+D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/mpu_wrappers.h:
 
-C:/Users/Marcos/Documents/STM32\ -\ WorkSpace/freertos/Inc/task.h:
+D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/task.h:
 
-C:/Users/Marcos/Documents/STM32\ -\ WorkSpace/freertos/Inc/list.h:
+D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/list.h:
 
-C:/Users/Marcos/Documents/STM32\ -\ WorkSpace/freertos/Inc/queue.h:
+D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/queue.h:
 
-C:/Users/Marcos/Documents/STM32\ -\ WorkSpace/freertos/Inc/task.h:
+D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/task.h:
 
-C:/Users/Marcos/Documents/STM32\ -\ WorkSpace/freertos/Inc/semphr.h:
+D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/semphr.h:
 
-C:/Users/Marcos/Documents/STM32\ -\ WorkSpace/freertos/Inc/queue.h:
+D:/Documentos/STM32-WorkSpace/Mis_Ejers/WS_STM32/freertos/Inc/queue.h:

@@ -65,7 +65,7 @@ static void MX_TIM2_Init(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 QueueHandle_t adc_queue;
-SemaphoreHandle_t my_semph1;
+SemaphoreHandle_t ADC_semph;
 
 //para cambio de prioridades:
 TaskHandle_t xTarea_Config_Handle = NULL, xTarea_ADC_Handle=NULL;
@@ -73,6 +73,8 @@ TaskHandle_t xTarea_Config_Handle = NULL, xTarea_ADC_Handle=NULL;
 //var globales para usar live expretion//
 int add_tiempo = 0;
 int tarea = 0;
+int cola_max = 10;
+int cola_min = 0;
 //var globales para usar live expretion//
 
 
@@ -119,40 +121,72 @@ static void Led(void *pvParameters){
 static void Config(void *pvParameters){
 	//unsigned portBASE_TYPE uxPriority;
 	//uxPriority = uxTaskPriorityGet( NULL );
-	uint16_t received_value;
-	uint32_t futuro = 0, ahora = 0;
-
+	uint16_t ADC_value;
+	char init_estate = 1;
+	char Param_Config = 2;
+	char E_Confir = 0;
+	char max = 70, min = 20; //xq pinto asi....
 	while (1){
-		xSemaphoreTake(my_semph1, portMAX_DELAY);
-		vTaskPrioritySet( xTarea_ADC_Handle, 3);
-		//HAL_ADC_Start_IT(&hadc1);
-		xQueueReceive(adc_queue,&received_value,portMAX_DELAY);
 
-		HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET); //Enciende el PIN.
-		while(received_value<BTN_USER_OK){
-			HAL_ADC_Start_IT(&hadc1);
-			xQueueReceive(adc_queue,&received_value,portMAX_DELAY);
+		xSemaphoreTake(ADC_semph, portMAX_DELAY);
+		if (init_estate){                 //si init_estate es 1, significa que esta iniciando el sistema y debe verificar la cola.
+			//aca deberia ir una funcion que verifique mejor los valores.
+			if(!cola_max && !cola_max){   //solo si lee la cola y los valores son correctos
+				init_estate = 0;          //si hay valores correctos ya no es necesaio verificar cola.
+				//sube valores a cola CM. Es una especie de confirmacion de que estan bien.
+				//sube prioridad de memoria.
+				//vuelve a tomar el semaforo y asi se bloquea. CREO....
+			}
 		}
-		HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_SET); //Apaga el PIN.
+		//Si llego a esta etapa significa que debe configurar valores, para eso fuerza interrupcion ADC para actualizar cola.
+		HAL_ADC_Start_IT(&hadc1);
+		xQueueReceive(adc_queue,&ADC_value,portMAX_DELAY);
 
-		vTaskDelay(1000/portTICK_PERIOD_MS);
+		//la tarea pantalla debe poder leer su propia prioridad para saber si lee la cola CP(config-pantalla) o cola PA(Pantalla-Alarma)
+		vTaskPrioritySet( xTarea_ADC_Handle, 3); //si aun no hay datos en la cola CP pantalla si bloquea hasat que primero aparezca valor de max. CREO.
 
-		HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET); //Enciende el PIN.
-		ahora = HAL_GetTick();          //toma valor del Tick para ciclo inicial.
-	    futuro = ahora + 2000;          //valor del Tick mas un segundo.
-	    while(ahora - futuro){          //si son iguales sale del ciclo while.
-	       ahora = HAL_GetTick();      //actualiza valor del tick.
-	       HAL_ADC_Start_IT(&hadc1);
-	       xQueueReceive(adc_queue,&received_value,portMAX_DELAY);
-		   if (received_value < BTN_USER_UP){       //en caso de añadir tiempo(contrlado desde LIVE EXPRETION)
-			   ahora = HAL_GetTick();  //actualiza valor del tick.
-			   futuro = ahora + 2000;  //valor del Tick mas un segundo.
-		   }
+
+		//es muy probable que los if que tienen en su condicion un Param_Config se reemplacen por Switch CASE.
+		if(Param_Config == 2){
+			if ((BTN_USER_UP > ADC_value) && (ADC_value > BTN_USER_DOWN)){  //condicion que responde a boton UP.
+				max++;
+				E_Confir = 1;
+			} //REBISAR ESTOY QUEMADO... JAJAJ
+			else if ((BTN_USER_UP < ADC_value) && (ADC_value < BTN_USER_DOWN)){  //condicion que responde a boton DOWN.
+				max--;
+				E_Confir = 1;
+			}
+			//aca se manda el valor de max a la cola CP para verlo en el display.
 		}
-		HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_SET); //Apaga el PIN.
+		else if(Param_Config == 1){
+			if ((BTN_USER_UP > ADC_value) && (ADC_value > BTN_USER_DOWN)){  //condicion que responde a boton UP.
+				min++;
+				E_Confir = 1;
+			} //REBISAR ESTOY QUEMADO... JAJAJ
+			else if ((BTN_USER_UP < ADC_value) && (ADC_value < BTN_USER_DOWN)){  //condicion que responde a boton DOWN.
+				min--;
+				E_Confir = 1;
+			}
+			//aca se manda el valor de max a la cola CP para verlo en el display.
+		}
 
-		//HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);
-		//HAL_Delay(80);
+		//este es el if de confirmacion de parametro:
+		if((BTN_USER_OK > ADC_value)&&(E_Confir)){ //esto significa que se presionaron los dos botones y que prebiamente se configiro un parametro.
+			Param_Config--;
+			E_Confir=0;
+		}
+
+		if(Param_Config>0) xSemaphoreGive(ADC_semph);  //mientras no se hayan configurado maximo y minimo sigue dando semaforo.
+		else{											//si ya configuro ambos parametros debe finalizar.
+			xSemaphoreTake(ADC_semph, portMAX_DELAY);
+			//va a una funcion de finalizacion que:
+			/*
+		    -copia valores a CM.
+			-sube prioridad a memoria.
+			-analizar si es mejor la toma del semaforo aca.
+			 */
+		}
+
 	}
 }
 
@@ -167,7 +201,7 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
 	// Sends the value to the queue
 	xQueueOverwriteFromISR(adc_queue, &adc_value, &xHigherPriorityTaskWoken); //en la cinfig de interrup: ADC1 y ADC2 global poner una prioridad de 5, sino queda trabado ahí.
 	if(adc_value<BTN_USER_OK)
-		xSemaphoreGiveFromISR(my_semph1, &xHigherPriorityTaskWoken);
+		xSemaphoreGiveFromISR(ADC_semph, &xHigherPriorityTaskWoken);
 	//xQueueOverwriteFromISR(adc_queue, &adc_value, &xHigherPriorityTaskWoken);
 	portEND_SWITCHING_ISR(xHigherPriorityTaskWoken);
 
@@ -212,8 +246,8 @@ int main(void)
   HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_SET);
   HAL_TIM_Base_Start(&htim2);
   adc_queue = xQueueCreate(1,sizeof(uint16_t));
-  vSemaphoreCreateBinary(my_semph1);
-  xSemaphoreTake(my_semph1, portMAX_DELAY);
+  vSemaphoreCreateBinary(ADC_semph);
+  xSemaphoreTake(ADC_semph, portMAX_DELAY);
   xTaskCreate(Adc, "ADC task", configMINIMAL_STACK_SIZE, NULL, 2, &xTarea_ADC_Handle);
   xTaskCreate(Led, "Led task", configMINIMAL_STACK_SIZE, NULL, 2, NULL);
   xTaskCreate(Config, "Config task", 200, NULL, 3, &xTarea_Config_Handle);
