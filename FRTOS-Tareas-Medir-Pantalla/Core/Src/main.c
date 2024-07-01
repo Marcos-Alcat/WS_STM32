@@ -46,9 +46,9 @@
 TIM_HandleTypeDef htim2;
 
 /* USER CODE BEGIN PV */
-uint32_t pMillis;
-uint32_t val1 = 0;
-uint32_t val2 = 0;
+//uint32_t pMillis;
+//uint32_t val1 = 0;
+//uint32_t val2 = 0;
 //uint16_t distance  = 0;
 float distance  = 0;
 char string[15];
@@ -69,7 +69,7 @@ static void MX_TIM2_Init(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 static void Medir(void *pvParameters){
-	uint32_t distancia = 0;
+	uint32_t distancia = 0, pMillis, val1 = 0, val2 = 0;
 	while(1){
 		HAL_GPIO_WritePin(TRIG_GPIO_Port, TRIG_Pin, GPIO_PIN_SET);
 		__HAL_TIM_SET_COUNTER(&htim2, 0);

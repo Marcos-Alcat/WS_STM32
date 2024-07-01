@@ -1,4 +1,4 @@
-main.c:71:13:Medir	32	static
+main.c:71:13:Medir	40	static
 main.c:93:13:Display	24	static
 main.c:101:13:Alarm	32	static
 main.c:113:13:Config	24	static

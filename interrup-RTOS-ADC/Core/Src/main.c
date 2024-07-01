@@ -64,11 +64,11 @@ static void MX_TIM2_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-QueueHandle_t queue_ADC, queue_PA;
+QueueHandle_t queue_ADC, queue_PA, queue_CP, queue_AM;
 SemaphoreHandle_t ADC_semph;
 
 //para cambio de prioridades:
-TaskHandle_t xTarea_Config_Handle = NULL, xTarea_Pantalla_Handle=NULL;
+TaskHandle_t xTarea_Config_Handle = NULL, xTarea_Pantalla_Handle=NULL, xTarea_Medir_Handle = NULL;
 
 //var globales para usar live expretion//
 int add_tiempo = 0;
@@ -95,12 +95,17 @@ uint16_t max = 70, min = 20; //xq pinto asi....
 
 
 static void Pantalla(void *pvParameters){
-	//unsigned portBASE_TYPE uxPriority;
-	//uxPriority = uxTaskPriorityGet( NULL );
 	uint16_t display_value;
+	unsigned portBASE_TYPE uxPriority;
+	uxPriority = NULL;
 	while (1){
-
-		xQueuePeek(queue_PA,&display_value,portMAX_DELAY); //recibe valor que esta configurando tarea Config.
+		//Consulta la prioridad a la que esta tarea está en ejecución.
+		uxPriority = uxTaskPriorityGet( NULL );
+		if(uxPriority==3)
+		xQueuePeek(queue_CP,&display_value,portMAX_DELAY);//recibe valor que esta configurando tarea Config. Usa Peek para no eliminar y terminar en bloqueo.
+		else if(uxPriority==2){
+		xQueueReceive(queue_PA,&display_value,portMAX_DELAY);//recibe valor medido por sensor.
+		}
 		tm1637_ShowNumber(display_value);
 		/*
 		 * La función HAL-ADC-Start-IT() es responsable de permitir la interrupción y inicio de la conversión de ADC de los canales regulares.
@@ -108,26 +113,29 @@ static void Pantalla(void *pvParameters){
 		 * ADC especificado. En nuestro caso es "&hadc1.
 		 */
 		HAL_ADC_Start_IT(&hadc1);
-		//HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_SET);
-		//HAL_Delay(80);
-		// This delay marks the conversion rate
-		//
 	}
 }
 
-static void Led(void *pvParameters){
-	uint16_t received_value;
-	while (1){
-		// Reads the value from the queue
-		xQueueReceive(queue_ADC,&received_value,portMAX_DELAY);
-		if ( received_value > THRESHOLD_VALUE ) {
-			// If the value coming from the queue is greater than the threshold, turn on the led
-			//HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);
-		}
-		else {
-			// Else turn it off
-			//HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_SET);
-		}
+
+static void Medir(void *pvParameters){
+	uint32_t distancia = 0, pMillis, val1 = 0, val2 = 0;
+	while(1){
+		HAL_GPIO_WritePin(TRIG_GPIO_Port, TRIG_Pin, GPIO_PIN_SET);
+		__HAL_TIM_SET_COUNTER(&htim2, 0);
+		while (__HAL_TIM_GET_COUNTER (&htim2) < 10);  // wait for 10 us
+		HAL_GPIO_WritePin(TRIG_GPIO_Port, TRIG_Pin, GPIO_PIN_RESET);
+
+		pMillis = HAL_GetTick();
+		while (!(HAL_GPIO_ReadPin (ECHO_GPIO_Port, ECHO_Pin)) && pMillis + 10 >  HAL_GetTick());
+		val1 = __HAL_TIM_GET_COUNTER (&htim2);
+
+		pMillis = HAL_GetTick();
+		while ((HAL_GPIO_ReadPin (ECHO_GPIO_Port, ECHO_Pin)) && pMillis + 50 > HAL_GetTick());
+		val2 = __HAL_TIM_GET_COUNTER (&htim2);
+		distancia = (val2-val1)* 0.036/2;
+		//xQueueSend(queue_AM, &distancia, portMAX_DELAY);
+		xQueueSend(queue_PA, &distancia, portMAX_DELAY);
+		vTaskDelay(60/portTICK_PERIOD_MS);
 	}
 }
 
@@ -171,8 +179,8 @@ static void Config(void *pvParameters){
 				E_Confir = 1;
 			}
 			//aca se manda el valor de max a la cola CP para verlo en el display.
-			xQueueReceive(queue_PA,&display_value,portMAX_DELAY);
-			xQueueSend(queue_PA,&max,portMAX_DELAY);
+			xQueueReceive(queue_CP,&display_value,portMAX_DELAY);  //lo usa para eliminar el dato.
+			xQueueSend(queue_CP,&max,portMAX_DELAY); //CP              //escribe el nuevo dato.
 			vTaskDelay(50/portTICK_PERIOD_MS); //demora para que no incremente tan rapido, sale de la tarea y retora.
 		}
 
@@ -186,8 +194,8 @@ static void Config(void *pvParameters){
 				E_Confir = 1;
 			}
 			//aca se manda el valor de max a la cola CP para verlo en el display.
-			xQueueReceive(queue_PA,&display_value,portMAX_DELAY);
-			xQueueSend(queue_PA,&min,portMAX_DELAY);
+			xQueueReceive(queue_CP,&display_value,portMAX_DELAY);
+			xQueueSend(queue_CP,&min,portMAX_DELAY);
 			vTaskDelay(50/portTICK_PERIOD_MS); //demora para que no incremente tan rapido, sale de la tarea y retora.
 		}
 
@@ -195,13 +203,15 @@ static void Config(void *pvParameters){
 		if((BTN_USER_OK > ADC_value)&&(E_Confir)){ //esto significa que se presionaron los dos botones y que prebiamente se configiro un parametro.
 			Param_Config--;
 			E_Confir=0;
-			vTaskDelay(50/portTICK_PERIOD_MS); //demora para que no incremente tan rapido.
+			vTaskDelay(250/portTICK_PERIOD_MS); //demora para que no incremente tan rapido.
 		}
 
 
 		if(Param_Config>0) xSemaphoreGive(ADC_semph);  //mientras no se hayan configurado maximo y minimo sigue dando semaforo.
 		else{											//si ya configuro ambos parametros debe finalizar.
 			Param_Config = 2;
+			vTaskPrioritySet( xTarea_Medir_Handle, 2); //si aun no hay datos en la cola CP pantalla si bloquea hasat que primero aparezca valor de max
+			vTaskPrioritySet( xTarea_Pantalla_Handle, 2);
 			xSemaphoreTake(ADC_semph, portMAX_DELAY);
 			//va a una funcion de finalizacion que:
 			/*
@@ -274,8 +284,10 @@ int main(void)
   //Creacion de Colas:
   queue_ADC = xQueueCreate(1,sizeof(uint16_t));
   queue_PA = xQueueCreate(1,sizeof(uint16_t));
+  queue_CP = xQueueCreate(1,sizeof(uint16_t));
+  queue_AM = xQueueCreate(1,sizeof(uint32_t));
   int display_value = 0;
-  xQueueSend(queue_PA,&display_value,portMAX_DELAY);
+  xQueueSend(queue_CP,&display_value,portMAX_DELAY);
 
   //Creacion de semaforos:
   vSemaphoreCreateBinary(ADC_semph);
@@ -283,8 +295,8 @@ int main(void)
 
   //Creacion de tareas:
   xTaskCreate(Pantalla, "Pantalla task", configMINIMAL_STACK_SIZE, NULL, 2, &xTarea_Pantalla_Handle);
-  xTaskCreate(Led, "Led task", configMINIMAL_STACK_SIZE, NULL, 2, NULL);
   xTaskCreate(Config, "Config task", 200, NULL, 3, &xTarea_Config_Handle);
+  xTaskCreate(Medir, "Medir task", 100, NULL, 2, &xTarea_Medir_Handle);
 
   //inicializa display:
   tm1637_SetBrightness(3);//Set max brightness
@@ -461,6 +473,9 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(TRIG_GPIO_Port, TRIG_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOB, TM1637_DIO_Pin|TM1637_CLK_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pin : LED_Pin */
@@ -469,6 +484,19 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(LED_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : TRIG_Pin */
+  GPIO_InitStruct.Pin = TRIG_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(TRIG_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : ECHO_Pin */
+  GPIO_InitStruct.Pin = ECHO_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(ECHO_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pin : TM1637_DIO_Pin */
   GPIO_InitStruct.Pin = TM1637_DIO_Pin;
